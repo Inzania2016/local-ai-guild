@@ -1,4 +1,4 @@
-"""Tests for the harmless R0 command-line interface."""
+"""Tests for the harmless project-status command-line interface."""
 
 from pytest import CaptureFixture
 

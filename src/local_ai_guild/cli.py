@@ -1,10 +1,10 @@
-"""Command-line interface for the R0 project skeleton."""
+"""Command-line interface for the current Local AI Guild stage."""
 
 import argparse
 from collections.abc import Sequence
 
 PROJECT_NAME = "Local AI Guild"
-IMPLEMENTATION_STAGE = "R0: repository control plane and minimal skeleton"
+IMPLEMENTATION_STAGE = "R1: typed tool contracts and deterministic mock router"
 
 
 def build_parser() -> argparse.ArgumentParser:

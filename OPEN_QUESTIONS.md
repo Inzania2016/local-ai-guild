@@ -2,11 +2,11 @@
 
 Unresolved questions are not decisions or current facts.
 
-## R1-relevant
+## Resolved in R1
 
-- Should contracts use standard-library dataclasses plus manual validation, or introduce a small schema dependency later?
-- Which two or three harmless read-only tool shapes best represent initial routing tasks?
-- What minimum evidence reference must every routing decision carry?
+- Use Pydantic v2 at untrusted validation and serialization boundaries; do not build a custom validation framework.
+- Use three R1-only mock contracts: `project_status`, `search_public_docs`, and `read_public_doc`.
+- Require at least one stable opaque rule identifier on every successful or refused routing decision.
 
 ## Deferred
 

@@ -1,36 +1,37 @@
 # Next Work Packet
 
-## R1 — Typed tool contracts and deterministic mock router
+## R2 — Evidence envelopes and policy checks
 
 ### Goal
 
-Create the first executable orchestration seam without connecting any model runtime.
+Wrap R1 routing decisions in a minimal typed evidence envelope and apply deterministic policy checks before any future execution boundary.
 
 ### In scope
 
-- Define typed request, tool proposal, routing decision, and validation-error contracts.
-- Define two or three harmless mock tool identifiers with explicit argument schemas.
-- Implement a deterministic rule-based mock router for a tiny documented task set.
-- Reject unknown tools and invalid arguments.
-- Add unit tests for successful routes, refusal paths, and stable serialization.
-- Document how later model adapters may propose—but never directly execute—tool calls.
-- Use only public or synthetic task examples and fixtures unless the public-repository approval process has been completed.
+- Define typed evidence references with stable identifiers, evidence kind, and a public-or-synthetic provenance classification.
+- Define a minimal decision envelope that connects a validated R1 decision to its evidence references without storing raw request content.
+- Define deterministic policy outcomes for allow, refuse, and require-human-approval.
+- Apply policy only to already validated R1 proposals.
+- Require an allowlisted mock tool identifier and an explicit policy outcome before a proposal could reach a future executor.
+- Add structured, redaction-safe policy issues and focused unit tests.
+- Use only public or synthetic examples and fixtures.
 
 ### Out of scope
 
-- Model downloads or runtime configuration.
-- LM Studio, Ollama, OpenCode, llama.cpp, MCP, HTTP, retrieval, cloud APIs, training, Docker, or unrestricted shell execution.
-- Real filesystem mutation, network calls, commits, pushes, or automatic cloud delegation.
+- Tool execution, filesystem reads, network access, shell or subprocess calls, dispatcher implementation, model runtimes, model downloads, retrieval, vector databases, MCP, HTTP, cloud adapters, or automatic cloud delegation.
+- Audit persistence, production logging, retention systems, full trace storage, or raw request-content logging.
+- Commits, pushes, Docker, CI, project-license selection, or model, dataset, and adapter license approval.
 
 ### Acceptance evidence
 
-- Contracts and mock routing behavior are fully type annotated.
-- Ruff and pytest pass.
-- Tests prove invalid proposals are rejected before execution.
-- Documentation clearly labels deterministic mock behavior as non-model behavior.
-- Fixtures comply with the public-repository data boundary in `SECURITY.md`.
-- No model, dataset, adapter, or project license is selected or approved by R1 unless a separately authorized license-review decision is added to scope.
+- Evidence and policy contracts are strict, frozen, and reject unknown fields.
+- Every R1 success and refusal can be wrapped without losing its stable evidence references.
+- Policy checks cannot receive an unvalidated dictionary-shaped proposal.
+- Tests prove deny-by-default behavior, allowlist enforcement, approval-required outcomes, and absence of raw input in serialized envelopes and issues.
+- Ruff, formatting, pytest, CLI status, repository verification, and diff checks pass.
 
-### Open design inputs
+### Deferred
 
-Resolve only the R1-relevant questions identified in `OPEN_QUESTIONS.md`; defer runtime and hardware choices.
+- Executor and dispatcher design.
+- Evidence persistence, retention, redaction pipeline, and audit storage.
+- Runtime, model, retrieval, and cloud integration decisions.

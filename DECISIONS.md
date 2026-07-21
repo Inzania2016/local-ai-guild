@@ -17,3 +17,14 @@
 - Require model, dataset, and adapter license review before adoption, with heightened attention to commercial, corporate, government, and contract-related use. Do not select a project license or approve a candidate license in R0.
 
 Future durable architecture decisions should receive focused records under `docs/decisions/` and be summarized here.
+
+## R1 decisions — 2026-07-21
+
+- Use Pydantic v2 `BaseModel` contracts for validation and serialization at untrusted proposal and routing boundaries.
+- Configure boundary models for strict validation, forbidden unknown fields, and frozen instances. Use discriminated unions so each tool identifier accepts only its own argument contract.
+- Confine Pydantic to external validation and serialization boundaries. Deterministic routing remains ordinary typed Python, avoiding a custom general-purpose validation framework and keeping domain logic independent from validation machinery.
+- Generate JSON Schema in memory from Pydantic contracts when requested; do not add a schema registry or persist generated schemas in R1.
+- Define `project_status`, `search_public_docs`, and `read_public_doc` as harmless R1-only mock contracts, not production tools.
+- Require every success and refusal to carry at least one stable rule evidence reference.
+- Keep proposals untrusted and non-executable. R1 has no dispatcher, executor, filesystem read, network access, subprocess, or tool invocation path.
+- Convert validation failures to bounded generic messages and schema-owned locations only. Do not serialize Pydantic messages or attacker-chosen location components because they may contain rejected input.

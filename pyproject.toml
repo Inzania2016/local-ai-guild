@@ -9,7 +9,9 @@ description = "Local-first, evidence-backed AI orchestration control plane"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 authors = [{ name = "Local AI Guild contributors" }]
-dependencies = []
+dependencies = [
+  "pydantic>=2,<3",
+]
 
 [project.optional-dependencies]
 dev = [

@@ -33,7 +33,9 @@ $ExpectedPaths = @(
     "artifacts/benchmark-results/.gitkeep",
     "scripts/bootstrap.ps1", "scripts/verify-repository.ps1", "scripts/show-environment.ps1",
     "src/local_ai_guild/__init__.py", "src/local_ai_guild/__main__.py",
-    "src/local_ai_guild/cli.py", "tests/test_cli.py"
+    "src/local_ai_guild/cli.py", "src/local_ai_guild/contracts.py",
+    "src/local_ai_guild/mock_router.py", "src/local_ai_guild/validation.py",
+    "tests/test_cli.py", "tests/test_contracts.py", "tests/test_mock_router.py"
 )
 
 $MissingPaths = @(

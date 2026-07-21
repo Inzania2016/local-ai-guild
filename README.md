@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The project is at **R0: repository control plane and minimal skeleton**. No model runtime, provider, dispatcher, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
+The project is at **R1: typed tool contracts and deterministic mock router**. R1 validates a deliberately tiny command language into one of three harmless mock tool proposals or a typed refusal. It does not execute tools. No model runtime, provider, dispatcher, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -22,6 +22,20 @@ The only executable application behavior is a harmless status command. Bootstrap
 - Cloud delegation is explicit, policy-controlled, and never automatic.
 - The system must provide value before custom model training exists.
 - Delivery proceeds through small, independently verifiable work packets.
+
+## R1 deterministic command language
+
+Matching is case-sensitive. The router trims leading and trailing whitespace from the complete input, requires the documented space after each colon, and trims surrounding whitespace from the extracted query or path before contract validation.
+
+```text
+status
+search docs: <query>
+read doc: <repository-relative-markdown-path>
+```
+
+The three identifiers—`project_status`, `search_public_docs`, and `read_public_doc`—are R1-only test contracts, not production tools. Proposals are untrusted until validated. No executor exists, and the mock router never reads a file, runs a command, accesses a network, or mutates state.
+
+Path validation is syntax-only. Leading `./` and uppercase `.MD` extensions are intentionally accepted as repository-relative Markdown forms. Surrounding path whitespace is normalized; traversal, absolute and drive-qualified paths, UNC forms, backslashes, and non-Markdown final extensions are rejected. R1 does not decode URLs, resolve symlinks, canonicalize filesystem paths, or read files.
 
 ## Planned storage layout
 

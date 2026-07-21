@@ -10,4 +10,4 @@ All components below are planned unless explicitly listed in `PROJECT_STATE.md`.
 - **Tool gateway:** validates arguments against typed schemas, checks allowlists, executes tools, and records results.
 - **Evidence and audit subsystem:** connects claims to inputs, policy decisions, tool results, and verification records while applying secret-redaction rules.
 
-R0 implements only project metadata and the CLI status surface.
+R1 implements strict boundary contracts, redaction-safe validation issues, JSON Schema generation, and a deterministic mock router. The three mock tool contracts are test seams, not production tools. No dispatcher, executor, retrieval service, runtime adapter, or audit persistence exists.
