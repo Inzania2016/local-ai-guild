@@ -1,0 +1,6 @@
+# Planned allowlist shape; no tool executor exists in R0.
+tools:
+  allowlist: []
+  unrestricted_shell: false
+  validate_arguments: true
+  audit_execution: true

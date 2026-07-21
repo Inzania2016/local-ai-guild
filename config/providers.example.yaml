@@ -1,0 +1,5 @@
+# Structural placeholder only. Do not put credentials or live endpoints here.
+providers: []
+policy:
+  automatic_cloud_delegation: false
+  require_explicit_approval_for_cloud: true

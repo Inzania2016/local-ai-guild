@@ -1,0 +1,76 @@
+# Python bytecode and tooling caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and local workspace state
+.idea/
+.vscode/
+*.code-workspace
+.vs/
+
+# Local configuration and secrets (examples remain tracked)
+.env
+.env.*
+*.env
+!.env.example
+config/*.yaml
+!config/*.example.yaml
+config/*.yml
+!config/*.example.yml
+config/local/
+*.pem
+*.key
+*.pfx
+credentials*.json
+secrets*.json
+*.crt
+*.cer
+
+# Non-public local data and diagnostic output
+datasets/
+local-data/
+logs/
+crash-dumps/
+*.log
+*.dmp
+*.core
+*.sqlite
+*.sqlite3
+*.db
+
+# Model files and local runtime state
+*.gguf
+*.ggml
+*.safetensors
+*.onnx
+*.pt
+*.pth
+models/
+.ollama/
+.lmstudio/
+runtime-state/
+
+# Generated artifacts (retain directory placeholders)
+artifacts/**
+!artifacts/**/
+!artifacts/**/.gitkeep
+
+# Build and packaging output
+build/
+dist/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+Desktop.ini

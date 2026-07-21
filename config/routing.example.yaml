@@ -1,0 +1,6 @@
+# Planned routing policy shape; no dispatcher exists in R0.
+routing:
+  default_action: refuse
+  require_evidence: true
+  require_validated_tool_contract: true
+  allow_automatic_cloud_escalation: false

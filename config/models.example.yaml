@@ -1,0 +1,14 @@
+# Hypotheses only. No model has been downloaded, connected, or evaluated.
+models:
+  - role: tiny_tool_router
+    candidate: MiniCPM5-1B Agentic Tooluse
+    status: requires_project_specific_local_evaluation
+  - role: future_fine_tuned_router
+    candidate: Needle
+    status: requires_project_specific_local_evaluation
+  - role: local_coding_worker
+    candidate: Ornith-1.0-9B
+    status: requires_project_specific_local_evaluation
+  - role: retrieval
+    candidate: Qwen3 embedding and reranking models
+    status: requires_project_specific_local_evaluation

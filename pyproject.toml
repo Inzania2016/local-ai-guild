@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "local-ai-guild"
+version = "0.0.1"
+description = "Local-first, evidence-backed AI orchestration control plane"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Local AI Guild contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+local-ai-guild = "local_ai_guild.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/local_ai_guild"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
