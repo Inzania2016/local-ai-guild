@@ -158,6 +158,20 @@ def test_public_document_path_edge_cases(path: str, expected: str | None) -> Non
 
 
 @pytest.mark.parametrize(
+    "path",
+    [
+        "https://example.com/readme.md",
+        "http://example.com/readme.md",
+        "file:README.md",
+        "docs:README.md",
+    ],
+)
+def test_public_document_path_rejects_uri_and_colon_forms(path: str) -> None:
+    with pytest.raises(ValidationError):
+        ReadPublicDocArguments(path=path)
+
+
+@pytest.mark.parametrize(
     "payload",
     [
         {"tool": "SECRET_TOOL_MARKER", "arguments": {}},

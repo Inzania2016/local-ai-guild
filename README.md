@@ -35,7 +35,7 @@ read doc: <repository-relative-markdown-path>
 
 The three identifiers—`project_status`, `search_public_docs`, and `read_public_doc`—are R1-only test contracts, not production tools. Proposals are untrusted until validated. No executor exists, and the mock router never reads a file, runs a command, accesses a network, or mutates state.
 
-Path validation is syntax-only. Leading `./` and uppercase `.MD` extensions are intentionally accepted as repository-relative Markdown forms. Surrounding path whitespace is normalized; traversal, absolute and drive-qualified paths, UNC forms, backslashes, and non-Markdown final extensions are rejected. R1 does not decode URLs, resolve symlinks, canonicalize filesystem paths, or read files.
+Path validation is syntax-only. Leading `./` and uppercase `.MD` extensions are intentionally accepted as repository-relative Markdown forms. Surrounding path whitespace is normalized; traversal, absolute and drive-qualified paths, UNC forms, backslashes, colon-containing or URI-like forms, and non-Markdown final extensions are rejected. R1 does not decode URLs, resolve symlinks, canonicalize filesystem paths, or read files.
 
 ## Planned storage layout
 

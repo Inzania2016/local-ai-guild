@@ -62,8 +62,8 @@ class ReadPublicDocArguments(BoundaryModel):
             raise ValueError("path must use forward slashes, not backslashes")
         if normalized.startswith("/"):
             raise ValueError("path must be repository-relative")
-        if len(normalized) >= 2 and normalized[0].isalpha() and normalized[1] == ":":
-            raise ValueError("path must not be drive-qualified")
+        if ":" in normalized:
+            raise ValueError("path must not contain colons")
 
         segments = normalized.split("/")
         if ".." in segments:
