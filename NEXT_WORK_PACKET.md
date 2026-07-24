@@ -1,37 +1,36 @@
 # Next Work Packet
 
-## R2 — Evidence envelopes and policy checks
+## R3 — Deterministic evaluation harness
 
 ### Goal
 
-Wrap R1 routing decisions in a minimal typed evidence envelope and apply deterministic policy checks before any future execution boundary.
+Evaluate R1 routing, R2 evidence wrapping, and R2 policy outcomes against a small versioned set of public or synthetic cases before connecting any model runtime.
 
 ### In scope
 
-- Define typed evidence references with stable identifiers, evidence kind, and a public-or-synthetic provenance classification.
-- Define a minimal decision envelope that connects a validated R1 decision to its evidence references without storing raw request content.
-- Define deterministic policy outcomes for allow, refuse, and require-human-approval.
-- Apply policy only to already validated R1 proposals.
-- Require an allowlisted mock tool identifier and an explicit policy outcome before a proposal could reach a future executor.
-- Add structured, redaction-safe policy issues and focused unit tests.
-- Use only public or synthetic examples and fixtures.
+- Define strict, typed evaluation-case and expected-result contracts.
+- Store a small public or synthetic case set covering successful routes, refusals, evidence resolution, allowlist refusal, approval requirements, and allowed outcomes.
+- Run each case deterministically through the existing R1 router and R2 envelope/policy helpers.
+- Produce an in-memory evaluation summary with exact pass/fail counts and bounded mismatch codes.
+- Add deterministic serialization and focused tests for the harness.
+- Keep rejected inputs and marker values out of mismatch details and evidence.
 
 ### Out of scope
 
-- Tool execution, filesystem reads, network access, shell or subprocess calls, dispatcher implementation, model runtimes, model downloads, retrieval, vector databases, MCP, HTTP, cloud adapters, or automatic cloud delegation.
-- Audit persistence, production logging, retention systems, full trace storage, or raw request-content logging.
-- Commits, pushes, Docker, CI, project-license selection, or model, dataset, and adapter license approval.
+- Model runtimes, model downloads, inference, fine-tuning, retrieval, embeddings, vector databases, MCP, HTTP, cloud adapters, or automatic delegation.
+- Tool execution, filesystem tool access, shell or subprocess calls, dispatcher implementation, or approval workflows.
+- Benchmark history persistence, trace storage, audit databases, dashboards, Docker, CI, project-license selection, or model, dataset, and adapter license approval.
 
 ### Acceptance evidence
 
-- Evidence and policy contracts are strict, frozen, and reject unknown fields.
-- Every R1 success and refusal can be wrapped without losing its stable evidence references.
-- Policy checks cannot receive an unvalidated dictionary-shaped proposal.
-- Tests prove deny-by-default behavior, allowlist enforcement, approval-required outcomes, and absence of raw input in serialized envelopes and issues.
+- Evaluation contracts are strict, frozen, and forbid extra fields.
+- Cases use only public or synthetic content and stable expected identifiers.
+- Results prove routing, typed evidence, and policy outcomes without claiming model quality.
+- Mismatch output cannot contain rejected input, query text, paths, or arbitrary caller fields.
 - Ruff, formatting, pytest, CLI status, repository verification, and diff checks pass.
 
 ### Deferred
 
-- Executor and dispatcher design.
-- Evidence persistence, retention, redaction pipeline, and audit storage.
-- Runtime, model, retrieval, and cloud integration decisions.
+- Model selection and model-backed evaluation.
+- Persistent benchmark history and reporting.
+- Executor, dispatcher, approval workflow, and runtime integrations.

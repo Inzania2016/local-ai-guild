@@ -10,4 +10,4 @@ All components below are planned unless explicitly listed in `PROJECT_STATE.md`.
 - **Tool gateway:** validates arguments against typed schemas, checks allowlists, executes tools, and records results.
 - **Evidence and audit subsystem:** connects claims to inputs, policy decisions, tool results, and verification records while applying secret-redaction rules.
 
-R1 implements strict boundary contracts, redaction-safe validation issues, JSON Schema generation, and a deterministic mock router. The three mock tool contracts are test seams, not production tools. No dispatcher, executor, retrieval service, runtime adapter, or audit persistence exists.
+R2 adds immutable typed evidence registries, a routing-decision envelope, immutable policy profiles, profile-bound combined evaluation envelopes, and deterministic policy outcomes. Evidence and provenance are metadata rather than external proof. Exact-type trusted boundaries reject subclasses and implicit parsing. Policy stops at allow, refuse, or require-human-approval; it does not execute or persist anything. No dispatcher, executor, approval workflow, retrieval service, runtime adapter, or audit persistence exists.

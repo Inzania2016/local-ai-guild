@@ -28,3 +28,14 @@ Future durable architecture decisions should receive focused records under `docs
 - Require every success and refusal to carry at least one stable rule evidence reference.
 - Keep proposals untrusted and non-executable. R1 has no dispatcher, executor, filesystem read, network access, subprocess, or tool invocation path.
 - Convert validation failures to bounded generic messages and schema-owned locations only. Do not serialize Pydantic messages or attacker-chosen location components because they may contain rejected input.
+
+## R2 decisions — 2026-07-24
+
+- Represent routing and policy evidence as strict typed references with a bounded identifier, evidence kind, and public-repository-safe provenance metadata.
+- Treat evidence identifiers as deterministic references rather than proof of external truth; provenance metadata does not establish cryptographic authenticity.
+- Resolve R1 evidence strings and select policy evidence only through immutable registries of synthetic constants. Unknown or duplicate routing evidence fails closed without echoing the identifier.
+- Reserve the `rule:` namespace for `routing_rule` evidence and `policy:` for `policy_rule` evidence. Reject other namespaces, drive-like values, and URL-like forms rather than broadening the grammar.
+- Build routing envelopes only from exact, already validated R1 decision instances. Reject subclasses deliberately so trusted-boundary code cannot acquire unreviewed behavior. Policy likewise accepts only an exact validated routing envelope and profile and never implicitly parses raw dictionaries or standalone proposals.
+- Bind each combined policy-evaluation envelope to the immutable profile actually evaluated. Direct construction rechecks the routing, profile, and policy combination; no profile identifier or persistence is introduced.
+- Apply policy in explicit deny-by-default precedence: routing refusal, missing allowlist membership, human approval requirement, then allow.
+- Treat `allow` and `require_human_approval` as non-executing outcomes. R2 has no executor or approval workflow and stores no raw request or persistent audit record.

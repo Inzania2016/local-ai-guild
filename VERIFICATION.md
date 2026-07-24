@@ -224,3 +224,159 @@ git status --short --branch
 Result: exit 0. `main` remained at accepted baseline `14f90483279b2739ea41739bdabae882666f48de`, matching `origin/main`; all R1 changes remained unstaged, uncommitted, and unpushed.
 
 Source scans found no construction or validation-bypass API, unchecked model-copy update, execution surface, filesystem I/O, network client, dynamic import, logging, persistence, cloud SDK, or model SDK. The only dictionary-shaped package output is generated JSON Schema. All externally reachable boundary models inherited strict validation, forbidden extras, and frozen instances.
+
+## R2 verification — 2026-07-24
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` using public or synthetic fixtures. The accepted baseline was `6c44970351fa2a59d78b51c8d2a441af381582ef`.
+
+During implementation, the first Ruff pass found two modern import-placement findings, one long line, and one unused test import. After correction, Ruff formatting identified two new source files and later one policy file for mechanical formatting. The first complete behavioral run then passed 110 tests and exposed one test-expectation mismatch: the combined helper correctly rejected a raw dictionary with the bounded `EvidenceEnvelopeError`, while the test expected `TypeError`. The test was aligned with the public error contract. Subsequent focused and final runs passed.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable project was refreshed in the repository-local Python 3.12.6 environment. Pydantic 2.13.4 remained the sole runtime dependency; Ruff 0.15.22 and pytest 8.4.2 remained development dependencies. No AI runtime or AI SDK was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 13 Python files were already formatted, pytest collected and passed 117 tests in 0.39 seconds, the CLI reported R2, and repository verification passed.
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+```
+
+Result: exit 0, `All checks passed!`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff format --check .
+```
+
+Result: exit 0, `13 files already formatted`.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Result: exit 0. Pytest collected 117 tests and all 117 passed in 0.37 seconds under Python 3.12.6 and pytest 8.4.2.
+
+```powershell
+.\.venv\Scripts\python.exe -m local_ai_guild status
+```
+
+Result: exit 0.
+
+```text
+Project: Local AI Guild
+Stage: R2: typed evidence envelopes and deterministic policy checks
+```
+
+```powershell
+git diff --check
+```
+
+Result: exit 0 with no output.
+
+```powershell
+git status --short --branch
+```
+
+Result: exit 0. `main` matched `origin/main`; R2 source, tests, and documentation remained unstaged, uncommitted, and unpushed.
+
+These checks establish only the deterministic typed evidence and non-executing policy behavior covered by the tests. Evidence provenance is metadata rather than cryptographic authenticity. An `allow` outcome is not execution, and no model, executor, dispatcher, approval workflow, retrieval system, runtime, persistence layer, or cloud integration was implemented or tested.
+
+## R2 adversarial closeout audit — 2026-07-24
+
+The audit began from accepted committed baseline `6c44970351fa2a59d78b51c8d2a441af381582ef`, which matched `origin/main`. Initial focused probes reproduced three boundary defects in the uncommitted R2 implementation:
+
+- `https:example.com`, `http:example.com`, `file:readme.md`, and drive-like `c:readme.md` values passed the evidence identifier pattern.
+- Direct routing and policy construction accepted caller-created `EvidenceReference` or `PolicyIssue` values that were equal to registry constants but were not the registry-owned instances.
+- A combined policy envelope did not contain the immutable profile evaluated, so direct construction could pair a policy result with a contradictory profile claim.
+
+The corrected implementation reserves `rule:` for routing evidence and `policy:` for policy evidence, constructs registries with an explicit duplicate check, requires registry object identity, rechecks the R1 decision/evidence mapping, rejects raw nested dictionaries and subclasses at trusted boundaries, constrains refusal issue content to the R1 redaction-safe vocabulary, and binds combined envelopes to the exact immutable profile whose semantics are re-evaluated during construction. These checks perform no parsing, execution, persistence, filesystem access, network access, or approval workflow.
+
+```powershell
+rg -n 'model_construct|\bconstruct\(|model_copy\s*\([^)]*update|SkipValidation|BeforeValidator|model_validate|TypeAdapter|validate_python' src/local_ai_guild/evidence.py src/local_ai_guild/policy.py
+```
+
+Result: exit 1 with no matches. R2 source uses no construction bypass, unchecked copy update, pre-validation coercion helper, or raw-data parser. Rejection-only Pydantic field validators do not coerce input.
+
+```powershell
+rg -n 'subprocess|os\.system|\bopen\s*\(|pathlib|requests|httpx|urllib|socket|importlib|__import__|\beval\s*\(|\bexec\s*\(|\bcompile\s*\(|logging|sqlite|sqlalchemy|pydantic_ai|\bopenai\b|anthropic|boto|azure|execute_tool|approval_workflow' src/local_ai_guild/evidence.py src/local_ai_guild/policy.py
+```
+
+Result: exit 1 with no matches. No execution, filesystem, network, dynamic import, compilation, logging, database, model SDK, cloud SDK, tool execution, or approval-workflow surface was found in R2 source.
+
+```powershell
+rg -n 'read_text|write_text|read_bytes|write_bytes|mkdir|makedirs|unlink|remove\s*\(|rename\s*\(|replace\s*\(|rmdir|shutil|tempfile|glob\s*\(|iterdir|exists\s*\(|is_file\s*\(|is_dir\s*\(' src/local_ai_guild/evidence.py src/local_ai_guild/policy.py
+```
+
+Result: exit 1 with no matches. No indirect `pathlib`, directory, temporary-file, or other filesystem method was found in R2 source.
+
+```powershell
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret|password)\s*[:=]\s*["''][^"'']{8,}["'']' .
+```
+
+Result: exit 1 with no matches. The repository credential-pattern scan found no candidate key, token, private-key block, or quoted credential assignment. Test markers and fixtures remain public or synthetic.
+
+```powershell
+.\.venv\Scripts\python.exe -c "import tomllib, pathlib; print(tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8'))['project']['dependencies'])"
+```
+
+Result: exit 0, `['pydantic>=2,<3']`. Pydantic remains the sole runtime dependency.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable project was refreshed in the repository-local Python 3.12.6 environment. Existing Pydantic 2.13.4, Ruff 0.15.22, and pytest 8.4.2 installations satisfied the project; no AI runtime or SDK was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 13 Python files were already formatted, all 178 tests passed in 0.36 seconds, the CLI reported R2, and repository verification passed.
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+```
+
+Result: exit 0, `All checks passed!`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff format --check .
+```
+
+Result: exit 0, `13 files already formatted`.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Result: exit 0. Pytest collected 178 tests and all 178 passed in 0.40 seconds under Python 3.12.6 and pytest 8.4.2.
+
+```powershell
+.\.venv\Scripts\python.exe -m local_ai_guild status
+```
+
+Result: exit 0.
+
+```text
+Project: Local AI Guild
+Stage: R2: typed evidence envelopes and deterministic policy checks
+```
+
+```powershell
+git diff --check
+```
+
+Result: exit 0 with no output.
+
+```powershell
+git status --short --branch
+```
+
+Result: exit 0. `main` remained at `6c44970351fa2a59d78b51c8d2a441af381582ef`, matching `origin/main`. All R2 source, test, and documentation changes remained unstaged, uncommitted, and unpushed.
+
+The final audit covered direct inconsistent construction, exact-type and subclass behavior, strict enum and collection inputs, URL-like identifiers, registry uniqueness and cross-registry rejection, caller-created lookalike metadata, R1 success/refusal evidence separation, all policy precedence branches and collisions, empty-allowlist denial, marker isolation, profile-bound combined envelopes, deterministic serialization, and absence of execution state. R2 remains a non-executing in-memory control-plane slice; evidence authenticity, profile persistence, approval workflow, tool execution, and all runtime integrations remain deferred.

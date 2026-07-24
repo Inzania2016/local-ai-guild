@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The project is at **R1: typed tool contracts and deterministic mock router**. R1 validates a deliberately tiny command language into one of three harmless mock tool proposals or a typed refusal. It does not execute tools. No model runtime, provider, dispatcher, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
+The project is at **R2: typed evidence envelopes and deterministic policy checks**. R2 wraps validated R1 routing decisions in typed synthetic evidence and applies deny-by-default policy without executing anything. No model runtime, provider, dispatcher, executor, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -36,6 +36,12 @@ read doc: <repository-relative-markdown-path>
 The three identifiers—`project_status`, `search_public_docs`, and `read_public_doc`—are R1-only test contracts, not production tools. Proposals are untrusted until validated. No executor exists, and the mock router never reads a file, runs a command, accesses a network, or mutates state.
 
 Path validation is syntax-only. Leading `./` and uppercase `.MD` extensions are intentionally accepted as repository-relative Markdown forms. Surrounding path whitespace is normalized; traversal, absolute and drive-qualified paths, UNC forms, backslashes, colon-containing or URI-like forms, and non-Markdown final extensions are rejected. R1 does not decode URLs, resolve symlinks, canonicalize filesystem paths, or read files.
+
+## R2 evidence and policy boundary
+
+R2 resolves each validated R1 rule identifier through an immutable registry and produces a typed routing-decision envelope. The trusted builders and evaluator require exact validated model types and deliberately reject subclasses, raw dictionaries, standalone proposals, and arbitrary objects. Routing evidence uses the `rule:` namespace and policy evidence uses `policy:`; URI-like, drive-like, cross-namespace, unknown, duplicate, and semantically inconsistent identifiers fail closed. Evidence identifiers are deterministic references, not proof of external truth. The `public` and `synthetic` provenance labels are metadata, not cryptographic authenticity.
+
+Policy accepts only a validated routing envelope and immutable profile. It refuses R1 refusals and tools outside the selected allowlist, requires human approval for `read_public_doc` under the default profile, and otherwise returns `allow`. The combined envelope contains the exact in-memory profile evaluated so direct construction cannot pair a result with a different profile. This is not profile persistence or an approval workflow. An `allow` outcome does not execute a tool. R2 stores no raw request, writes no trace or audit record, and has no executor.
 
 ## Planned storage layout
 

@@ -1,6 +1,6 @@
 # Open Questions
 
-Unresolved questions are not decisions or current facts.
+This file separates resolved design questions from questions deferred to later packets.
 
 ## Resolved in R1
 
@@ -17,3 +17,10 @@ Unresolved questions are not decisions or current facts.
 - How should active assets move between `E:\AI` and the `D:\AI` archive without breaking provenance?
 - What evidence template and reviewer role should document future model, dataset, and adapter license decisions?
 - What sanitization and independent-review checklist should govern exceptional work-derived fixtures?
+
+## Resolved in R2
+
+- Use typed `routing_rule` and `policy_rule` references with only `public` or `synthetic` provenance metadata.
+- Use immutable registries for R1 routing evidence and deterministic policy evidence; never derive identifiers from user input.
+- Use a deny-by-default profile with all three R1 mock tools allowlisted and `read_public_doc` requiring human approval.
+- Keep evidence authenticity, approval workflows, execution, and persistence outside R2.

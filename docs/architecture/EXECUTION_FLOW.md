@@ -1,6 +1,6 @@
 # Execution Flow
 
-The full target flow below is planned. R1 implements only the separate validation flow documented afterward and always stops before execution.
+The full target flow below is planned. R2 implements the separate routing, evidence, and policy flow documented afterward and always stops before execution.
 
 1. Accept a bounded task and assign a trace identifier.
 2. Classify the task and retrieve scoped evidence using deterministic facilities where possible.
@@ -19,3 +19,12 @@ No step may silently escalate to cloud execution or unrestricted shell access.
 3. Build the matching tool-specific argument model and discriminated proposal.
 4. Return a typed success or refusal with a stable rule evidence reference.
 5. Stop. No tool execution facility exists.
+
+## Implemented R2 flow
+
+1. Accept an already validated R1 successful or refused routing decision; never accept raw request text.
+2. Resolve every R1 evidence string through the immutable typed routing-evidence registry.
+3. Build a strict routing-decision envelope from registry-owned evidence without adding timestamps, machine identifiers, persistence metadata, or the original request.
+4. Evaluate explicit deny-by-default policy precedence against the validated envelope and exact immutable profile.
+5. Return a combined envelope containing the routing envelope, the exact in-memory profile evaluated, and a non-executing policy decision. Direct construction rechecks their consistency.
+6. Stop. `allow` does not invoke a tool, and human approval has no workflow in R2.
