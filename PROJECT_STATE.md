@@ -43,4 +43,4 @@ Last updated: 2026-07-25
 
 ## Current stage gate
 
-R3 is complete in the working tree and remains uncommitted. This does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, ontology, or cloud adapter. The next proposed scope is the analysis-only O1 packet in `NEXT_WORK_PACKET.md`; O1 has not begun.
+R3 is complete and published at commit `3f20d28390086619b8268e35855d4789b4a75304`. This does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, ontology, or cloud adapter. The next proposed scope is the analysis-only O1 packet in `NEXT_WORK_PACKET.md`; O1 has not begun.
