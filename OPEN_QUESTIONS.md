@@ -24,3 +24,12 @@ This file separates resolved design questions from questions deferred to later p
 - Use immutable registries for R1 routing evidence and deterministic policy evidence; never derive identifiers from user input.
 - Use a deny-by-default profile with all three R1 mock tools allowlisted and `read_public_doc` requiring human approval.
 - Keep evidence authenticity, approval workflows, execution, and persistence outside R2.
+
+## Resolved in R3
+
+- Use an immutable Python tuple for the first ten public or synthetic evaluation cases; do not add a data-file loader or dependency.
+- Reject empty evaluation batches and preserve the declared case order in results.
+- Compare independently stable fields while suppressing refusal-reason and routed-tool mismatches when routing outcomes differ.
+- Keep mismatch output to registry-owned constant codes and messages and keep raw case input out of results and summaries.
+- Treat a passing evaluation as deterministic contract conformance only, not model evaluation or external truth.
+- Defer ontology discovery and evidence-trace design to the proposed analysis-only O1 packet.

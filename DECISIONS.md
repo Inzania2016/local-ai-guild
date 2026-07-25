@@ -39,3 +39,14 @@ Future durable architecture decisions should receive focused records under `docs
 - Bind each combined policy-evaluation envelope to the immutable profile actually evaluated. Direct construction rechecks the routing, profile, and policy combination; no profile identifier or persistence is introduced.
 - Apply policy in explicit deny-by-default precedence: routing refusal, missing allowlist membership, human approval requirement, then allow.
 - Treat `allow` and `require_human_approval` as non-executing outcomes. R2 has no executor or approval workflow and stores no raw request or persistent audit record.
+
+## R3 decisions — 2026-07-25
+
+- Implement R3 as a small in-memory deterministic harness over the existing R1 router and R2 combined evidence/policy helper; do not redesign those boundaries.
+- Store ten versioned public or synthetic cases as immutable Python records. Add no file loader, caller-supplied path, parsing dependency, generalized benchmark framework, or evaluator extension system.
+- Treat expected results as repository-owned test assertions rather than external facts, runtime evidence, or model-quality scores.
+- Compare routing outcome, applicable refusal reason or routed tool, routing evidence, policy outcome, policy issues, and policy evidence in fixed order. Suppress refusal-reason and routed-tool mismatches when the routing outcome itself differs.
+- Restrict failures to registry-owned mismatch codes with messages derived from those codes. Case results and summaries are evaluator-built, recheck private non-serialized case bindings at trusted boundaries, and exclude raw input, proposal arguments, exception text, timing, execution state, and machine metadata.
+- Reject empty batches, mutable collections, raw dictionaries, arbitrary objects, duplicate case identifiers, and subclasses at the trusted evaluator boundary.
+- Keep R3 non-executing and non-persistent. It connects no model, tool, retrieval service, approval workflow, network, cloud service, or ontology infrastructure.
+- Defer ontology work to a proposed analysis-only O1 packet after R3.

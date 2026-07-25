@@ -1,36 +1,39 @@
 # Next Work Packet
 
-## R3 — Deterministic evaluation harness
+## O1 — Read-only ontology discovery and evidence-trace pilot design
 
 ### Goal
 
-Evaluate R1 routing, R2 evidence wrapping, and R2 policy outcomes against a small versioned set of public or synthetic cases before connecting any model runtime.
+Analyze the existing repository workflow, implicit entity and relationship vocabulary, epistemic and lifecycle state candidates, and one narrow R2 work-packet evidence-trace pilot without modifying implementation files.
 
 ### In scope
 
-- Define strict, typed evaluation-case and expected-result contracts.
-- Store a small public or synthetic case set covering successful routes, refusals, evidence resolution, allowlist refusal, approval requirements, and allowed outcomes.
-- Run each case deterministically through the existing R1 router and R2 envelope/policy helpers.
-- Produce an in-memory evaluation summary with exact pass/fail counts and bounded mismatch codes.
-- Add deterministic serialization and focused tests for the harness.
-- Keep rejected inputs and marker values out of mismatch details and evidence.
+- Review current repository artifacts, authority documents, workflows, and implemented R1 through R3 contracts.
+- Inventory existing implicit entities and relationships without introducing a generalized ontology implementation.
+- Separate taxonomy, schema, ontology, tags, and graph concepts precisely.
+- Identify candidate epistemic states and lifecycle states while keeping proposals distinct from decisions.
+- Design one narrow read-only evidence-trace pilot for an R2-style work packet.
+- Identify deterministic validation rules and list the human decisions required before any implementation.
+- Produce analysis and a bounded pilot design only.
 
 ### Out of scope
 
-- Model runtimes, model downloads, inference, fine-tuning, retrieval, embeddings, vector databases, MCP, HTTP, cloud adapters, or automatic delegation.
-- Tool execution, filesystem tool access, shell or subprocess calls, dispatcher implementation, or approval workflows.
-- Benchmark history persistence, trace storage, audit databases, dashboards, Docker, CI, project-license selection, or model, dataset, and adapter license approval.
+- Repository, source, test, prompt, role, configuration, or workflow implementation changes during the first pass.
+- General ontology entities, generic relationship graphs, RDF, OWL, graph databases, vector databases, or knowledge-graph infrastructure.
+- Epistemic-state transition engines, ontology-driven agent routing, persistence, retrieval, embeddings, model runtimes, cloud adapters, or execution.
+- Project-license selection or model, dataset, and adapter license approval.
 
 ### Acceptance evidence
 
-- Evaluation contracts are strict, frozen, and forbid extra fields.
-- Cases use only public or synthetic content and stable expected identifiers.
-- Results prove routing, typed evidence, and policy outcomes without claiming model quality.
-- Mismatch output cannot contain rejected input, query text, paths, or arbitrary caller fields.
-- Ruff, formatting, pytest, CLI status, repository verification, and diff checks pass.
+- Current implicit entities, relationships, state concepts, and terminology are inventoried with source references.
+- Taxonomy, schema, ontology, tags, and graph concepts are distinguished.
+- One narrow R2 work-packet evidence-trace pilot is described without implementation.
+- Deterministic validation candidates and unresolved human decisions are explicit.
+- Confirmed facts, proposals, hypotheses, and deferred questions remain clearly separated.
 
 ### Deferred
 
-- Model selection and model-backed evaluation.
-- Persistent benchmark history and reporting.
-- Executor, dispatcher, approval workflow, and runtime integrations.
+- Any ontology or trace implementation.
+- Prompt, agent-role, or routing changes.
+- Persistent graph, audit, trace, or benchmark infrastructure.
+- Model selection, model-backed evaluation, execution, retrieval, and runtime integrations.

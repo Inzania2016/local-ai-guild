@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The project is at **R2: typed evidence envelopes and deterministic policy checks**. R2 wraps validated R1 routing decisions in typed synthetic evidence and applies deny-by-default policy without executing anything. No model runtime, provider, dispatcher, executor, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
+The project is at **R3: deterministic evaluation harness**. R3 runs a fixed set of versioned public or synthetic cases through the existing R1 router and R2 evidence/policy pipeline, compares only stable typed outcomes, and returns bounded in-memory results. It does not execute tools, connect a model runtime, persist benchmark history, or prove external correctness. No provider, dispatcher, executor, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -43,6 +43,12 @@ R2 resolves each validated R1 rule identifier through an immutable registry and 
 
 Policy accepts only a validated routing envelope and immutable profile. It refuses R1 refusals and tools outside the selected allowlist, requires human approval for `read_public_doc` under the default profile, and otherwise returns `allow`. The combined envelope contains the exact in-memory profile evaluated so direct construction cannot pair a result with a different profile. This is not profile persistence or an approval workflow. An `allow` outcome does not execute a tool. R2 stores no raw request, writes no trace or audit record, and has no executor.
 
+## R3 deterministic evaluation boundary
+
+R3 defines strict expected-result, evaluation-case, bounded-mismatch, case-result, and summary contracts. The immutable case set contains ten public or synthetic routing and policy cases. Evaluation calls `route_user_input()`, wraps and evaluates the decision through the existing R2 helper, compares stable outcomes in a fixed order, and stops with an in-memory summary. Case results and summaries are evaluator-built; trusted boundaries recheck their private, non-serialized case bindings so unchecked copies or directly forged aggregates are not accepted as evaluated output.
+
+Passing cases establish only that the current deterministic R1/R2 implementation matched the repository-owned synthetic expectations. Expected results are test assertions, not observations of external truth or model-quality scores. Results exclude raw commands, queries, document paths, exception text, timing, execution state, and arbitrary caller metadata. R3 exposes no evaluation CLI command and writes no schemas, traces, or benchmark history.
+
 ## Planned storage layout
 
 - Repository: `C:\dev\source\Repos\local-ai-guild`
@@ -60,7 +66,7 @@ These locations are documented plans, not evidence that the directories or runti
 - `docs/verification/`: durable verification procedures
 - `src/local_ai_guild/`: Python package
 - `tests/`: deterministic automated tests
-- `evals/`: future evaluation definitions
+- `evals/`: reserved for separately approved future evaluation artifacts
 - `artifacts/`: ignored generated evidence, traces, and benchmark results
 
 Read [PROJECT_STATE.md](PROJECT_STATE.md) for confirmed current facts, [ROADMAP.md](ROADMAP.md) for staged plans, and [NEXT_WORK_PACKET.md](NEXT_WORK_PACKET.md) for the single proposed next packet.

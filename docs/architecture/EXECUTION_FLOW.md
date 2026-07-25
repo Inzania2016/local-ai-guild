@@ -1,6 +1,6 @@
 # Execution Flow
 
-The full target flow below is planned. R2 implements the separate routing, evidence, and policy flow documented afterward and always stops before execution.
+The full target flow below is planned. R3 implements the separate deterministic routing, evidence, policy, and evaluation flow documented afterward and always stops before execution.
 
 1. Accept a bounded task and assign a trace identifier.
 2. Classify the task and retrieve scoped evidence using deterministic facilities where possible.
@@ -28,3 +28,13 @@ No step may silently escalate to cloud execution or unrestricted shell access.
 4. Evaluate explicit deny-by-default policy precedence against the validated envelope and exact immutable profile.
 5. Return a combined envelope containing the routing envelope, the exact in-memory profile evaluated, and a non-executing policy decision. Direct construction rechecks their consistency.
 6. Stop. `allow` does not invoke a tool, and human approval has no workflow in R2.
+
+## Implemented R3 flow
+
+1. Accept one exact validated versioned evaluation case containing only public or synthetic input, an immutable policy profile, and a strict expected result.
+2. Pass the authorized case input to the existing R1 router.
+3. Pass the validated R1 decision and case profile to the existing R2 combined helper.
+4. Compare stable routing and policy fields in the documented fixed order, suppressing refusal-reason or routed-tool comparison when routing outcomes differ.
+5. Build a bounded case result bound privately to its case identifier and expected result, without copying command text, query text, document paths, proposal arguments, exceptions, timing, or execution state.
+6. Aggregate a non-empty exact case tuple into an evaluator-built ordered in-memory summary that rechecks result bindings, order, and counts.
+7. Stop. No tool, model, retrieval service, approval workflow, persistence layer, or ontology component is invoked.

@@ -16,7 +16,11 @@ Define evidence references, validation failures, allowlist decisions, and redact
 
 ## R3 — Evaluation harness
 
-Create project-specific routing tasks, deterministic scoring, and benchmark result schemas before selecting models.
+Create versioned public or synthetic routing/policy cases, deterministic typed comparisons, bounded case results, and an in-memory summary before selecting models. Do not connect a runtime or persist benchmark history.
+
+## O1 — Read-only ontology discovery and evidence-trace pilot design
+
+Under a separately approved analysis-only packet, inventory implicit workflow entities, relationships, epistemic states, and lifecycle states, then design one narrow R2 work-packet trace pilot. The first pass makes no repository, prompt, role, or implementation changes.
 
 ## R4 — First local runtime experiment
 
