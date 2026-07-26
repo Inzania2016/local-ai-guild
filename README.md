@@ -5,9 +5,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 ## Current status
 
 The accepted published baseline is `6fe01f7dd0d756a757bea8213803f0e23c42bfab`.
-O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current
-uncommitted checkpoint defines the minimum strict runtime-neutral Council contracts,
-one public synthetic in-memory proceeding, and deterministic cross-contract validation.
+O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The published portable-contract checkpoint defines the minimum strict runtime-neutral Council contracts, one public synthetic in-memory proceeding, and deterministic cross-contract validation.
 These contracts are not a completed Council implementation or runtime adapter. OpenClaw
 remains an unevaluated candidate reference runtime. No provider, dispatcher, executor,
 retrieval system, graph database, generalized ontology infrastructure, model runtime,
