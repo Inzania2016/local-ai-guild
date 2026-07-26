@@ -62,13 +62,26 @@ This file separates resolved design questions from questions deferred to later p
   prove external truth, approval authenticity, artifact existence, or general ontology
   correctness.
 
-## Proposed portable-contract checkpoint
+## Resolved in the portable-contract checkpoint
 
-- What smallest strict contracts should represent Role, Work packet, Frozen position,
-  Cross-review, Evidence, Verification, Approval request, Decision record, Knowledge
-  promotion, and Runtime event without coupling them to OpenClaw?
-- What acceptance evidence is sufficient to unblock a separately authorized R4B
-  packet while keeping the runtime untrusted and replaceable?
+- Use ten strict runtime-neutral contracts plus one exact in-memory proceeding for the
+  minimum Council representation; do not add a generalized ontology or graph.
+- Use Council-owned durable identifiers and SHA-256 frozen-position digests. Exclude
+  runtime-native identity, sessions, models, workspaces, objects, and provider
+  configuration from institutional authority.
+- Store relationships in one canonical direction and derive reverse navigation. Do not
+  require reciprocal duplicate edges.
+- Keep verification separate from human approval, preserve decision dissent, make
+  knowledge promotion request-only, and treat runtime events as non-authoritative
+  telemetry.
+
+## Proposed R4B entry-gate review
+
+- Do the human-accepted portable contracts represent the minimum Council flow required
+  by all six runtime-adoption gates?
+- Are the isolation design, threat model, teardown plan, license review, and explicit
+  runtime-authorization prerequisites complete enough to propose an OpenClaw POC
+  packet without authorizing it?
 
 ## Deferred to R4B or R4C
 

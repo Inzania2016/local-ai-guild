@@ -4,7 +4,7 @@ import argparse
 from collections.abc import Sequence
 
 PROJECT_NAME = "Local AI Guild"
-IMPLEMENTATION_STAGE = "O3: synthetic handoff completeness experiment"
+IMPLEMENTATION_STAGE = "Portable Council contracts checkpoint"
 
 
 def build_parser() -> argparse.ArgumentParser:

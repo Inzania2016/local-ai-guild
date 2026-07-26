@@ -65,4 +65,7 @@ OpenClaw memory, if evaluated later, remains temporary working memory. It may su
 
 Every promoted item must declare how freshness is evaluated and, where applicable, an expiration or review date. Revocation or supersession preserves the historical decision record while preventing stale material from being presented as current authority.
 
-R4A defines this policy conceptually. It adds no memory store, promotion engine, runtime hook, or automatic state transition.
+R4A defines this policy. The portable checkpoint adds only a strict
+`KnowledgePromotionRequest` proposal contract and deterministic reference checks. It
+adds no memory store, promotion engine, runtime hook, write path, or automatic state
+transition.

@@ -905,3 +905,136 @@ synthetic fixture and comparison. Manual findings are repository-authored assert
 Deterministic findings do not prove external truth, approval authenticity, artifact
 existence, human identity, or general ontology correctness. O3 used no model, runtime,
 OpenClaw component, routing, retrieval, persistence, mutation, or execution.
+
+## Portable Council contracts checkpoint — 2026-07-26
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` against published baseline
+`a3e6facaf77153486236ebea5b4a383d216e7bcf`, which matched `HEAD`, `main`, and
+`origin/main`. The starting working tree and index were clean. The checkpoint used one
+public synthetic in-memory proceeding and left every change unstaged, uncommitted, and
+unpushed.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable package was refreshed in the repository-local Python
+3.12.6 environment. Pydantic 2.13.4 remained the sole runtime dependency; pytest
+8.4.2 and Ruff 0.15.22 remained development dependencies. No dependency, model SDK,
+AI runtime, OpenClaw component, or machine-wide setting was added.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 28 Python files were already formatted, pytest collected
+and passed 499 tests in 43.74 seconds, the CLI reported the portable Council contracts
+checkpoint stage, and the script reported `Repository verification passed.`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results: every command exited 0. Ruff reported `All checks passed!`; formatting
+reported `28 files already formatted`; pytest passed all 499 tests in 43.48 seconds;
+the CLI printed:
+
+```text
+Project: Local AI Guild
+Stage: Portable Council contracts checkpoint
+```
+
+The diff check produced no output. Git reported `main...origin/main`, modified
+authority, architecture, experiment, and CLI documents, four untracked implementation
+and test files, and no staged path.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests\test_council_contracts.py -q
+```
+
+Final focused result: exit 0, 31 tests passed in 5.45 seconds. Coverage includes all ten
+strict/frozen/extra-forbid contracts, identifier namespaces, runtime-neutral fields,
+frozen-position integrity, canonical relationship direction, exact cross-contract
+references, human approval separation, dissent, promotion requirements, runtime-event
+correlation, issue ordering, direct and unsafe corruption, nested dissent corruption,
+same-process serialization, separate-process serialization, and absence of runtime
+adapter or OpenClaw surfaces.
+
+During implementation, the first focused Ruff pass exited 1 for two line-length
+findings and one unused import, and formatting identified two files. They were
+corrected mechanically. The first focused test run then passed 29 tests and failed two
+test-quality assertions: a one-issue result could not demonstrate reordering, and a
+broad `requests` substring matched `approval_requests`. While correcting them, one
+intermediate run exposed an unmatched test parenthesis. The fixture was strengthened,
+the scan assertion was narrowed to import syntax, the syntax was corrected, and every
+final focused and repository-wide check passed.
+
+```powershell
+$code='from local_ai_guild.council_fixture import synthetic_council_proceeding; from local_ai_guild.council_validation import validate_council_proceeding; print(validate_council_proceeding(synthetic_council_proceeding()).model_dump_json())'
+.\.venv\Scripts\python.exe -m pytest tests\test_council_contracts.py -q
+$same=& .\.venv\Scripts\python.exe -c "from local_ai_guild.council_fixture import synthetic_council_proceeding; from local_ai_guild.council_validation import validate_council_proceeding; a=validate_council_proceeding(synthetic_council_proceeding()).model_dump_json(); b=validate_council_proceeding(synthetic_council_proceeding()).model_dump_json(); print(a == b); print(a)"
+$same
+$first=& .\.venv\Scripts\python.exe -c $code
+$second=& .\.venv\Scripts\python.exe -c $code
+"SEPARATE_PROCESS_EQUAL=$($first -ceq $second)"
+"FIRST=$first"
+"SECOND=$second"
+```
+
+Results: exit 0. The same-process comparison printed `True`; the two separate-process
+serializations were byte-for-byte equal. The official synthetic proceeding contained
+19 Council records and returned `valid: true`, `issue_count: 0`, and no issues.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip show local-ai-guild pydantic pytest ruff
+git diff -- pyproject.toml scripts config
+```
+
+Results: exit 0. The editable project required only Pydantic. Installed versions were
+Pydantic 2.13.4, pytest 8.4.2, and Ruff 0.15.22. Dependencies, scripts, and
+configuration were unchanged.
+
+```powershell
+rg -n -e 'import (subprocess|requests|httpx|urllib|socket|importlib|logging|sqlite|sqlalchemy|pydantic_ai|openai|anthropic|boto|azure|tomllib|pathlib)|from (subprocess|requests|httpx|urllib|socket|pathlib)|os\.system|__import__|\beval\s*\(|\bexec\s*\(|\.open\s*\(|write_text\s*\(|write_bytes\s*\(|mkdir\s*\(|unlink\s*\(' src\local_ai_guild\council_contracts.py src\local_ai_guild\council_fixture.py src\local_ai_guild\council_validation.py
+rg -n -i -e 'openclaw|runtime[_ -]?agent[_ -]?id|session[_ -]?id|model[_ -]?name|workspace[_ -]?path|provider[_ -]?(configuration|config)' src\local_ai_guild\council_contracts.py src\local_ai_guild\council_fixture.py src\local_ai_guild\council_validation.py
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret|password)\s*[:=]\s*["''][^"'']{8,}["'']' .
+rg --pcre2 -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?<![0-9])10\.(?:[0-9]{1,3}\.){2}[0-9]{1,3}(?![0-9])|(?<![0-9])192\.168\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?<![0-9])172\.(?:1[6-9]|2[0-9]|3[01])\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?i:https?://[^/\s]*(?:\.local|\.internal)(?:[/:\s]|$))' .
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?i)C:\\Users\\|\\\\[A-Za-z0-9._-]+\\|(?i)(hostname|internal endpoint|connection string)\s*[:=]\s*\S+' .
+```
+
+Results: the prohibited-surface, runtime-specific-field, credential, and private-address
+scans returned no matches. The first broad prohibited-surface expression matched only
+the legitimate `approval_requests` field; the refined import and call syntax scan above
+returned no matches. The machine-specific scan returned only documented scan text and
+synthetic path-rejection fixtures. No publishable checkpoint content contained a
+credential-like value, private address, personal path, hostname, internal endpoint, or
+connection string.
+
+```powershell
+git diff --cached --name-status
+git ls-files --others --exclude-standard
+git diff --stat
+git diff --name-status
+git diff -- README.md PROJECT_STATE.md ROADMAP.md DECISIONS.md OPEN_QUESTIONS.md NEXT_WORK_PACKET.md src/local_ai_guild/cli.py
+git diff -- docs/architecture/COMPONENT_MODEL.md docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md docs/architecture/EXECUTION_FLOW.md docs/architecture/KNOWLEDGE_PROMOTION_POLICY.md docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md
+Get-Content src/local_ai_guild/council_contracts.py
+Get-Content src/local_ai_guild/council_fixture.py
+Get-Content src/local_ai_guild/council_validation.py
+Get-Content tests/test_council_contracts.py
+```
+
+The Git index was empty. The untracked set contained exactly the three Council source
+modules and focused test file. The complete tracked diff and every untracked file were
+inspected. The checkpoint changed no dependency, script, configuration, existing O2/O3
+contract, trace, loader, validator, fixture, or test.
+
+These checks establish only strict portable contract behavior and deterministic
+in-memory consistency for the public synthetic proceeding. They do not establish a
+completed Council, external truth, approval authenticity, knowledge mutation,
+persistence, runtime capability, runtime isolation, OpenClaw suitability, model
+quality, or readiness to begin R4B.

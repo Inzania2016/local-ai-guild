@@ -99,3 +99,30 @@ Future durable architecture decisions should receive focused records under `docs
 - Keep O3 to fixed loading, deterministic in-memory validation, and immutable result
   comparison. Add no mutation, persistence, model, runtime, OpenClaw, routing,
   retrieval, executor, approval workflow, or external inspection.
+
+## Portable Council contract decisions — 2026-07-26
+
+- Implement the minimum institutional set as ten strict, frozen, extra-forbid Pydantic
+  contracts plus one exact in-memory `CouncilProceeding`; do not build a generalized
+  ontology, graph, loader, persistence layer, or workflow engine.
+- Keep every authoritative identifier in the Council-owned durable identifier grammar.
+  Exclude runtime agent IDs, session IDs, model names, workspace paths, runtime-native
+  objects, and provider configuration from Council authority fields.
+- Represent a frozen position with a Council-owned SHA-256 content digest and explicit
+  integrity status so reviews target a stable version.
+- Keep evidence provenance and epistemic classification separate. Verification has no
+  approval field; a validator issue rejects any decision that treats verification as
+  its approval request.
+- Make approval and promotion request-only contracts. Human decisions are separate
+  durable records, and knowledge-promotion requests cannot directly mutate knowledge.
+- Preserve material dissent as strict nested values in the decision record.
+- Treat runtime events as bounded operational telemetry with a Council correlation ID.
+  Runtime events cannot become role, decision, or approval authority.
+- Store every relationship in one canonical direction and derive reverse navigation.
+  This resolves O3's manual-only reciprocal-publication question by not treating
+  reciprocal duplicate edges as an institutional requirement.
+- Validate only essential cross-contract integrity through bounded registry-owned issue
+  codes in deterministic order. Keep the validator exact-type, in-memory,
+  non-executing, and non-persistent.
+- Keep OpenClaw a candidate reference runtime. The checkpoint does not implement a
+  runtime adapter or authorize R4B.

@@ -39,12 +39,23 @@ persistence, runtime, or graph infrastructure.
 Define the runtime-neutral AI Council concepts, ownership boundary, adapter operations, objective runtime requirements, knowledge-promotion policy, OpenClaw candidate mapping, proof-of-concept design, and isolation recommendation. Add no runtime code and do not install or execute a runtime.
 
 R4A was completed early as a documentation-only architecture stage so the OpenClaw candidate could be placed behind the correct portable boundary. O3 now supplies the
-synthetic handoff experiment that remained next after R4A. R4B stays blocked until O3
-is accepted and the minimum portable Council contracts are defined and accepted.
+synthetic handoff experiment that remained next after R4A.
+
+## Portable Council contracts checkpoint
+
+Define the minimum strict runtime-neutral role, packet, position, review, evidence,
+verification, approval-request, decision, knowledge-promotion, and runtime-event
+contracts. Validate one public synthetic proceeding deterministically in memory. Store
+each relationship in one canonical direction and derive reverse navigation. These
+contracts are not a completed Council implementation or runtime adapter.
 
 ## R4B — OpenClaw reference-runtime proof of concept
 
-Under a separately approved packet, test OpenClaw only as a candidate reference runtime against the R4A requirements and compare it with a smaller custom dispatcher. R4B cannot begin until the minimum portable Council contracts are defined and accepted. Runtime installation, model configuration, and execution require explicit authorization.
+Under a separately approved packet, test OpenClaw only as a candidate reference runtime
+against the R4A requirements and compare it with a smaller custom dispatcher. R4B
+cannot begin until the portable contracts are accepted and a separate documentation-only
+entry-gate review determines that an experiment packet may be proposed. Runtime
+installation, model configuration, and execution require explicit authorization.
 
 ## R4C — Runtime adoption decision
 

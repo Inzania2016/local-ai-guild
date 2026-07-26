@@ -4,14 +4,15 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The accepted published baseline is `c68632b27802924b94e135f61ed153a4dd6c4485`.
-The current uncommitted O3 implementation adds one public synthetic handoff packet, one
-fixed contract-valid incomplete trace, and a deterministic comparison between an
-immutable manual-review assertion and the existing O2 validator. R4A remains
-documentation-only architecture, and OpenClaw remains an unevaluated candidate
-reference runtime. No provider, dispatcher, executor, retrieval system, graph database,
-generalized ontology infrastructure, model runtime, cloud integration, persistence
-layer, or training pipeline is implemented or claimed to have been tested.
+The accepted published baseline is `a3e6facaf77153486236ebea5b4a383d216e7bcf`.
+O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current
+uncommitted checkpoint defines the minimum strict runtime-neutral Council contracts,
+one public synthetic in-memory proceeding, and deterministic cross-contract validation.
+These contracts are not a completed Council implementation or runtime adapter. OpenClaw
+remains an unevaluated candidate reference runtime. No provider, dispatcher, executor,
+retrieval system, graph database, generalized ontology infrastructure, model runtime,
+cloud integration, persistence layer, or training pipeline is implemented or claimed
+to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -77,8 +78,28 @@ findings are experiment assertions, and deterministic findings establish structu
 consistency only. Neither proves external truth, approval authenticity, artifact
 existence, or general ontology correctness. O3 adds no experiment CLI command,
 mutation, persistence, runtime, model, OpenClaw component, routing, retrieval, or
-execution.
-O3 is published at a307d1274a88a64ed6dd9a334f4f757f6d67ed80
+execution. O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`.
+
+## Minimum portable Council contracts
+
+The checkpoint defines strict, frozen, extra-forbid contracts for roles, work packets,
+frozen positions, cross-reviews, evidence, verification, approval requests, decisions,
+knowledge-promotion requests, and bounded runtime events. Council-owned durable
+identifiers remain authoritative; runtime agent IDs, sessions, model names, workspace
+paths, provider configuration, and runtime-native objects are absent from the
+institutional contracts.
+
+One immutable public synthetic proceeding covers two independently frozen positions,
+cross-review, deterministic verification, a human approval request, a
+disagreement-preserving decision, a knowledge-promotion proposal, and portable runtime
+telemetry. The validator reports bounded registry-owned issues for essential
+cross-contract failures and performs no I/O or mutation.
+
+Relationships have one canonical stored direction. Reverse navigation is derived and
+non-authoritative, resolving O3's manual-only reciprocal-publication question without
+adding duplicate edges. `RuntimeEvent` is operational telemetry correlated through
+Council IDs, not institutional truth. Verification cannot establish human approval,
+approval requests execute nothing, and knowledge-promotion requests mutate nothing.
 
 ## Portable Council runtime planning
 

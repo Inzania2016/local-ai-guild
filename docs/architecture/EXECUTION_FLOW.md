@@ -49,9 +49,27 @@ No step may silently escalate to cloud execution or unrestricted shell access.
 6. Report the known missing repository approval-evidence record without inferring that approval failed or did not occur.
 7. Stop in memory. Do not resolve citations, inspect Git, run verification commands, read declared artifact paths, mutate approval, execute tools, persist a trace, or expose a trace CLI command.
 
-## Planned portable Council flow
+## Implemented portable Council contract checkpoint
 
-This R4A flow is conceptual and unimplemented:
+The checkpoint represents the institutional records needed by the portable flow:
+
+1. Validate exact Council-owned role and work-packet contracts.
+2. Represent independent submissions as frozen positions with Council-owned digests.
+3. Point cross-reviews at frozen positions in one canonical relationship direction.
+4. Keep evidence provenance separate from epistemic classification.
+5. Keep deterministic verification separate from human approval requests.
+6. Preserve human decision rationale and material dissent.
+7. Represent knowledge promotion as a proposal with evidence, review, and applicable
+   approval references.
+8. Correlate bounded runtime telemetry only through Council identifiers.
+9. Validate the complete in-memory proceeding with deterministic registry-owned issues.
+10. Stop without mutation, persistence, runtime interaction, or execution.
+
+This is contract representation and validation, not a completed Council workflow.
+
+## Planned portable Council runtime flow
+
+The runtime-hosted R4A flow remains conceptual and unimplemented:
 
 1. Validate Council-owned role contracts and one bounded work packet.
 2. Ask a replaceable adapter to create isolated member sessions under externally enforced permissions and budgets.
@@ -64,4 +82,7 @@ This R4A flow is conceptual and unimplemented:
 9. Store the decision and any approved knowledge promotion in durable runtime-independent records.
 10. Export bounded runtime events for independent inspection and tear down every session and workspace.
 
-Runtime output, memory, status, or event records cannot approve a decision or promote knowledge. OpenClaw is only a candidate reference runtime for a future R4B experiment, which cannot begin until the minimum Council contracts are defined and accepted.
+Runtime output, memory, status, or event records cannot approve a decision or promote
+knowledge. OpenClaw is only a candidate reference runtime for a future R4B experiment,
+which cannot begin until the minimum Council contracts are accepted and a separate
+entry-gate review and experiment packet receive human approval.

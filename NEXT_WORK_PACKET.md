@@ -1,70 +1,68 @@
 # Next Work Packet
 
-## Proposed checkpoint — Minimum portable Council contracts
+## Proposed R4B entry-gate review
 
-This is proposed work only. It is not authorized by O3, does not authorize R4B, and
-requires a separate approved work packet before implementation.
+This is proposed documentation-only work. It is not authorized by the portable
+contract checkpoint, does not authorize R4B, and requires a separate approved packet.
 
 ### Goal
 
-Define the smallest runtime-neutral contracts required to preserve Council authority
-across a replaceable runtime adapter and to make a later R4B proposal reviewable.
-
-### Candidate contract set
-
-- Role
-- Work packet
-- Frozen position
-- Cross-review
-- Evidence
-- Verification
-- Approval request
-- Decision record
-- Knowledge promotion
-- Runtime event
+Compare the human-accepted minimum portable Council contracts with the six
+runtime-adoption gates and determine whether an OpenClaw proof-of-concept packet may be
+proposed for explicit human authorization.
 
 ### In scope
 
-- Define strict, frozen, extra-forbid portable contracts for the candidate set.
-- Keep Council identifiers and durable state independent of runtime-native objects.
-- Define bounded relationships, authority fields, lifecycle states, and redaction-safe
-  serialization needed by a future adapter boundary.
-- Add focused public or synthetic tests for construction, corruption resistance,
-  deterministic serialization, and cross-contract consistency.
-- Record unresolved choices rather than selecting a runtime-specific representation.
+- Review the accepted role, work-packet, frozen-position, cross-review, evidence,
+  verification, approval-request, decision-record, knowledge-promotion, and
+  runtime-event contracts against each adoption gate.
+- Confirm that the minimum Council flow remains representable without runtime-native
+  authority or reciprocal relationship edges.
+- Inventory the experiment-specific threat model, isolation design, teardown procedure,
+  license review, bounded event requirements, and explicit human authorization still
+  required before any runtime installation or execution.
+- Record each gate as satisfied by current evidence, blocked, or requiring a separately
+  authorized R4B experiment.
+- Produce documentation findings and a recommendation only.
+
+### Six gates to review
+
+1. Minimum Council flow can be represented.
+2. Isolation and permissions are acceptable.
+3. Execution records are complete and inspectable.
+4. Local and cloud routing and costs are visible.
+5. Council artifacts remain runtime-independent.
+6. Runtime value exceeds security and operational cost.
 
 ### Out of scope
 
-- OpenClaw installation, configuration, download, execution, or adoption.
-- A runtime adapter, dispatcher, executor, worker, session, tool, or model integration.
-- R4B implementation or authorization.
-- Retrieval, embeddings, vector databases, graph infrastructure, or persistence.
-- Automatic approval, decision, knowledge promotion, commit, or publication.
-- Project-license selection or model, dataset, and adapter license approval.
+- Authorizing or implementing R4B.
+- Installing, downloading, configuring, or executing OpenClaw or another runtime.
+- Adding a runtime adapter, model, provider, tool, worker, session, or workspace.
+- Running an OpenClaw capability or security experiment.
+- Selecting or adopting a runtime.
+- Creating a runtime-selection ADR.
+- Changing the accepted portable Council contracts.
 
 ### Acceptance evidence
 
-- Every contract has a documented portable purpose and Council/runtime owner.
-- No contract embeds OpenClaw or another runtime's identifiers, objects, permissions,
-  sessions, memory, or configuration as authoritative Council state.
-- Trusted construction and deterministic serialization boundaries are tested.
-- Public or synthetic fixtures are used exclusively.
-- Ruff, formatting, pytest, CLI status, repository verification, security scans, and
-  diff checks pass.
-- Human review explicitly accepts the minimum contracts before any R4B packet may be
-  proposed.
+- Every gate cites current repository evidence and states its remaining evidence gap.
+- Contract coverage is distinguished from runtime capability evidence.
+- OpenClaw remains a candidate reference runtime, not a selected or adopted runtime.
+- The review explicitly states that no installation or execution is authorized.
+- Any future R4B proposal names its threat model, isolation, teardown, license, data,
+  credential, model, tool, budget, and human-approval boundaries.
+- Documentation verification, sensitive-data scans, diff checks, and human review pass.
 
 ### Deferred
 
-- Runtime selection and the runtime-selection ADR.
-- OpenClaw reference-runtime evaluation and custom-dispatcher comparison.
-- Adapter implementation, runtime events ingestion, and external isolation testing.
-- Persistent Council records, retrieval, and generalized ontology or graph design.
+- OpenClaw POC implementation and custom-dispatcher comparison.
+- Runtime installation, model configuration, adapter code, and event ingestion.
+- R4C runtime adoption decision and runtime-selection ADR.
 
 ## R4B remains blocked
 
-R4A is documentation-only and OpenClaw remains a candidate reference runtime, not a
-selected or adopted dependency. O3 supplies synthetic handoff evidence but does not
-itself satisfy the minimum portable-contract gate. R4B cannot begin until O3 is
-accepted, the portable contracts above are separately implemented and accepted, and a
-new packet explicitly authorizes the runtime experiment.
+The portable contracts are not a runtime entry authorization. R4B remains blocked until
+the contracts are accepted by a human, this documentation-only entry-gate review is
+completed and accepted, and a later packet explicitly authorizes the bounded runtime
+experiment, installation, and execution.

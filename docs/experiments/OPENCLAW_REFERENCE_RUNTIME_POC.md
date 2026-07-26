@@ -105,7 +105,10 @@ OpenClaw must be treated as untrusted and cannot serve as its own security bound
 
 ## Entry and stop conditions
 
-R4B cannot begin until the minimum Council contracts are defined and accepted, licenses are reviewed, the isolation design is approved, and a human explicitly authorizes installation and execution.
+The minimum Council contracts are now defined but remain pending human acceptance. R4B
+cannot begin until a separate entry-gate review is accepted, licenses are reviewed, the
+isolation design is approved, and a human explicitly authorizes installation and
+execution.
 
 Stop the experiment on any unauthorized network or cloud route, permission escape, cross-role memory exposure, missing required event record, unbounded loop or worker spawn, credential exposure, inability to freeze a position externally, or attempt to represent runtime state as Council approval or authority.
 

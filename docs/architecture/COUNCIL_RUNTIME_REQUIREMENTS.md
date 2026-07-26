@@ -61,4 +61,9 @@ The runtime is untrusted and cannot serve as its own security boundary. Host, ne
 
 ## R4B readiness
 
-R4B remains blocked until the minimum Council contracts in `COUNCIL_RUNTIME_BOUNDARY.md` are defined and reviewed, an experiment-specific threat model and teardown procedure exist, license and use restrictions are reviewed, and a human explicitly authorizes runtime installation and execution.
+The portable contract checkpoint defines the minimum Council contracts in
+`COUNCIL_RUNTIME_BOUNDARY.md`; they remain pending human acceptance. R4B remains
+blocked until a documentation-only entry-gate review covers all six adoption gates, an
+experiment-specific threat model and teardown procedure exist, license and use
+restrictions are reviewed, and a human explicitly authorizes runtime installation and
+execution.

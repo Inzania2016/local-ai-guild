@@ -10,7 +10,7 @@ Last updated: 2026-07-26
 - The three R1 tool identifiers are harmless test contracts, not production tools. The router stops at a validated proposal or typed refusal.
 - The repository path is `C:\dev\source\Repos\local-ai-guild`.
 - Python is pinned to 3.12 for project work.
-- The CLI remains a harmless project `status` command and reports the O3 synthetic handoff experiment stage.
+- The CLI remains a harmless project `status` command and reports the portable Council contracts checkpoint stage.
 - Example configuration files contain no live provider or model connection details.
 - Pydantic 2.13.4 is the sole runtime dependency and is confined to validation, serialization, and JSON Schema generation at untrusted boundaries.
 - R1 validation issues retain stable error codes, bounded generic messages, and sanitized schema-owned locations; rejected values and attacker-chosen field names are not serialized.
@@ -45,8 +45,24 @@ Last updated: 2026-07-26
 - O3 establishes only synthetic structural comparison behavior. It does not prove
   external truth, approval authenticity, artifact existence, human identity, or
   general ontology correctness.
-  O3 is published at a307d1274a88a64ed6dd9a334f4f757f6d67ed80
+- O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`.
 - R4A documents a portable AI Council/runtime ownership boundary, objective runtime requirements, a knowledge-promotion policy, and an OpenClaw reference-runtime proof-of-concept design. These are architecture artifacts only.
+- The portable contract checkpoint implements strict, frozen, extra-forbid
+  `RoleContract`, `CouncilWorkPacket`, `FrozenPosition`, `CrossReview`,
+  `CouncilEvidence`, `VerificationRecord`, `ApprovalRequest`, `DecisionRecord`,
+  `KnowledgePromotionRequest`, and `RuntimeEvent` contracts.
+- One immutable public synthetic in-memory proceeding contains four roles, two
+  independently frozen positions, one cross-review, deterministic verification, a
+  human approval request, one dissent-preserving decision, a knowledge-promotion
+  proposal, and three portable runtime events.
+- The deterministic proceeding validator checks essential identifier, reference,
+  frozen-review, approval, promotion, runtime-correlation, and runtime-authority
+  boundaries with registry-owned issues in fixed order. It performs no I/O, mutation,
+  persistence, execution, or external resolution.
+- Council relationships store one canonical direction. Reverse navigation is derived
+  and non-authoritative; reciprocal duplicate edges are not required.
+- These are minimum portable contracts, not a completed Council, deliberation engine,
+  approval workflow, promotion engine, persistence layer, or runtime adapter.
 - OpenClaw is a candidate reference runtime. It has not been selected, approved, adopted, installed, configured, downloaded, or executed.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
 - The repository-local environment uses Python 3.12.6 with Ruff 0.15.22 and pytest 8.4.2.
@@ -72,14 +88,14 @@ Last updated: 2026-07-26
 
 R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`,
 O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`,
-and the accepted R4A sequencing baseline is
-`c68632b27802924b94e135f61ed153a4dd6c4485`. O3 is implemented in the working tree
-and remains uncommitted and unpushed pending human review. O3 does not validate a
-model, external truth, executor, dispatcher, approval workflow, retrieval service,
-runtime integration, evidence authenticity, generalized ontology, or cloud adapter.
-Trace completeness is not a repository progression gate.
+and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The accepted
+published baseline is `a3e6facaf77153486236ebea5b4a383d216e7bcf`. The minimum
+portable Council contracts are implemented in the working tree and remain uncommitted
+and unpushed pending human review. They do not validate a model, external truth,
+executor, dispatcher, approval workflow, retrieval service, runtime integration,
+evidence authenticity, generalized ontology, or cloud adapter.
 
 R4A documentation was completed ahead of O3 to position OpenClaw correctly as a
-candidate reference runtime without advancing executable work. O3 does not authorize
-R4B. The proposed next packet is a small minimum portable Council-contract checkpoint;
-R4B remains blocked until O3 and those contracts are accepted.
+candidate reference runtime without advancing executable work. The contract checkpoint
+does not authorize R4B. R4B remains blocked pending human acceptance of these contracts
+and a separate documentation-only R4B entry-gate review.
