@@ -56,4 +56,4 @@ Last updated: 2026-07-26
 
 R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`, and O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`. O2 does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, generalized ontology, or cloud adapter. O2 trace completeness is not a repository progression gate. O3 remains the next implementation packet and has not begun. R4A is documentation-only architecture work; R4B has not begun.
 
-R4A’s documentation-only runtime boundary was completed ahead of O3 so the OpenClaw candidate could be placed correctly in the architecture. O3 remains the next implementation experiment and must complete before R4B begins.
+R4A documentation was completed ahead of O3 to position OpenClaw correctly as a candidate reference runtime without advancing executable work. O3 remains unimplemented and is the next implementation packet. R4B is blocked until O3 is complete and the minimum portable Council contracts are accepted.

@@ -34,6 +34,8 @@ Under a separately approved packet, document one synthetic completed packet and 
 
 Define the runtime-neutral AI Council concepts, ownership boundary, adapter operations, objective runtime requirements, knowledge-promotion policy, OpenClaw candidate mapping, proof-of-concept design, and isolation recommendation. Add no runtime code and do not install or execute a runtime.
 
+R4A was completed early as a documentation-only architecture stage so the OpenClaw candidate could be placed behind the correct portable boundary. This does not advance executable work: O3 remains the next implementation experiment, and R4B stays blocked until O3 is complete and the minimum portable Council contracts are accepted.
+
 ## R4B — OpenClaw reference-runtime proof of concept
 
 Under a separately approved packet, test OpenClaw only as a candidate reference runtime against the R4A requirements and compare it with a smaller custom dispatcher. R4B cannot begin until the minimum portable Council contracts are defined and accepted. Runtime installation, model configuration, and execution require explicit authorization.
@@ -49,5 +51,3 @@ Under a separately approved implementation packet, build the first adapter for t
 ## Later stages
 
 Retrieval experiments, bounded coding work, optional cloud escalation adapters, and possible router fine-tuning follow only after earlier gates produce evidence.
-
-R4A’s documentation-only runtime boundary was completed ahead of O3 so the OpenClaw candidate could be placed correctly in the architecture. O3 remains the next implementation experiment and must complete before R4B begins.
