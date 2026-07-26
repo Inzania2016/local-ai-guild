@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The project is at **R3: deterministic evaluation harness**. R3 runs a fixed set of versioned public or synthetic cases through the existing R1 router and R2 evidence/policy pipeline, compares only stable typed outcomes, and returns bounded in-memory results. It does not execute tools, connect a model runtime, persist benchmark history, or prove external correctness. No provider, dispatcher, executor, retrieval system, cloud integration, or training pipeline is implemented or claimed to have been tested.
+The current working tree implements **O2: R2 evidence-trace validation pilot**. O2 loads one fixed repository-owned TOML trace for the completed R2 packet, validates it through strict contracts, and reports deterministic in-memory findings. The trace is subordinate to its cited authority sources: TOML is the pilot representation, Pydantic is the schema implementation, and neither is an external-truth or approval system. No provider, dispatcher, executor, retrieval system, graph database, generalized ontology infrastructure, model runtime, cloud integration, persistence layer, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -49,6 +49,12 @@ R3 defines strict expected-result, evaluation-case, bounded-mismatch, case-resul
 
 Passing cases establish only that the current deterministic R1/R2 implementation matched the repository-owned synthetic expectations. Expected results are test assertions, not observations of external truth or model-quality scores. Results exclude raw commands, queries, document paths, exception text, timing, execution state, and arbitrary caller metadata. R3 exposes no evaluation CLI command and writes no schemas, traces, or benchmark history.
 
+## O2 fixed R2 evidence-trace pilot
+
+O2 parses only `docs/traces/r2-closeout.toml` with Python 3.12 standard-library `tomllib`. The fixed loader accepts no caller path and performs the pilot's only new runtime I/O. The fixture is repository content rather than wheel package data, so this pilot supports a repository checkout or editable install and does not claim standalone installed-wheel support. Ten strict record contracts preserve typed requirements, evidence locators, authorities, constraints, decisions, artifacts, verification, the publication gate, the R2 commit identity, and the documented R3 next action. Relationships are checked in memory without reading cited files, inspecting Git, running commands, resolving URLs, or validating external facts.
+
+The trace contract is structurally valid, but its deterministic result is trace-incomplete because the repository lacks a first-class record of the human authorization event for R2 publication. This does not mean approval failed or did not occur. The validator also records that commit identity proves neither authorization nor correctness and that repository assertions are not external truth. O2 is not a repository progression gate and exposes no trace CLI command.
+
 ## Planned storage layout
 
 - Repository: `C:\dev\source\Repos\local-ai-guild`
@@ -64,6 +70,7 @@ These locations are documented plans, not evidence that the directories or runti
 - `docs/decisions/`: future architecture decision records
 - `docs/experiments/`: experiment designs and results
 - `docs/verification/`: durable verification procedures
+- `docs/traces/`: fixed, repository-reviewed trace fixtures
 - `src/local_ai_guild/`: Python package
 - `tests/`: deterministic automated tests
 - `evals/`: reserved for separately approved future evaluation artifacts

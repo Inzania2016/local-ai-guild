@@ -38,3 +38,13 @@ No step may silently escalate to cloud execution or unrestricted shell access.
 5. Build a bounded case result bound privately to its case identifier and expected result, without copying command text, query text, document paths, proposal arguments, exceptions, timing, or execution state.
 6. Aggregate a non-empty exact case tuple into an evaluator-built ordered in-memory summary that rechecks result bindings, order, and counts.
 7. Stop. No tool, model, retrieval service, approval workflow, persistence layer, or ontology component is invoked.
+
+## Implemented O2 trace-validation flow
+
+1. Open only the fixed repository-owned `docs/traces/r2-closeout.toml`.
+2. Parse it with Python 3.12 standard-library `tomllib`.
+3. Convert the TOML boundary once into exact strict, frozen trace contracts.
+4. Recheck the validated document, nested evidence, identifiers, statuses, private order binding, and explicit typed relationships.
+5. Produce registry-owned bounded findings in fixed order and bind the result privately to the trace identifier and ordered record identifiers.
+6. Report the known missing repository approval-evidence record without inferring that approval failed or did not occur.
+7. Stop in memory. Do not resolve citations, inspect Git, run verification commands, read declared artifact paths, mutate approval, execute tools, persist a trace, or expose a trace CLI command.

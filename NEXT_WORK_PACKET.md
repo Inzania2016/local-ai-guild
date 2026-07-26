@@ -1,39 +1,38 @@
 # Next Work Packet
 
-## O1 — Read-only ontology discovery and evidence-trace pilot design
+## O3 — New-packet handoff completeness experiment
 
 ### Goal
 
-Analyze the existing repository workflow, implicit entity and relationship vocabulary, epistemic and lifecycle state candidates, and one narrow R2 work-packet evidence-trace pilot without modifying implementation files.
+Document one synthetic completed packet and one R2-style trace, then compare manual review with deterministic missing-link and illegal-transition detection.
 
 ### In scope
 
-- Review current repository artifacts, authority documents, workflows, and implemented R1 through R3 contracts.
-- Inventory existing implicit entities and relationships without introducing a generalized ontology implementation.
-- Separate taxonomy, schema, ontology, tags, and graph concepts precisely.
-- Identify candidate epistemic states and lifecycle states while keeping proposals distinct from decisions.
-- Design one narrow read-only evidence-trace pilot for an R2-style work packet.
-- Identify deterministic validation rules and list the human decisions required before any implementation.
-- Produce analysis and a bounded pilot design only.
+- Use one public or synthetic completed packet created specifically for the experiment.
+- Represent the packet with one bounded R2-style trace.
+- Identify missing handoff links and illegal lifecycle transitions deterministically.
+- Compare omissions found manually with omissions found by the validator.
+- Record only bounded findings and documented limitations.
 
 ### Out of scope
 
-- Repository, source, test, prompt, role, configuration, or workflow implementation changes during the first pass.
-- General ontology entities, generic relationship graphs, RDF, OWL, graph databases, vector databases, or knowledge-graph infrastructure.
-- Epistemic-state transition engines, ontology-driven agent routing, persistence, retrieval, embeddings, model runtimes, cloud adapters, or execution.
+- Automatic state promotion or packet authorization.
+- Agent or model routing.
+- Retrieval, embeddings, or vector databases.
+- Persistence, trace history, audit databases, or graph infrastructure.
+- Model runtimes, model downloads, inference, cloud adapters, or tool execution.
 - Project-license selection or model, dataset, and adapter license approval.
 
 ### Acceptance evidence
 
-- Current implicit entities, relationships, state concepts, and terminology are inventoried with source references.
-- Taxonomy, schema, ontology, tags, and graph concepts are distinguished.
-- One narrow R2 work-packet evidence-trace pilot is described without implementation.
-- Deterministic validation candidates and unresolved human decisions are explicit.
-- Confirmed facts, proposals, hypotheses, and deferred questions remain clearly separated.
+- The experiment uses only public or synthetic data.
+- The packet, trace, manual review, and deterministic findings remain distinguishable.
+- Missing links and illegal transitions are detected without automatic mutation.
+- Results do not claim external truth, evidence authenticity, human approval, or general ontology correctness.
+- Ruff, formatting, pytest, CLI status, repository verification, and diff checks pass.
 
 ### Deferred
 
-- Any ontology or trace implementation.
-- Prompt, agent-role, or routing changes.
-- Persistent graph, audit, trace, or benchmark infrastructure.
-- Model selection, model-backed evaluation, execution, retrieval, and runtime integrations.
+- Generalized ontology or graph design.
+- Persistent trace history and audit reporting.
+- Runtime, model, retrieval, execution, and cloud integration.

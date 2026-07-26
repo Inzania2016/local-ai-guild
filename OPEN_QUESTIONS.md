@@ -33,3 +33,11 @@ This file separates resolved design questions from questions deferred to later p
 - Keep mismatch output to registry-owned constant codes and messages and keep raw case input out of results and summaries.
 - Treat a passing evaluation as deterministic contract conformance only, not model evaluation or external truth.
 - Defer ontology discovery and evidence-trace design to the proposed analysis-only O1 packet.
+
+## Resolved in O2
+
+- Use one fixed TOML representation for the completed R2 trace and parse it only through standard-library `tomllib`.
+- Keep the pilot to ten strict record types with embedded requirements and evidence rather than a generalized ontology or relationship graph.
+- Distinguish contract validity from trace completeness. The official fixture is contract-valid but incomplete because no first-class R2 publication-approval record is present.
+- Treat `unknown_from_repository` as an evidence limitation, not proof that approval failed or did not occur.
+- Keep citation authenticity, citation freshness, external truth, human identity, approval authenticity, persistence, and generalized ontology design outside O2.

@@ -22,6 +22,14 @@ Create versioned public or synthetic routing/policy cases, deterministic typed c
 
 Under a separately approved analysis-only packet, inventory implicit workflow entities, relationships, epistemic states, and lifecycle states, then design one narrow R2 work-packet trace pilot. The first pass makes no repository, prompt, role, or implementation changes.
 
+## O2 — R2 evidence-trace validation pilot
+
+Represent the completed R2 packet in one fixed repository-owned TOML trace, validate strict typed relationships deterministically, and stop with bounded in-memory findings. Do not add generalized ontology, graph, retrieval, persistence, execution, model, runtime, or approval infrastructure.
+
+## O3 — New-packet handoff completeness experiment
+
+Under a separately approved packet, document one synthetic completed packet and one R2-style trace, then compare manual omissions with deterministic missing-link and illegal-transition findings. Do not implement automatic state promotion, routing, retrieval, persistence, runtime, or graph infrastructure.
+
 ## R4 — First local runtime experiment
 
 Under a separately approved packet, connect one runtime adapter behind existing contracts and evaluate a candidate locally. Model downloads and runtime setup require explicit authorization.

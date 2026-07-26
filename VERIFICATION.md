@@ -493,3 +493,218 @@ Execution/infrastructure and filesystem-method scans returned exit 1 with no mat
 Dependency inspection again reported `['pydantic>=2,<3']` as the sole runtime dependency and `['pytest>=8.3,<9', 'ruff>=0.9,<1']` as development dependencies.
 
 The closeout corrections changed only R3 source, focused tests, and the R3 documentation needed to describe evaluator-built results and summaries. R1 and R2 implementation files remain unchanged. O1 remains documentation-only and has not begun.
+
+## O2 verification — 2026-07-25
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` against accepted published baseline `3285d4410111f512068b33d9581ba97bc7690bd2`, which matched `origin/main` before implementation. O2 used only public repository citations and synthetic invalid markers. All changes remained unstaged, uncommitted, and unpushed.
+
+O2 added one fixed `docs/traces/r2-closeout.toml` fixture, strict trace contracts, a fixed standard-library TOML loader, and a deterministic in-memory semantic validator. The loader accepts no caller path. The verifier checks O2 file presence and the normal Python suite, but trace completeness is not a repository progression gate.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable package was refreshed in the repository-local Python 3.12.6 environment. Pydantic 2.13.4 remained the sole runtime dependency; pytest 8.4.2 and Ruff 0.15.22 remained development dependencies. No model, runtime, AI SDK, or additional dependency was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 22 Python files were already formatted, pytest collected and passed 361 tests in 4.07 seconds, the CLI reported `O2: R2 evidence-trace validation pilot`, and repository verification passed.
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+```
+
+Result: exit 0, `All checks passed!`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff format --check .
+```
+
+Result: exit 0, `22 files already formatted`.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Result: exit 0. Pytest collected 361 tests and all 361 passed in 2.11 seconds under Python 3.12.6 and pytest 8.4.2.
+
+```powershell
+.\.venv\Scripts\python.exe -m local_ai_guild status
+```
+
+Result: exit 0.
+
+```text
+Project: Local AI Guild
+Stage: O2: R2 evidence-trace validation pilot
+```
+
+```powershell
+git diff --check
+```
+
+Result: exit 0 with no output.
+
+```powershell
+git status --short --branch
+```
+
+Result: exit 0. `main` remained at `3285d4410111f512068b33d9581ba97bc7690bd2`, matching `origin/main`; all O2 source, trace, test, and documentation changes were unstaged and uncommitted.
+
+### Focused O2 tests
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_contracts.py
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_loading.py
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_validation.py
+```
+
+Results: every command exited 0. Contract tests passed 63 tests in 0.41 seconds, loading tests passed 9 tests in 3.78 seconds, and validation tests passed 26 tests in 0.41 seconds. The 98 focused tests cover strict/frozen/extra-forbid boundaries, identifier and locator grammar, status combinations, all supported relationship shapes, registry completeness, the official fixture, bounded loader errors, unsafe corruption probes, result forgery, redaction, and same- and separate-process determinism.
+
+### Official fixed trace result
+
+```powershell
+.\.venv\Scripts\python.exe -c "from local_ai_guild.trace_validation import validate_r2_trace; print(validate_r2_trace().model_dump_json())"
+```
+
+Result: exit 0. The contract-valid trace contained 30 ordered records and returned `trace_complete=false`, one error, zero warnings, and three informational findings in this order:
+
+1. `missing_approval_evidence` for `approval_gate:r2-publication-v1`
+2. `commit_does_not_prove_authorization` for `commit:r2-publication-v1`
+3. `commit_does_not_prove_correctness` for `commit:r2-publication-v1`
+4. `repository_assertion_not_external_truth` for `work_packet:r2-v1`
+
+The approval message is `No first-class repository approval record is declared for this gate`. It does not assert that approval failed or did not occur. The known completeness error is the intended honest representation of the repository evidence gap and does not make O2 validation a mandatory progression gate.
+
+### Determinism and dependencies
+
+```powershell
+.\.venv\Scripts\python.exe -c "from local_ai_guild.trace_validation import validate_r2_trace; a=validate_r2_trace().model_dump_json(); b=validate_r2_trace().model_dump_json(); assert a == b; print(f'same-process deterministic: true; utf8_bytes: {len(a.encode())}')"
+```
+
+Result: exit 0, `same-process deterministic: true; utf8_bytes: 1072`.
+
+Two separate Python processes ran the official validation and their serialized results were compared case-sensitively.
+
+Result: exit 0, `separate-process deterministic: true; utf8_bytes: 1072`.
+
+```powershell
+.\.venv\Scripts\python.exe -c "import tomllib,pathlib; data=tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8')); print(data['project']['dependencies']); print(data['project']['optional-dependencies']['dev'])"
+```
+
+Result: exit 0. Runtime dependencies remained `['pydantic>=2,<3']`; development dependencies remained `['pytest>=8.3,<9', 'ruff>=0.9,<1']`. TOML parsing uses Python 3.12 standard-library `tomllib`.
+
+### Security and prohibited-surface review
+
+Credential-pattern and private-address scans covered repository content while excluding `.git`, `.venv`, bytecode, and caches. Both corrected commands exited 0 with explicit no-match output: no candidate access key, token, private-key block, or private IPv4 address was found. Synthetic `PRIVATE` and `MARKER` strings appear only in focused redaction and corruption tests and are asserted absent from errors and results.
+
+The first composed private-address scan attempt failed because its regular expression used unsupported look-around in the default Ripgrep engine. The expression was replaced with an equivalent supported word-boundary form and the corrected scan passed. No repository change was needed.
+
+```powershell
+rg -n 'model_construct|\bconstruct\s*\(|model_copy\s*\([^)]*update|SkipValidation|BeforeValidator|model_validate|TypeAdapter|validate_python' src/local_ai_guild/trace_contracts.py src/local_ai_guild/trace_loading.py src/local_ai_guild/trace_validation.py
+```
+
+Result: exit 1 with no matches. Production O2 source contains no construction bypass, unchecked copy update, coercive parser helper, or general raw-data validation API. Deliberate `model_construct()` and `model_copy(update=...)` uses remain confined to tests that prove trusted-boundary rejection.
+
+The first broad prohibited-surface expression reported only the three intentional `re.compile(...)` calls used for bounded syntax patterns. The scan was narrowed to distinguish regular-expression compilation from Python's code-compilation builtin.
+
+```powershell
+rg -ni 'subprocess|os\.system|requests|httpx|urllib|socket|importlib|__import__|(^|[^.A-Za-z0-9_])eval\s*\(|(^|[^.A-Za-z0-9_])exec\s*\(|(^|[^.A-Za-z0-9_])compile\s*\(|logging|sqlite|sqlalchemy|pydantic_ai|\bopenai\b|anthropic|\bboto\b|\bazure\b|\bmcp\b|\bembeddings?\b|vector.?database|\brdf\b|\bowl\b|\bsparql\b|knowledge.?graph|execute_tool|approval_workflow|glob\s*\(|rglob\s*\(|iterdir\s*\(|os\.walk|scandir\s*\(' src/local_ai_guild/trace_contracts.py src/local_ai_guild/trace_loading.py src/local_ai_guild/trace_validation.py
+```
+
+Result: exit 1 with no matches. Production O2 source contains no shell, subprocess, Git invocation, network client, dynamic import, code execution, logging, database, graph, retrieval, model, cloud, tool-execution, approval-workflow, directory-scan, glob, or recursive-loading surface.
+
+The arbitrary-path surface scan returned no matches for caller paths, environment paths, path discovery, URLs, globbing, directory enumeration, or recursive loading. A separate fixed-I/O inspection found only the internal repository-owned `docs/traces/r2-closeout.toml` constant and its single binary open in `trace_loading.py`.
+
+### Diff, index, and ignored-file review
+
+The complete tracked diff and all seven untracked O2 files were inspected. No unrelated file, O1 analysis file, user prompt, conversation content, personal identity, invented approval record, private work data, arbitrary finding prose, or overstated claim was found.
+
+```powershell
+git diff --cached --stat
+git diff --cached --check
+```
+
+Results: exit 0 with no output. The Git index is empty; nothing is staged.
+
+```powershell
+git status --ignored --short
+git ls-files --others --exclude-standard
+```
+
+Results: exit 0. Ignored content was limited to `.venv`, Ruff and pytest caches, and Python bytecode caches. The untracked set contained only the fixed trace, three O2 source modules, and three focused O2 test modules. No generated trace output, model file, secret, local configuration, or runtime state was present.
+
+These checks establish only strict parsing and deterministic internal consistency of one repository-declared R2 trace. They do not establish source-citation authenticity or freshness, external truth, human approval, evidence authenticity, runtime behavior, model quality, tool correctness, retrieval quality, production readiness, or general ontology correctness.
+
+## O2 adversarial closeout audit — 2026-07-26
+
+The audit began from published baseline `3285d4410111f512068b33d9581ba97bc7690bd2`, which matched local `HEAD`, `main`, and `origin/main`. It inspected the complete tracked O2 diff, all seven untracked O2 files, the Git index, ignored content, the fixed fixture, contracts, loader, validator, tests, authority documents, architecture documents, CLI stage, and repository verifier. O3 was not started, and no change was staged, committed, or pushed.
+
+The audit corrected identifier-specific authority behavior, globally unified trace/record/requirement identifier ownership, rejected duplicate relationship targets, constrained evidence kind/provenance/epistemic combinations, derived repository-assertion findings from evidence, made finding and relationship order explicit and complete, required confirmed explicit-human authority for an approval gate, and rejected `not_required` as publication-commit authorization. It also added a fully complete differently identified synthetic trace, complete relationship probes, approval/status forgery probes, result-corruption probes, TOML boundary probes, and four-process complete/incomplete determinism checks.
+
+The repository-checkout limitation is now explicit: `docs/traces/r2-closeout.toml` is repository content rather than wheel package data. O2 supports a repository checkout or editable install and does not claim standalone installed-wheel fixture loading.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The repository-local Python 3.12.6 editable environment was refreshed. Existing Pydantic 2.13.4, pytest 8.4.2, and Ruff 0.15.22 satisfied the declared dependencies. No AI runtime, AI SDK, model, or additional dependency was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 22 Python files were already formatted, pytest collected and passed 452 tests, the CLI reported `O2: R2 evidence-trace validation pilot`, and repository verification passed.
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+```
+
+Results: all commands exited 0. Ruff reported `All checks passed!`; formatting reported `22 files already formatted`; all 452 tests passed under Python 3.12.6 and pytest 8.4.2; the CLI printed:
+
+```text
+Project: Local AI Guild
+Stage: O2: R2 evidence-trace validation pilot
+```
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_contracts.py -q
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_loading.py -q
+.\.venv\Scripts\python.exe -m pytest tests/test_trace_validation.py -q
+```
+
+Results: exit 0. The focused suites passed 94, 22, and 73 tests respectively. They cover all ten exact record types, global durable-ID ownership, all supported relationship fields, reciprocal Decision/Artifact links, evidence/status rules, authority and approval forgery, result binding, complete and incomplete traces, fixed-loader rejection and redaction, and deterministic ordering.
+
+The explicit semantic probes returned:
+
+```text
+official complete=False errors=1 warnings=0 infos=3
+complete_synthetic complete=True errors=0 warnings=0 infos=3
+invalid_semantic complete=False errors=1 warnings=0 infos=3
+```
+
+The official error remained only `missing_approval_evidence`. The complete synthetic trace retained only the three informational limitations. The deliberately invalid trace used a confirmed security-policy authority in place of explicit human authority and produced `unsupported_authority_claim`. Four repeated same-process and four repeated separate-process validations of both incomplete and complete traces were byte-identical.
+
+TOML boundary tests confirmed rejection of parseable datetime, date, time, float, Boolean-in-integer, nested unexpected table, duplicate array-of-table semantic record, empty required array, mixed array, oversized integer, escaped Unicode control, unknown field, and wrong discriminator values. Missing, unreadable, invalid-TOML, and invalid-contract failures remained bounded and excluded source values, parser text, and machine paths.
+
+Dependency inspection reported runtime dependencies `['pydantic>=2,<3']` and development dependencies `['pytest>=8.3,<9', 'ruff>=0.9,<1']`. The parser-bypass scan found no production O2 use of unchecked construction, unchecked copy updates, coercive parser helpers, or general raw-data model validation. The `object` annotations found in production are confined to strict runtime narrowing at the TOML boundary, exact-type consistency checks, and internal registry construction; no `Any` or arbitrary-value model field exists.
+
+The prohibited-surface scan found only Git vocabulary used by the typed Git locator/Commit contract and three intentional `re.compile()` syntax patterns. Filesystem inspection found only the internal fixed path constant and its single binary read. No subprocess, shell, Git invocation, network client, dynamic import, code execution, logging, database, persistence, graph, retrieval, model, cloud, environment lookup, directory discovery, arbitrary-path parameter, executor, or approval workflow exists in production O2 source.
+
+Credential-pattern, private-address, and personal-machine-path scans found no matches. Synthetic `PRIVATE`/`MARKER` values occur only in focused rejection/redaction tests and are asserted absent from errors and serialized results. `git check-ignore` confirmed repository-local environments and caches, real local configuration, `.env` and secret/credential files, model/runtime files, and generated trace, evidence, and benchmark artifacts remain ignored.
+
+```powershell
+git diff --check
+git diff --cached --stat
+git diff --cached --check
+git status --short --branch
+```
+
+Results: all commands exited 0. Diff checks emitted no errors, the index remained empty, and `main` still matched `origin/main` at `3285d4410111f512068b33d9581ba97bc7690bd2`. All O2 changes remained unstaged, uncommitted, and unpushed.
+
+The official trace remains contract-valid but intentionally incomplete. Its missing repository approval record does not prove that approval failed or did not occur. The audit establishes deterministic internal trace consistency and bounded failure behavior only; it does not dynamically resolve citations, authenticate evidence or humans, establish external truth, prove approval or correctness from Git history, validate wheel-installed fixture loading, or add a repository progression gate.

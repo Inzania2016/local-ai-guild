@@ -1,0 +1,482 @@
+schema_version = "0.1"
+trace_identifier = "trace:r2-closeout-v1"
+subject_record_identifier = "work_packet:r2-v1"
+
+[[records]]
+record_type = "goal"
+identifier = "goal:evidence-before-execution-v1"
+title = "Typed evidence and policy before any future execution boundary"
+description = "Establish bounded evidence and deterministic policy metadata before execution exists."
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:3-7", scope = "Historical R2 goal", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "work_packet"
+identifier = "work_packet:r2-v1"
+title = "R2 typed evidence envelopes and deterministic policy checks"
+governed_by = [
+  "authority:r2-work-packet-v1",
+  "authority:security-policy-v1",
+  "authority:verification-policy-v1",
+  "authority:project-owner-v1",
+]
+constrained_by = [
+  "constraint:no-execution-r2-v1",
+  "constraint:no-filesystem-network-shell-r2-v1",
+  "constraint:no-model-runtime-r2-v1",
+  "constraint:no-retrieval-r2-v1",
+  "constraint:no-persistence-r2-v1",
+  "constraint:public-synthetic-only-r2-v1",
+  "constraint:no-automatic-publication-r2-v1",
+  "constraint:no-unverified-claims-r2-v1",
+]
+advances_goal = ["goal:evidence-before-execution-v1"]
+realization_status = "published"
+automated_verification_status = "automated_passed"
+human_verification_status = "not_applicable"
+approval_status = "unknown_from_repository"
+approval_evidence_status = "not_recorded_in_repository"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:1-32", scope = "Historical approved R2 work packet", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+  { kind = "verification_record", locator = "VERIFICATION.md:289-382", scope = "Recorded R2 adversarial closeout", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-typed-evidence-v1"
+statement = "Use typed routing and policy evidence references."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:9-16", scope = "R2 typed evidence scope", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-immutable-registries-v1"
+statement = "Resolve evidence through immutable repository-owned registries."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 registry decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-routing-envelope-v1"
+statement = "Wrap validated routing decisions without raw request content."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:11-14", scope = "R2 envelope scope", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-deny-default-v1"
+statement = "Apply deterministic deny-by-default policy outcomes."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:12-16", scope = "R2 policy scope", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-human-approval-outcome-v1"
+statement = "Represent a non-executing human-approval-required outcome."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:12-16", scope = "R2 approval outcome scope", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-exact-boundaries-v1"
+statement = "Require strict validated exact-type trusted boundaries."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "VERIFICATION.md:289-315", scope = "R2 exact boundary closeout", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-redaction-safe-v1"
+statement = "Keep issues bounded and free of rejected raw content."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:15-16", scope = "R2 redaction scope", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-no-execution-persistence-v1"
+statement = "Stop before execution and persist no trace or audit record."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:18-22", scope = "R2 excluded execution and persistence", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:r2-focused-tests-v1"
+statement = "Verify policy, redaction, and trusted-boundary behavior with focused tests."
+required = true
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:24-30", scope = "R2 acceptance evidence", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "authority_source"
+identifier = "authority:r2-work-packet-v1"
+title = "Approved R2 work packet"
+authority_kind = "approved_work_packet"
+scope = "R2 typed evidence and deterministic policy implementation"
+precedence = 1
+evidence_status = "confirmed_from_repository"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:1-32", scope = "Historical R2 work packet", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "authority_source"
+identifier = "authority:security-policy-v1"
+title = "Repository security policy"
+authority_kind = "security_policy"
+scope = "Public data, secrets, execution, and repository hygiene boundaries"
+precedence = 2
+evidence_status = "confirmed_from_repository"
+evidence = [
+  { kind = "repository_source", locator = "SECURITY.md:3-41", scope = "Repository security authority", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "authority_source"
+identifier = "authority:verification-policy-v1"
+title = "Repository verification record"
+authority_kind = "verification_policy"
+scope = "Recorded R2 deterministic verification and claim limitations"
+precedence = 2
+evidence_status = "confirmed_from_repository"
+evidence = [
+  { kind = "repository_source", locator = "VERIFICATION.md:228-287", scope = "R2 verification record", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "authority_source"
+identifier = "authority:project-owner-v1"
+title = "Public-safe project owner authority"
+authority_kind = "explicit_human_instruction"
+scope = "Human authority over commits and publication"
+precedence = 1
+evidence_status = "confirmed_from_repository"
+evidence = [
+  { kind = "repository_source", locator = "AGENTS.md:14-22", scope = "Human-controlled publication policy", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-execution-r2-v1"
+title = "No tool execution"
+constraint_kind = "execution_boundary"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:18-21", scope = "R2 execution exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-filesystem-network-shell-r2-v1"
+title = "No filesystem, network, shell, or subprocess access"
+constraint_kind = "security"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:18-21", scope = "R2 I/O and shell exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-model-runtime-r2-v1"
+title = "No model runtime or model download"
+constraint_kind = "scope"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:18-21", scope = "R2 model runtime exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-retrieval-r2-v1"
+title = "No retrieval or vector database"
+constraint_kind = "scope"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:18-21", scope = "R2 retrieval exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-persistence-r2-v1"
+title = "No trace, audit, or raw-request persistence"
+constraint_kind = "data_boundary"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:21-22", scope = "R2 persistence exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:public-synthetic-only-r2-v1"
+title = "Public or synthetic fixtures only"
+constraint_kind = "data_boundary"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:9-16", scope = "R2 public or synthetic fixture boundary", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-automatic-publication-r2-v1"
+title = "No automatic commit or push"
+constraint_kind = "execution_boundary"
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@6c44970:21-22", scope = "R2 publication exclusion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:no-unverified-claims-r2-v1"
+title = "No claims beyond recorded deterministic evidence"
+constraint_kind = "claim_boundary"
+evidence = [
+  { kind = "repository_source", locator = "VERIFICATION.md:284-287", scope = "R2 claim boundary", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-typed-evidence-v1"
+title = "Typed registered evidence references"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-evidence-module-v1", "artifact:r2-evidence-tests-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 typed evidence decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-immutable-registry-v1"
+title = "Immutable registry ownership"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-evidence-module-v1", "artifact:r2-evidence-tests-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 immutable registry decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-namespace-separation-v1"
+title = "Routing and policy namespace separation"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-evidence-module-v1", "artifact:r2-policy-module-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 namespace decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-exact-boundaries-v1"
+title = "Exact-type trusted boundaries"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-evidence-module-v1", "artifact:r2-policy-module-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 exact boundary decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-profile-bound-policy-v1"
+title = "Profile-bound policy evaluation"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-policy-module-v1", "artifact:r2-policy-tests-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 profile binding decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-deny-default-v1"
+title = "Deny-by-default precedence"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-policy-module-v1", "artifact:r2-policy-tests-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 deny-default decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:r2-non-executing-outcomes-v1"
+title = "Non-executing policy outcomes"
+selected_by = "authority:r2-work-packet-v1"
+implemented_by = ["artifact:r2-policy-module-v1", "artifact:r2-documentation-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:34-43", scope = "R2 non-execution decision", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:r2-evidence-module-v1"
+title = "R2 typed evidence module"
+artifact_kind = "source"
+repository_path = "src/local_ai_guild/evidence.py"
+implements = [
+  "decision:r2-typed-evidence-v1",
+  "decision:r2-immutable-registry-v1",
+  "decision:r2-namespace-separation-v1",
+  "decision:r2-exact-boundaries-v1",
+  "requirement:r2-typed-evidence-v1",
+  "requirement:r2-immutable-registries-v1",
+  "requirement:r2-routing-envelope-v1",
+]
+verified_by = ["verification:r2-closeout-v1"]
+published_in = ["commit:r2-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "src/local_ai_guild/evidence.py:1-352", scope = "R2 evidence implementation", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:r2-policy-module-v1"
+title = "R2 deterministic policy module"
+artifact_kind = "source"
+repository_path = "src/local_ai_guild/policy.py"
+implements = [
+  "decision:r2-namespace-separation-v1",
+  "decision:r2-exact-boundaries-v1",
+  "decision:r2-profile-bound-policy-v1",
+  "decision:r2-deny-default-v1",
+  "decision:r2-non-executing-outcomes-v1",
+  "requirement:r2-deny-default-v1",
+  "requirement:r2-human-approval-outcome-v1",
+  "requirement:r2-no-execution-persistence-v1",
+]
+verified_by = ["verification:r2-closeout-v1"]
+published_in = ["commit:r2-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "src/local_ai_guild/policy.py:1-375", scope = "R2 policy implementation", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:r2-evidence-tests-v1"
+title = "R2 evidence tests"
+artifact_kind = "test"
+repository_path = "tests/test_evidence.py"
+implements = [
+  "decision:r2-typed-evidence-v1",
+  "decision:r2-immutable-registry-v1",
+  "requirement:r2-exact-boundaries-v1",
+  "requirement:r2-redaction-safe-v1",
+  "requirement:r2-focused-tests-v1",
+]
+verified_by = ["verification:r2-closeout-v1"]
+published_in = ["commit:r2-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "tests/test_evidence.py:1-334", scope = "R2 evidence test implementation", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:r2-policy-tests-v1"
+title = "R2 policy tests"
+artifact_kind = "test"
+repository_path = "tests/test_policy.py"
+implements = [
+  "decision:r2-profile-bound-policy-v1",
+  "decision:r2-deny-default-v1",
+  "requirement:r2-human-approval-outcome-v1",
+  "requirement:r2-redaction-safe-v1",
+  "requirement:r2-focused-tests-v1",
+]
+verified_by = ["verification:r2-closeout-v1"]
+published_in = ["commit:r2-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "tests/test_policy.py:1-625", scope = "R2 policy test implementation", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:r2-documentation-v1"
+title = "R2 authority and verification documentation"
+artifact_kind = "documentation"
+repository_path = "VERIFICATION.md"
+implements = [
+  "decision:r2-non-executing-outcomes-v1",
+  "requirement:r2-no-execution-persistence-v1",
+  "requirement:r2-focused-tests-v1",
+]
+verified_by = ["verification:r2-closeout-v1"]
+published_in = ["commit:r2-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "VERIFICATION.md:228-382", scope = "R2 verification documentation", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "verification_result"
+identifier = "verification:r2-closeout-v1"
+title = "R2 adversarial closeout verification"
+method = "combined_closeout"
+result = "passed"
+verifies = [
+  "artifact:r2-evidence-module-v1",
+  "artifact:r2-policy-module-v1",
+  "artifact:r2-evidence-tests-v1",
+  "artifact:r2-policy-tests-v1",
+  "artifact:r2-documentation-v1",
+  "requirement:r2-focused-tests-v1",
+]
+automated_verification_status = "automated_passed"
+human_verification_status = "not_applicable"
+limitations = [
+  "Recorded checks establish deterministic repository behavior only.",
+  "Evidence authenticity and external truth were not established.",
+  "No model, runtime, executor, retrieval service, or approval workflow was tested.",
+]
+component_checks = [
+  "ruff",
+  "format",
+  "pytest",
+  "cli",
+  "diff",
+  "redaction_scan",
+  "dependency_check",
+  "parser_bypass_scan",
+  "execution_surface_scan",
+]
+evidence = [
+  { kind = "deterministic_result", locator = "VERIFICATION.md:289-382", scope = "Recorded deterministic R2 closeout result", epistemic_status = "observed_fact", provenance = "deterministic_tool" },
+]
+
+[[records]]
+record_type = "approval_gate"
+identifier = "approval_gate:r2-publication-v1"
+title = "R2 commit and publication approval gate"
+gate_kind = "publication"
+required_authority = "authority:project-owner-v1"
+approval_status = "unknown_from_repository"
+approval_evidence_status = "not_recorded_in_repository"
+evidence = []
+
+[[records]]
+record_type = "commit"
+identifier = "commit:r2-publication-v1"
+title = "Published R2 implementation commit"
+sha = "903aa815a6e0176e682b4726ee8114627bd98940"
+publishes = [
+  "work_packet:r2-v1",
+  "artifact:r2-evidence-module-v1",
+  "artifact:r2-policy-module-v1",
+  "artifact:r2-evidence-tests-v1",
+  "artifact:r2-policy-tests-v1",
+  "artifact:r2-documentation-v1",
+]
+authorized_by_gate = "approval_gate:r2-publication-v1"
+realization_status = "published"
+evidence = [
+  { kind = "git_commit", locator = "git:903aa815a6e0176e682b4726ee8114627bd98940", scope = "R2 publication identity", epistemic_status = "observed_fact", provenance = "git_history" },
+]
+
+[[records]]
+record_type = "next_action"
+identifier = "next_action:r3-evaluation-harness-v1"
+title = "R3 deterministic evaluation harness"
+enabled_by = [
+  "work_packet:r2-v1",
+  "verification:r2-closeout-v1",
+  "commit:r2-publication-v1",
+]
+blocked_by = []
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md@903aa81:3-36", scope = "Documented R3 next work packet", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]

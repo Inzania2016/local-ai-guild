@@ -50,3 +50,19 @@ Future durable architecture decisions should receive focused records under `docs
 - Reject empty batches, mutable collections, raw dictionaries, arbitrary objects, duplicate case identifiers, and subclasses at the trusted evaluator boundary.
 - Keep R3 non-executing and non-persistent. It connects no model, tool, retrieval service, approval workflow, network, cloud service, or ontology infrastructure.
 - Defer ontology work to a proposed analysis-only O1 packet after R3.
+
+## O2 decisions — 2026-07-25
+
+- Implement only one evidence-trace pilot for the completed R2 work packet, represented by the fixed repository-owned `docs/traces/r2-closeout.toml`.
+- Treat TOML as the pilot representation and strict Pydantic contracts as its schema implementation; neither replaces cited authority sources or constitutes a generalized ontology.
+- Parse with Python 3.12 standard-library `tomllib` through a loader with no caller-supplied path, discovery, dynamic citation resolution, Git inspection, or external verification.
+- Use exactly ten top-level record types. Keep requirements and evidence as strict embedded values and relationships as explicit typed fields.
+- Separate realization, automated verification, human verification, approval, approval-evidence, provenance, and epistemic status.
+- Represent R2 publication as commit `903aa815a6e0176e682b4726ee8114627bd98940` while marking approval `unknown_from_repository` and approval evidence `not_recorded_in_repository`.
+- Treat the missing approval-evidence finding only as absence of a first-class repository record; do not infer that approval failed or did not occur.
+- Keep findings registry-owned, bounded, evaluator-built, and deterministically ordered. Commit identity proves neither authorization nor correctness, and repository assertions are not external truth.
+- Keep O2 non-executing and in-memory after the single fixed TOML read. Add no routing, retrieval, graph database, ontology infrastructure, persistence, model, runtime, executor, or approval workflow.
+- Do not make trace completeness a repository progression gate in O2.
+- Derive findings from typed record, evidence, relationship, and status semantics rather than official fixture identifiers. Require globally unique trace, top-level record, and embedded requirement identifiers, and reject duplicate targets within every relationship field.
+- Bind evidence kinds to compatible provenance and epistemic status combinations. A claimed approval requires human-record evidence and a confirmed explicit-human authority; Git commit evidence and security or verification policy authority cannot establish approval.
+- Keep `docs/traces/r2-closeout.toml` outside wheel package data. The fixed loader is supported from a repository checkout or editable install only in O2; installed-wheel fixture support is deferred rather than expanding packaging scope.

@@ -28,6 +28,7 @@ $ExpectedPaths = @(
     "config/routing.example.yaml", "config/tools.example.yaml",
     "docs/architecture/SYSTEM_CONTEXT.md", "docs/architecture/COMPONENT_MODEL.md",
     "docs/architecture/SECURITY_BOUNDARIES.md", "docs/architecture/EXECUTION_FLOW.md",
+    "docs/traces/r2-closeout.toml",
     "docs/decisions/.gitkeep", "docs/experiments/.gitkeep", "docs/verification/.gitkeep",
     "evals/.gitkeep", "artifacts/evidence/.gitkeep", "artifacts/traces/.gitkeep",
     "artifacts/benchmark-results/.gitkeep",
@@ -37,8 +38,12 @@ $ExpectedPaths = @(
     "src/local_ai_guild/evaluation.py", "src/local_ai_guild/evaluation_cases.py",
     "src/local_ai_guild/evidence.py", "src/local_ai_guild/mock_router.py",
     "src/local_ai_guild/policy.py", "src/local_ai_guild/validation.py",
+    "src/local_ai_guild/trace_contracts.py", "src/local_ai_guild/trace_loading.py",
+    "src/local_ai_guild/trace_validation.py",
     "tests/test_cli.py", "tests/test_contracts.py", "tests/test_evidence.py",
-    "tests/test_evaluation.py", "tests/test_mock_router.py", "tests/test_policy.py"
+    "tests/test_evaluation.py", "tests/test_mock_router.py", "tests/test_policy.py",
+    "tests/test_trace_contracts.py", "tests/test_trace_loading.py",
+    "tests/test_trace_validation.py"
 )
 
 $MissingPaths = @(
