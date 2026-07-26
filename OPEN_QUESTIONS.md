@@ -50,6 +50,26 @@ This file separates resolved design questions from questions deferred to later p
 - Require externally enforced isolation because a runtime cannot serve as its own security boundary.
 - Preserve O3 as the next implementation packet and require minimum Council contracts before R4B.
 
+## Resolved in O3
+
+- Use one fixed public synthetic handoff fixture and an immutable repository-authored
+  manual assertion; do not parse the experiment Markdown for findings.
+- Preserve the existing validator unchanged. It detects four planted structural
+  defects, while manual review uniquely detects the non-reciprocal publication edge.
+- Compare finding code, subject identifier, and relationship only, with deterministic
+  matched, manual-only, and validator-only partitions.
+- Treat deterministic validation as structural consistency evidence only. It does not
+  prove external truth, approval authenticity, artifact existence, or general ontology
+  correctness.
+
+## Proposed portable-contract checkpoint
+
+- What smallest strict contracts should represent Role, Work packet, Frozen position,
+  Cross-review, Evidence, Verification, Approval request, Decision record, Knowledge
+  promotion, and Runtime event without coupling them to OpenClaw?
+- What acceptance evidence is sufficient to unblock a separately authorized R4B
+  packet while keeping the runtime untrusted and replaceable?
+
 ## Deferred to R4B or R4C
 
 - Which exact Council contracts and serialization formats satisfy the R4B entry gate?

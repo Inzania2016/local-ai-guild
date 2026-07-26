@@ -4,7 +4,14 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The published implementation stage is **O2: R2 evidence-trace validation pilot** at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`. O2 loads one fixed repository-owned TOML trace for the completed R2 packet, validates it through strict contracts, and reports deterministic in-memory findings. The current R4A working tree adds portable AI Council runtime-boundary and evaluation design only. No provider, dispatcher, executor, retrieval system, graph database, generalized ontology infrastructure, model runtime, cloud integration, persistence layer, or training pipeline is implemented or claimed to have been tested.
+The accepted published baseline is `c68632b27802924b94e135f61ed153a4dd6c4485`.
+The current uncommitted O3 implementation adds one public synthetic handoff packet, one
+fixed contract-valid incomplete trace, and a deterministic comparison between an
+immutable manual-review assertion and the existing O2 validator. R4A remains
+documentation-only architecture, and OpenClaw remains an unevaluated candidate
+reference runtime. No provider, dispatcher, executor, retrieval system, graph database,
+generalized ontology infrastructure, model runtime, cloud integration, persistence
+layer, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -54,6 +61,23 @@ Passing cases establish only that the current deterministic R1/R2 implementation
 O2 parses only `docs/traces/r2-closeout.toml` with Python 3.12 standard-library `tomllib`. The fixed loader accepts no caller path and performs the pilot's only new runtime I/O. The fixture is repository content rather than wheel package data, so this pilot supports a repository checkout or editable install and does not claim standalone installed-wheel support. Ten strict record contracts preserve typed requirements, evidence locators, authorities, constraints, decisions, artifacts, verification, the publication gate, the R2 commit identity, and the documented R3 next action. Relationships are checked in memory without reading cited files, inspecting Git, running commands, resolving URLs, or validating external facts.
 
 The trace contract is structurally valid, but its deterministic result is trace-incomplete because the repository lacks a first-class record of the human authorization event for R2 publication. This does not mean approval failed or did not occur. The validator also records that commit identity proves neither authorization nor correctness and that repository assertions are not external truth. O2 is not a repository progression gate and exposes no trace CLI command.
+
+## O3 synthetic handoff completeness experiment
+
+O3 parses only `docs/traces/o3-synthetic-handoff.toml` through the zero-argument
+`load_o3_trace()` fixed loader. The fixture describes a clearly fictional documentation
+metadata packet and plants five contract-valid semantic handoff defects. The unchanged
+O2 validator detects four; the immutable repository-authored manual assertion detects
+those four plus a non-reciprocal publication edge outside current validator semantics.
+
+`run_o3_handoff_experiment()` compares only finding code, subject identifier, and
+relationship. It returns deterministic matched, manual-only, and validator-only tuples
+without raw TOML, packet prose, paths, parser errors, or free-form messages. Manual
+findings are experiment assertions, and deterministic findings establish structural
+consistency only. Neither proves external truth, approval authenticity, artifact
+existence, or general ontology correctness. O3 adds no experiment CLI command,
+mutation, persistence, runtime, model, OpenClaw component, routing, retrieval, or
+execution.
 
 ## Portable Council runtime planning
 

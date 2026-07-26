@@ -1,0 +1,145 @@
+schema_version = "0.1"
+trace_identifier = "trace:o3-synthetic-handoff-v1"
+subject_record_identifier = "work_packet:synthetic-metadata-v1"
+
+[[records]]
+record_type = "goal"
+identifier = "goal:synthetic-metadata-clarity-v1"
+title = "Publish deterministic documentation metadata"
+description = "Fictional goal used only for the public synthetic O3 handoff experiment"
+evidence = [
+  { kind = "repository_source", locator = "docs/experiments/O3_SYNTHETIC_HANDOFF.md:1-134", scope = "Synthetic experiment assertion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "work_packet"
+identifier = "work_packet:synthetic-metadata-v1"
+title = "Synthetic documentation metadata packet"
+governed_by = ["authority:synthetic-packet-owner-v1"]
+constrained_by = ["constraint:synthetic-public-only-v1"]
+advances_goal = ["goal:synthetic-metadata-clarity-v1"]
+realization_status = "published"
+automated_verification_status = "automated_passed"
+human_verification_status = "not_checked"
+approval_status = "unknown_from_repository"
+approval_evidence_status = "not_recorded_in_repository"
+evidence = [
+  { kind = "repository_source", locator = "docs/experiments/O3_SYNTHETIC_HANDOFF.md:1-134", scope = "Fictional packet assertion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:synthetic-metadata-file-v1"
+statement = "Claim one deterministic documentation metadata artifact"
+required = true
+evidence = [
+  { kind = "repository_source", locator = "docs/experiments/O3_SYNTHETIC_HANDOFF.md:1-134", scope = "Synthetic requirement assertion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records.requirements]]
+identifier = "requirement:synthetic-public-data-v1"
+statement = "Use only public or synthetic content"
+required = true
+evidence = [
+  { kind = "repository_source", locator = "SECURITY.md:12-27", scope = "Public repository data boundary", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "authority_source"
+identifier = "authority:synthetic-packet-owner-v1"
+title = "Fictional packet owner instruction"
+authority_kind = "explicit_human_instruction"
+scope = "Synthetic packet implementation and publication"
+precedence = 1
+evidence_status = "unconfirmed_from_repository"
+evidence = []
+
+[[records]]
+record_type = "constraint"
+identifier = "constraint:synthetic-public-only-v1"
+title = "Public and synthetic content only"
+constraint_kind = "data_boundary"
+evidence = [
+  { kind = "repository_source", locator = "SECURITY.md:12-27", scope = "Public repository data boundary", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "decision"
+identifier = "decision:synthetic-metadata-format-v1"
+title = "Use a stable key and value metadata format"
+selected_by = "authority:synthetic-packet-owner-v1"
+implemented_by = ["artifact:synthetic-metadata-doc-v1"]
+evidence = [
+  { kind = "repository_source", locator = "DECISIONS.md:80-101", scope = "Repository-authored synthetic decision assertion", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "implementation_artifact"
+identifier = "artifact:synthetic-metadata-doc-v1"
+title = "Claimed fictional metadata documentation"
+artifact_kind = "documentation"
+repository_path = "docs/synthetic/packet-metadata.md"
+implements = [
+  "decision:synthetic-metadata-format-v1",
+  "requirement:synthetic-metadata-file-v1",
+]
+verified_by = ["authority:synthetic-packet-owner-v1"]
+published_in = ["commit:synthetic-publication-v1"]
+evidence = [
+  { kind = "repository_source", locator = "docs/experiments/O3_SYNTHETIC_HANDOFF.md:1-134", scope = "Fictional artifact claim", epistemic_status = "inference", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "verification_result"
+identifier = "verification:synthetic-metadata-v1"
+title = "Claimed deterministic metadata verification"
+method = "pytest"
+result = "passed"
+verifies = [
+  "artifact:synthetic-metadata-doc-v1",
+  "requirement:synthetic-public-data-v1",
+]
+automated_verification_status = "automated_passed"
+human_verification_status = "not_checked"
+limitations = [
+  "Synthetic assertion does not prove artifact existence",
+  "No external truth or approval authenticity was checked",
+]
+component_checks = ["pytest"]
+evidence = [
+  { kind = "verification_record", locator = "docs/experiments/O3_SYNTHETIC_HANDOFF.md:1-134", scope = "Fictional verification claim", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]
+
+[[records]]
+record_type = "approval_gate"
+identifier = "approval_gate:synthetic-publication-v1"
+title = "Fictional publication approval gate"
+gate_kind = "publication"
+required_authority = "authority:synthetic-packet-owner-v1"
+approval_status = "unknown_from_repository"
+approval_evidence_status = "not_recorded_in_repository"
+evidence = []
+
+[[records]]
+record_type = "commit"
+identifier = "commit:synthetic-publication-v1"
+title = "Fictional publication commit"
+sha = "0000000000000000000000000000000000000000"
+publishes = ["work_packet:synthetic-metadata-v1"]
+authorized_by_gate = "approval_gate:synthetic-publication-v1"
+realization_status = "published"
+evidence = [
+  { kind = "git_commit", locator = "git:0000000000000000000000000000000000000000", scope = "Fictional zero object identifier", epistemic_status = "observed_fact", provenance = "git_history" },
+]
+
+[[records]]
+record_type = "next_action"
+identifier = "next_action:council-contract-checkpoint-v1"
+title = "Proposed portable Council contract checkpoint"
+enabled_by = [
+  "work_packet:synthetic-metadata-v1",
+  "verification:synthetic-metadata-v1",
+]
+blocked_by = ["constraint:synthetic-review-gap-v1"]
+evidence = [
+  { kind = "repository_source", locator = "NEXT_WORK_PACKET.md:1-70", scope = "Proposed next packet only", epistemic_status = "retrieved_fact", provenance = "repository_document" },
+]

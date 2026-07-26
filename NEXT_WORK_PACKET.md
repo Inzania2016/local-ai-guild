@@ -1,44 +1,70 @@
 # Next Work Packet
 
-## O3 — New-packet handoff completeness experiment
+## Proposed checkpoint — Minimum portable Council contracts
+
+This is proposed work only. It is not authorized by O3, does not authorize R4B, and
+requires a separate approved work packet before implementation.
 
 ### Goal
 
-Document one synthetic completed packet and one R2-style trace, then compare manual review with deterministic missing-link and illegal-transition detection.
+Define the smallest runtime-neutral contracts required to preserve Council authority
+across a replaceable runtime adapter and to make a later R4B proposal reviewable.
+
+### Candidate contract set
+
+- Role
+- Work packet
+- Frozen position
+- Cross-review
+- Evidence
+- Verification
+- Approval request
+- Decision record
+- Knowledge promotion
+- Runtime event
 
 ### In scope
 
-- Use one public or synthetic completed packet created specifically for the experiment.
-- Represent the packet with one bounded R2-style trace.
-- Identify missing handoff links and illegal lifecycle transitions deterministically.
-- Compare omissions found manually with omissions found by the validator.
-- Record only bounded findings and documented limitations.
+- Define strict, frozen, extra-forbid portable contracts for the candidate set.
+- Keep Council identifiers and durable state independent of runtime-native objects.
+- Define bounded relationships, authority fields, lifecycle states, and redaction-safe
+  serialization needed by a future adapter boundary.
+- Add focused public or synthetic tests for construction, corruption resistance,
+  deterministic serialization, and cross-contract consistency.
+- Record unresolved choices rather than selecting a runtime-specific representation.
 
 ### Out of scope
 
-- Automatic state promotion or packet authorization.
-- Agent or model routing.
-- Retrieval, embeddings, or vector databases.
-- Persistence, trace history, audit databases, or graph infrastructure.
-- Model runtimes, model downloads, inference, cloud adapters, or tool execution.
+- OpenClaw installation, configuration, download, execution, or adoption.
+- A runtime adapter, dispatcher, executor, worker, session, tool, or model integration.
+- R4B implementation or authorization.
+- Retrieval, embeddings, vector databases, graph infrastructure, or persistence.
+- Automatic approval, decision, knowledge promotion, commit, or publication.
 - Project-license selection or model, dataset, and adapter license approval.
 
 ### Acceptance evidence
 
-- The experiment uses only public or synthetic data.
-- The packet, trace, manual review, and deterministic findings remain distinguishable.
-- Missing links and illegal transitions are detected without automatic mutation.
-- Results do not claim external truth, evidence authenticity, human approval, or general ontology correctness.
-- Ruff, formatting, pytest, CLI status, repository verification, and diff checks pass.
+- Every contract has a documented portable purpose and Council/runtime owner.
+- No contract embeds OpenClaw or another runtime's identifiers, objects, permissions,
+  sessions, memory, or configuration as authoritative Council state.
+- Trusted construction and deterministic serialization boundaries are tested.
+- Public or synthetic fixtures are used exclusively.
+- Ruff, formatting, pytest, CLI status, repository verification, security scans, and
+  diff checks pass.
+- Human review explicitly accepts the minimum contracts before any R4B packet may be
+  proposed.
 
 ### Deferred
 
-- Generalized ontology or graph design.
-- Persistent trace history and audit reporting.
-- Runtime, model, retrieval, execution, and cloud integration.
+- Runtime selection and the runtime-selection ADR.
+- OpenClaw reference-runtime evaluation and custom-dispatcher comparison.
+- Adapter implementation, runtime events ingestion, and external isolation testing.
+- Persistent Council records, retrieval, and generalized ontology or graph design.
 
-## Subsequent architecture stage — R4A portable Council runtime boundary
+## R4B remains blocked
 
-O3 remains the next implementation packet. After O3 closeout, the R4A architecture defines the portable Council/runtime ownership boundary, runtime requirements, knowledge-promotion policy, and candidate OpenClaw POC design used to determine whether R4B may be proposed.
-
-R4B cannot begin until the minimum Council role, packet, frozen-position, review, evidence, verification, approval-request, decision-record, knowledge-promotion, and runtime-event contracts are defined and accepted. OpenClaw remains a candidate reference runtime; no selection, installation, configuration, or execution is authorized by this roadmap entry.
+R4A is documentation-only and OpenClaw remains a candidate reference runtime, not a
+selected or adopted dependency. O3 supplies synthetic handoff evidence but does not
+itself satisfy the minimum portable-contract gate. R4B cannot begin until O3 is
+accepted, the portable contracts above are separately implemented and accepted, and a
+new packet explicitly authorizes the runtime experiment.

@@ -76,3 +76,26 @@ Future durable architecture decisions should receive focused records under `docs
 - Require minimum portable Council contracts before R4B, then use R4B evidence to inform a human R4C runtime decision and runtime-selection ADR.
 - Keep runtime memory non-authoritative. Promotion requires evidence, epistemic classification, review, applicable human approval, durable rationale, and freshness or expiration metadata.
 - Recommend an isolated WSL2 distribution or VM, loopback-only access, role-specific workspaces, a sanitized read-only repository, dedicated test credentials, depth-one workers, explicit budgets, no broad host or personal-account access, and complete teardown for a future POC.
+
+## O3 decisions — 2026-07-26
+
+- Use one clearly labeled public synthetic documentation-metadata packet and one fixed
+  contract-valid but semantically incomplete TOML trace. The fictional packet,
+  artifact, verification, approval, commit, and publication are assertions only and do
+  not claim the work occurred.
+- Add `load_o3_trace()` as a zero-argument fixed loader over the existing bounded TOML
+  parsing internals. Add no caller-supplied path or generalized trace-loader API, and
+  leave `load_r2_trace()` behavior intact.
+- Compare findings only by finding code, subject identifier, and relationship. Exclude
+  free-form messages, raw TOML, packet prose, paths, parser errors, and run metadata
+  from the result.
+- Keep the manual review as an immutable repository-authored assertion rather than
+  Markdown-derived data or external truth.
+- Plant five semantic handoff defects. Accept four validator matches and one
+  manual-only reciprocal-publication gap rather than adding an O3-specific or
+  insufficiently justified general validator rule.
+- Preserve the validator's three informational scope findings as validator-only
+  results. They are epistemic caveats, not additional planted structural defects.
+- Keep O3 to fixed loading, deterministic in-memory validation, and immutable result
+  comparison. Add no mutation, persistence, model, runtime, OpenClaw, routing,
+  retrieval, executor, approval workflow, or external inspection.

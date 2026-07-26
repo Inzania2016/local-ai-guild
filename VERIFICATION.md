@@ -768,3 +768,140 @@ The complete tracked diff and four untracked R4A documents were inspected. A pat
 Content checks confirmed all required runtime-neutral Council concepts, all eight conceptual adapter operations, all fourteen objective runtime requirements, all six adoption gates, the ten-phase decision experiment, the requested isolation recommendations, and the six required knowledge-promotion conditions are present. Council authority remains outside runtime identifiers, sessions, memory, configuration, and event records.
 
 These checks establish documentation consistency and preservation of the existing deterministic implementation only. They do not establish OpenClaw capability, security, compatibility, license suitability, operational value, model quality, runtime behavior, or readiness to begin R4B.
+
+## O3 verification — 2026-07-26
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` against published baseline
+`c68632b27802924b94e135f61ed153a4dd6c4485`, which matched `HEAD`, `main`, and
+`origin/main`. The starting working tree and index were clean. O3 used only public
+synthetic data and left all changes unstaged, uncommitted, and unpushed.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable package was refreshed in the repository-local Python
+3.12.6 environment. Pydantic 2.13.4 remained the sole runtime dependency; pytest
+8.4.2 and Ruff 0.15.22 remained development dependencies. No AI runtime, model SDK,
+OpenClaw component, or new dependency was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Final result: exit 0. Ruff passed, 24 Python files were already formatted, pytest
+collected and passed 468 tests in 20.72 seconds, the CLI reported the O3 stage, and the
+script reported `Repository verification passed.`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results: every command exited 0. Ruff reported `All checks passed!`; formatting
+reported `24 files already formatted`; pytest passed all 468 tests in 42.02 seconds;
+the CLI printed:
+
+```text
+Project: Local AI Guild
+Stage: O3: synthetic handoff completeness experiment
+```
+
+The diff check produced no output. Git reported `main...origin/main`, twelve modified
+or untracked O3 paths, and no staged path.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest tests\test_o3_experiment.py -q
+```
+
+Final focused result: exit 0, 16 tests passed. The tests cover the zero-argument fixed
+loader, exact contract validity, semantic rather than parser failures, manual-review
+immutability and bounds, matched/manual-only/validator-only partitions, deterministic
+ordering, differently identified trace behavior, absence of O3 hardcoding in the
+validator, direct construction and unsafe-corruption rejection, caller-created
+lookalikes, reassignment of the public manual tuple, same- and separate-process
+serialization, and rejected-marker redaction.
+
+During result-binding hardening, one focused Ruff check exited 1 for an unsorted import
+block in `tests/test_o3_experiment.py`. The import order was corrected; the final
+focused and repository-wide Ruff checks exited 0.
+
+```powershell
+$code = 'from local_ai_guild.o3_experiment import run_o3_handoff_experiment; print(run_o3_handoff_experiment().model_dump_json())'
+$sameProcess = & .\.venv\Scripts\python.exe -c "from local_ai_guild.o3_experiment import run_o3_handoff_experiment; a=run_o3_handoff_experiment().model_dump_json(); b=run_o3_handoff_experiment().model_dump_json(); print(a == b); print(a)"
+$sameProcess
+$first = & .\.venv\Scripts\python.exe -c $code
+$second = & .\.venv\Scripts\python.exe -c $code
+"SEPARATE_PROCESS_EQUAL=$($first -ceq $second)"
+"FIRST=$first"
+"SECOND=$second"
+```
+
+Results: exit 0. The same-process comparison printed `True`; the two separate-process
+serializations were byte-for-byte equal. The official result contained 5 manual
+findings, 7 validator findings, 4 matches, 1 manual-only finding, and 3 validator-only
+findings. It contained no raw TOML, packet prose, paths, parser errors, or free-form
+messages.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip show local-ai-guild pydantic pytest ruff
+```
+
+Result: exit 0. The editable project required only Pydantic. Installed versions were
+Pydantic 2.13.4, pytest 8.4.2, and Ruff 0.15.22. `pyproject.toml` was unchanged.
+
+```powershell
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret|password)\s*[:=]\s*["''][^"'']{8,}["'']' .
+rg --pcre2 -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?<![0-9])10\.(?:[0-9]{1,3}\.){2}[0-9]{1,3}(?![0-9])|(?<![0-9])192\.168\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?<![0-9])172\.(?:1[6-9]|2[0-9]|3[01])\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?i:https?://[^/\s]*(?:\.local|\.internal)(?:[/:\s]|$))' .
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?i)C:\\Users\\|\\\\[A-Za-z0-9._-]+\\|(?i)(hostname|internal endpoint|connection string)\s*[:=]\s*\S+' .
+rg -n -e 'subprocess|os\.system|requests|httpx|urllib|socket|importlib|__import__|\beval\s*\(|\bexec\s*\(|logging|sqlite|sqlalchemy|pydantic_ai|\bopenai\b|anthropic|boto|azure|write_text|write_bytes|mkdir|unlink|remove\s*\(|rename\s*\(|replace\s*\(' src/local_ai_guild/o3_experiment.py src/local_ai_guild/trace_loading.py
+```
+
+Credential-pattern and private-address scans covered all repository content while
+excluding `.git` and `.venv`; both produced no matches. The first private-address scan
+used lookaround unsupported by ripgrep's default regex engine and exited 2; rerunning the
+same expression with `rg --pcre2` exited 1 with no matches. A machine-specific scan
+returned only three intentional synthetic UNC-path rejection cases in R1 tests. No
+credential-like value, private address, user-profile path, hostname, internal endpoint,
+or connection string was found in publishable O3 content.
+
+A prohibited-surface scan of `o3_experiment.py` and the shared fixed loader found no
+subprocess, network, dynamic import, evaluation, logging, database, model SDK, cloud
+SDK, or filesystem mutation API. The one new I/O operation is the authorized fixed O3
+TOML read through the existing bounded loader.
+
+```powershell
+git diff --cached --name-status
+git ls-files --others --exclude-standard
+git check-ignore -v .venv\probe.py .pytest_cache\probe .ruff_cache\probe config\local.yaml config\local\providers.yaml artifacts\traces\probe.toml artifacts\evidence\probe.json artifacts\benchmark-results\probe.json models\probe.gguf runtime-state\probe.json .env secrets.local.json probe.key datasets\probe.json logs\probe.log crash-dumps\probe.dmp
+git diff --stat
+git diff --name-status
+git diff -- DECISIONS.md NEXT_WORK_PACKET.md OPEN_QUESTIONS.md PROJECT_STATE.md README.md ROADMAP.md src/local_ai_guild/cli.py src/local_ai_guild/trace_loading.py
+Get-Content docs/experiments/O3_SYNTHETIC_HANDOFF.md
+Get-Content docs/traces/o3-synthetic-handoff.toml
+Get-Content src/local_ai_guild/o3_experiment.py
+Get-Content tests/test_o3_experiment.py
+```
+
+The Git index was empty. `git ls-files --others --exclude-standard` listed exactly the
+four new O3 files. `git check-ignore -v` confirmed that `.venv`, pytest and Ruff
+caches, local configuration, generated traces, evidence, benchmark output, model
+files, runtime state, environment files, secret files, keys, local datasets, logs, and
+crash dumps remain ignored.
+
+The complete tracked diff and all four untracked files were inspected. O3 changes only
+the fixed loader, adds the bounded comparison module and focused tests, changes the
+harmless CLI stage string, adds the synthetic packet and trace, and updates required
+authority documents. The existing validator, O2 fixture, contracts, dependencies,
+scripts, configuration, runtime planning documents, and R4A architecture documents are
+unchanged.
+
+These checks establish only the deterministic structural behavior of the public
+synthetic fixture and comparison. Manual findings are repository-authored assertions.
+Deterministic findings do not prove external truth, approval authenticity, artifact
+existence, human identity, or general ontology correctness. O3 used no model, runtime,
+OpenClaw component, routing, retrieval, persistence, mutation, or execution.

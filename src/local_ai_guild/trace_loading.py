@@ -1,4 +1,4 @@
-"""Fixed TOML loader for the repository-owned O2 R2 trace."""
+"""Fixed TOML loaders for repository-owned evidence traces."""
 
 import tomllib
 from enum import StrEnum
@@ -42,6 +42,9 @@ from local_ai_guild.trace_contracts import (
 )
 
 _R2_TRACE_PATH: Final = Path(__file__).resolve().parents[2] / "docs" / "traces" / "r2-closeout.toml"
+_O3_TRACE_PATH: Final = (
+    Path(__file__).resolve().parents[2] / "docs" / "traces" / "o3-synthetic-handoff.toml"
+)
 
 
 class TraceLoadErrorCode(StrEnum):
@@ -437,10 +440,9 @@ def _trace_document(value: object) -> TraceDocument:
     )
 
 
-def load_r2_trace() -> TraceDocument:
-    """Load only the fixed repository-owned R2 trace through the TOML boundary."""
+def _load_fixed_trace(trace_path: Path) -> TraceDocument:
     try:
-        with _R2_TRACE_PATH.open("rb") as source:
+        with trace_path.open("rb") as source:
             parsed = tomllib.load(source)
     except FileNotFoundError:
         raise TraceLoadError(TraceLoadErrorCode.MISSING) from None
@@ -457,3 +459,13 @@ def load_r2_trace() -> TraceDocument:
         return _trace_document(parsed)
     except (KeyError, TypeError, ValueError, ValidationError):
         raise TraceLoadError(TraceLoadErrorCode.INVALID_CONTRACT) from None
+
+
+def load_r2_trace() -> TraceDocument:
+    """Load only the fixed repository-owned R2 trace through the TOML boundary."""
+    return _load_fixed_trace(_R2_TRACE_PATH)
+
+
+def load_o3_trace() -> TraceDocument:
+    """Load only the fixed repository-owned synthetic O3 trace."""
+    return _load_fixed_trace(_O3_TRACE_PATH)

@@ -10,7 +10,7 @@ Last updated: 2026-07-26
 - The three R1 tool identifiers are harmless test contracts, not production tools. The router stops at a validated proposal or typed refusal.
 - The repository path is `C:\dev\source\Repos\local-ai-guild`.
 - Python is pinned to 3.12 for project work.
-- The CLI remains a harmless project `status` command and reports the O2 pilot stage.
+- The CLI remains a harmless project `status` command and reports the O3 synthetic handoff experiment stage.
 - Example configuration files contain no live provider or model connection details.
 - Pydantic 2.13.4 is the sole runtime dependency and is confined to validation, serialization, and JSON Schema generation at untrusted boundaries.
 - R1 validation issues retain stable error codes, bounded generic messages, and sanitized schema-owned locations; rejected values and attacker-chosen field names are not serialized.
@@ -30,6 +30,21 @@ Last updated: 2026-07-26
 - The official R2 trace is contract-valid and produces one known completeness error: `missing_approval_evidence`. The repository lacks a first-class record of the R2 publication authorization event; this does not establish that approval failed or did not occur.
 - O2 findings also state that commit identity does not establish authorization or correctness and repository assertions are not external truth.
 - O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`.
+- O3 adds one fixed public synthetic handoff packet and contract-valid but semantically
+  incomplete trace. The fixture's packet, artifact, verification, approval, commit, and
+  publication are fictional repository assertions and do not claim the work occurred.
+- The O3 loader accepts no path and shares only bounded fixed-loader internals with O2.
+  It does not alter `load_r2_trace()` or add a generic trace-loader API.
+- The immutable manual assertion contains five findings. The unchanged deterministic
+  validator returns seven findings: four structural matches and three validator-only
+  epistemic scope caveats. Manual review alone identifies the non-reciprocal
+  publication edge.
+- O3 comparison results are evaluator-built, strictly typed, immutable, deterministically
+  ordered, and limited to finding code, subject identifier, and relationship. They
+  retain no raw TOML, packet prose, paths, parser errors, or free-form messages.
+- O3 establishes only synthetic structural comparison behavior. It does not prove
+  external truth, approval authenticity, artifact existence, human identity, or
+  general ontology correctness.
 - R4A documents a portable AI Council/runtime ownership boundary, objective runtime requirements, a knowledge-promotion policy, and an OpenClaw reference-runtime proof-of-concept design. These are architecture artifacts only.
 - OpenClaw is a candidate reference runtime. It has not been selected, approved, adopted, installed, configured, downloaded, or executed.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
@@ -54,6 +69,16 @@ Last updated: 2026-07-26
 
 ## Current stage gate
 
-R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`, and O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`. O2 does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, generalized ontology, or cloud adapter. O2 trace completeness is not a repository progression gate. O3 remains the next implementation packet and has not begun. R4A is documentation-only architecture work; R4B has not begun.
+R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`,
+O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`,
+and the accepted R4A sequencing baseline is
+`c68632b27802924b94e135f61ed153a4dd6c4485`. O3 is implemented in the working tree
+and remains uncommitted and unpushed pending human review. O3 does not validate a
+model, external truth, executor, dispatcher, approval workflow, retrieval service,
+runtime integration, evidence authenticity, generalized ontology, or cloud adapter.
+Trace completeness is not a repository progression gate.
 
-R4A documentation was completed ahead of O3 to position OpenClaw correctly as a candidate reference runtime without advancing executable work. O3 remains unimplemented and is the next implementation packet. R4B is blocked until O3 is complete and the minimum portable Council contracts are accepted.
+R4A documentation was completed ahead of O3 to position OpenClaw correctly as a
+candidate reference runtime without advancing executable work. O3 does not authorize
+R4B. The proposed next packet is a small minimum portable Council-contract checkpoint;
+R4B remains blocked until O3 and those contracts are accepted.

@@ -28,13 +28,19 @@ Represent the completed R2 packet in one fixed repository-owned TOML trace, vali
 
 ## O3 — New-packet handoff completeness experiment
 
-Under a separately approved packet, document one synthetic completed packet and one R2-style trace, then compare manual omissions with deterministic missing-link and illegal-transition findings. Do not implement automatic state promotion, routing, retrieval, persistence, runtime, or graph infrastructure.
+Implement one public synthetic completed packet and one contract-valid incomplete
+R2-style trace, then compare a repository-authored manual assertion with the existing
+deterministic validator. O3 keeps matched, manual-only, and validator-only findings
+distinct and adds no validator rule, automatic state promotion, routing, retrieval,
+persistence, runtime, or graph infrastructure.
 
 ## R4A — Portable Council runtime boundary
 
 Define the runtime-neutral AI Council concepts, ownership boundary, adapter operations, objective runtime requirements, knowledge-promotion policy, OpenClaw candidate mapping, proof-of-concept design, and isolation recommendation. Add no runtime code and do not install or execute a runtime.
 
-R4A was completed early as a documentation-only architecture stage so the OpenClaw candidate could be placed behind the correct portable boundary. This does not advance executable work: O3 remains the next implementation experiment, and R4B stays blocked until O3 is complete and the minimum portable Council contracts are accepted.
+R4A was completed early as a documentation-only architecture stage so the OpenClaw candidate could be placed behind the correct portable boundary. O3 now supplies the
+synthetic handoff experiment that remained next after R4A. R4B stays blocked until O3
+is accepted and the minimum portable Council contracts are defined and accepted.
 
 ## R4B — OpenClaw reference-runtime proof of concept
 
