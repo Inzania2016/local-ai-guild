@@ -45,6 +45,7 @@ Last updated: 2026-07-26
 - O3 establishes only synthetic structural comparison behavior. It does not prove
   external truth, approval authenticity, artifact existence, human identity, or
   general ontology correctness.
+  O3 is published at a307d1274a88a64ed6dd9a334f4f757f6d67ed80
 - R4A documents a portable AI Council/runtime ownership boundary, objective runtime requirements, a knowledge-promotion policy, and an OpenClaw reference-runtime proof-of-concept design. These are architecture artifacts only.
 - OpenClaw is a candidate reference runtime. It has not been selected, approved, adopted, installed, configured, downloaded, or executed.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.

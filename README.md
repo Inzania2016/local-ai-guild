@@ -78,6 +78,7 @@ consistency only. Neither proves external truth, approval authenticity, artifact
 existence, or general ontology correctness. O3 adds no experiment CLI command,
 mutation, persistence, runtime, model, OpenClaw component, routing, retrieval, or
 execution.
+O3 is published at a307d1274a88a64ed6dd9a334f4f757f6d67ed80
 
 ## Portable Council runtime planning
 
