@@ -29,6 +29,9 @@ Last updated: 2026-07-26
 - The O2 trace is subordinate to cited authority sources. It performs no dynamic citation, Git, filesystem-artifact, external-truth, human-identity, or approval-authenticity verification.
 - The official R2 trace is contract-valid and produces one known completeness error: `missing_approval_evidence`. The repository lacks a first-class record of the R2 publication authorization event; this does not establish that approval failed or did not occur.
 - O2 findings also state that commit identity does not establish authorization or correctness and repository assertions are not external truth.
+- O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`.
+- R4A documents a portable AI Council/runtime ownership boundary, objective runtime requirements, a knowledge-promotion policy, and an OpenClaw reference-runtime proof-of-concept design. These are architecture artifacts only.
+- OpenClaw is a candidate reference runtime. It has not been selected, approved, adopted, installed, configured, downloaded, or executed.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
 - The repository-local environment uses Python 3.12.6 with Ruff 0.15.22 and pytest 8.4.2.
 - R3 repository verification, Ruff, formatting, pytest, CLI status, deterministic case evaluation, redaction checks, and prohibited-surface scans pass as recorded in `VERIFICATION.md`. O2 verification and security-review results are recorded separately in that document.
@@ -40,14 +43,17 @@ Last updated: 2026-07-26
 - `E:\AI` will hold active models, runtimes, caches, and active workspace assets.
 - `D:\AI` will hold archives, datasets, experiments, benchmark history, and backups.
 - Candidate components and model hypotheses are described in `VISION.md` and architecture documents.
+- R4B may evaluate a runtime only after the minimum portable Council contracts are defined and accepted under a separate authorized packet.
 
 ## Not validated
 
 - No local or cloud model candidate has been evaluated.
-- LM Studio, Ollama, OpenCode, llama.cpp, and cloud agents have not been configured or invoked by R0 through R3.
+- LM Studio, Ollama, OpenCode, llama.cpp, OpenClaw, and cloud agents have not been configured or invoked.
 - The planned storage layout has not been provisioned or validated by R0.
 - No project, model, dataset, or adapter license has been selected or approved.
 
 ## Current stage gate
 
-R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`. O2 is an uncommitted working-tree pilot over the published R2 record and does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, generalized ontology, or cloud adapter. O2 trace completeness is not a repository progression gate. The next proposed scope is the O3 experiment in `NEXT_WORK_PACKET.md`; O3 has not begun.
+R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`, and O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`. O2 does not validate a model, external truth, executor, dispatcher, approval workflow, retrieval service, runtime integration, evidence authenticity, generalized ontology, or cloud adapter. O2 trace completeness is not a repository progression gate. O3 remains the next implementation packet and has not begun. R4A is documentation-only architecture work; R4B has not begun.
+
+R4A’s documentation-only runtime boundary was completed ahead of O3 so the OpenClaw candidate could be placed correctly in the architecture. O3 remains the next implementation experiment and must complete before R4B begins.

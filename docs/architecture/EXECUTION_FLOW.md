@@ -48,3 +48,20 @@ No step may silently escalate to cloud execution or unrestricted shell access.
 5. Produce registry-owned bounded findings in fixed order and bind the result privately to the trace identifier and ordered record identifiers.
 6. Report the known missing repository approval-evidence record without inferring that approval failed or did not occur.
 7. Stop in memory. Do not resolve citations, inspect Git, run verification commands, read declared artifact paths, mutate approval, execute tools, persist a trace, or expose a trace CLI command.
+
+## Planned portable Council flow
+
+This R4A flow is conceptual and unimplemented:
+
+1. Validate Council-owned role contracts and one bounded work packet.
+2. Ask a replaceable adapter to create isolated member sessions under externally enforced permissions and budgets.
+3. Run independent analysis without peer-position disclosure.
+4. Export and freeze initial positions in Council-controlled storage.
+5. Deliver the immutable review bundle and collect cross-review, security-adversary, and evidence-auditor reports.
+6. Run deterministic verification outside runtime authority.
+7. Produce a synthesis that preserves material disagreement and uncertainty.
+8. Request a human decision through a Council-owned approval format.
+9. Store the decision and any approved knowledge promotion in durable runtime-independent records.
+10. Export bounded runtime events for independent inspection and tear down every session and workspace.
+
+Runtime output, memory, status, or event records cannot approve a decision or promote knowledge. OpenClaw is only a candidate reference runtime for a future R4B experiment, which cannot begin until the minimum Council contracts are defined and accepted.

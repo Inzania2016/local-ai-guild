@@ -30,10 +30,24 @@ Represent the completed R2 packet in one fixed repository-owned TOML trace, vali
 
 Under a separately approved packet, document one synthetic completed packet and one R2-style trace, then compare manual omissions with deterministic missing-link and illegal-transition findings. Do not implement automatic state promotion, routing, retrieval, persistence, runtime, or graph infrastructure.
 
-## R4 — First local runtime experiment
+## R4A — Portable Council runtime boundary
 
-Under a separately approved packet, connect one runtime adapter behind existing contracts and evaluate a candidate locally. Model downloads and runtime setup require explicit authorization.
+Define the runtime-neutral AI Council concepts, ownership boundary, adapter operations, objective runtime requirements, knowledge-promotion policy, OpenClaw candidate mapping, proof-of-concept design, and isolation recommendation. Add no runtime code and do not install or execute a runtime.
+
+## R4B — OpenClaw reference-runtime proof of concept
+
+Under a separately approved packet, test OpenClaw only as a candidate reference runtime against the R4A requirements and compare it with a smaller custom dispatcher. R4B cannot begin until the minimum portable Council contracts are defined and accepted. Runtime installation, model configuration, and execution require explicit authorization.
+
+## R4C — Runtime adoption decision
+
+Review R4B evidence, security and operational cost, portability, and alternatives. Record the human runtime decision in the first runtime-selection ADR. Until this stage completes, no candidate is selected, approved, or adopted.
+
+## R5 — First adopted runtime implementation
+
+Under a separately approved implementation packet, build the first adapter for the runtime selected in R4C. Preserve Council-owned contracts and authority outside runtime-native state.
 
 ## Later stages
 
 Retrieval experiments, bounded coding work, optional cloud escalation adapters, and possible router fine-tuning follow only after earlier gates produce evidence.
+
+R4A’s documentation-only runtime boundary was completed ahead of O3 so the OpenClaw candidate could be placed correctly in the architecture. O3 remains the next implementation experiment and must complete before R4B begins.

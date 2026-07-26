@@ -2,6 +2,8 @@
 
 Local AI Guild will coordinate narrow, evidence-backed work across deterministic tools, local models, and deliberately approved cloud escalation.
 
+The AI Council is the planned portable institutional layer for multi-role deliberation. It owns role and work-packet contracts, evidence and verification rules, approval and decision formats, knowledge promotion, and audit standards. Runtime adapters remain replaceable operational hosts. OpenClaw is a candidate reference runtime, not a selected or adopted runtime, and Council design must not depend on OpenClaw-native state.
+
 ## Target capabilities
 
 - **Tiny tool router:** classify requests and propose one of a small set of approved tools.
@@ -10,6 +12,8 @@ Local AI Guild will coordinate narrow, evidence-backed work across deterministic
 - **Policy and dispatch layer:** validate requests, enforce permissions, and choose execution paths.
 - **Cloud escalation adapters:** invoke cloud models only after explicit policy and human approval conditions are satisfied.
 - **Evidence and audit subsystem:** retain traceable inputs, decisions, tool results, and verification claims without retaining secrets.
+- **Portable AI Council:** conduct bounded independent analysis, cross-review, evidence audit, disagreement-preserving synthesis, and human-controlled decisions through runtime-neutral artifacts.
+- **Replaceable runtime adapters:** map portable Council operations to a bounded runtime without transferring institutional authority into sessions, memory, configuration, or runtime identifiers.
 
 These are planned roles, not implemented components.
 

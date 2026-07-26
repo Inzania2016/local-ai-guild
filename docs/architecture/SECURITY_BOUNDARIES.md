@@ -20,3 +20,16 @@ This combines the implemented R1 through R3 trust boundaries with later planned 
 16. Audit output would cross a redaction boundary before being persisted.
 
 O2 stops after one fixed TOML read and in-memory deterministic validation. It has no model connection, executor, approval workflow, raw-request result storage, benchmark-history persistence, graph database, or generalized ontology implementation. Commits, pushes, destructive mutations, runtime installation, and cloud delegation remain human-controlled operations.
+
+## Planned Council/runtime boundary
+
+R4A treats every candidate runtime, including OpenClaw, as untrusted:
+
+- Council authority, approvals, decisions, evidence rules, and promoted knowledge remain in Council-controlled durable records.
+- Runtime sessions, memory, identifiers, configuration, messages, and events are non-authoritative operational state.
+- Runtime permission controls are defense in depth and must be backed by independent host, network, filesystem, credential, and human-approval controls.
+- Frozen independent positions must be exported before peer disclosure.
+- Role workspaces and working memory must be isolated; no global shared memory is permitted for the initial POC.
+- A future POC should use a dedicated WSL2 distribution or VM, loopback-only services, sanitized read-only repository content, dedicated test credentials, no Windows home mount, no unrestricted shell, no personal-account access, depth-one workers, explicit limits, and full teardown.
+
+This design does not authorize a runtime installation or create a security boundary in software. OpenClaw remains a candidate reference runtime, not a selected, approved, or adopted runtime.

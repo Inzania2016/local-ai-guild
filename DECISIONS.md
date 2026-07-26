@@ -66,3 +66,13 @@ Future durable architecture decisions should receive focused records under `docs
 - Derive findings from typed record, evidence, relationship, and status semantics rather than official fixture identifiers. Require globally unique trace, top-level record, and embedded requirement identifiers, and reject duplicate targets within every relationship field.
 - Bind evidence kinds to compatible provenance and epistemic status combinations. A claimed approval requires human-record evidence and a confirmed explicit-human authority; Git commit evidence and security or verification policy authority cannot establish approval.
 - Keep `docs/traces/r2-closeout.toml` outside wheel package data. The fixed loader is supported from a repository checkout or editable install only in O2; installed-wheel fixture support is deferred rather than expanding packaging scope.
+
+## R4A decisions — 2026-07-26
+
+- Keep the AI Council portable and institutionally authoritative over ontology, roles, work packets, deliberation, evidence, verification, approval, decisions, knowledge promotion, and audit standards.
+- Keep agent creation, sessions, model configuration, tool wiring, bounded worker spawning, scheduling, runtime permissions, runtime events, and runtime-specific messaging behind a replaceable adapter boundary.
+- Treat every runtime as untrusted. Runtime identifiers, objects, memory, configuration, and self-reported events cannot become authoritative Council state or serve as their own security proof.
+- Record OpenClaw only as a candidate reference runtime for a future R4B proof of concept. R4A does not select, approve, adopt, install, configure, download, or execute OpenClaw.
+- Require minimum portable Council contracts before R4B, then use R4B evidence to inform a human R4C runtime decision and runtime-selection ADR.
+- Keep runtime memory non-authoritative. Promotion requires evidence, epistemic classification, review, applicable human approval, durable rationale, and freshness or expiration metadata.
+- Recommend an isolated WSL2 distribution or VM, loopback-only access, role-specific workspaces, a sanitized read-only repository, dedicated test credentials, depth-one workers, explicit budgets, no broad host or personal-account access, and complete teardown for a future POC.

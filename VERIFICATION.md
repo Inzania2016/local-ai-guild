@@ -708,3 +708,63 @@ git status --short --branch
 Results: all commands exited 0. Diff checks emitted no errors, the index remained empty, and `main` still matched `origin/main` at `3285d4410111f512068b33d9581ba97bc7690bd2`. All O2 changes remained unstaged, uncommitted, and unpushed.
 
 The official trace remains contract-valid but intentionally incomplete. Its missing repository approval record does not prove that approval failed or did not occur. The audit establishes deterministic internal trace consistency and bounded failure behavior only; it does not dynamically resolve citations, authenticate evidence or humans, establish external truth, prove approval or correctness from Git history, validate wheel-installed fixture loading, or add a repository progression gate.
+
+## R4A verification — 2026-07-26
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` against accepted published baseline `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`, which matched `HEAD`, `main`, and `origin/main` before R4A. The baseline working tree was clean.
+
+R4A changed documentation only. It defined the portable Council/runtime authority boundary, objective runtime requirements, knowledge-promotion policy, and a future OpenClaw reference-runtime POC design. OpenClaw remained a candidate reference runtime; no runtime, model, adapter, interface, source code, configuration, ADR, credential, workspace, session, skill, or execution path was added.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The existing repository-local Python 3.12.6 editable environment was refreshed. Pydantic 2.13.4 remained the sole runtime dependency; pytest 8.4.2 and Ruff 0.15.22 remained development dependencies. No OpenClaw component, model runtime, AI SDK, or additional dependency was installed or invoked.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 22 Python files were already formatted, all 452 tests passed, the CLI reported `O2: R2 evidence-trace validation pilot`, and repository verification passed.
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+```
+
+Result: exit 0, `All checks passed!`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff format --check .
+```
+
+Result: exit 0, `22 files already formatted`.
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest
+```
+
+Result: exit 0. Pytest collected and passed 452 tests under Python 3.12.6 and pytest 8.4.2.
+
+```powershell
+.\.venv\Scripts\python.exe -m local_ai_guild status
+```
+
+Result: exit 0.
+
+```text
+Project: Local AI Guild
+Stage: O2: R2 evidence-trace validation pilot
+```
+
+```powershell
+git diff --check
+git status --short --branch
+```
+
+Results: exit 0. The diff check produced no output. `main` remained at `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`, matching `origin/main`; all R4A changes remained unstaged, uncommitted, and unpushed.
+
+The complete tracked diff and four untracked R4A documents were inspected. A path audit confirmed that every changed or untracked path was Markdown documentation; `src/`, `tests/`, `scripts/`, `config/`, and `pyproject.toml` were unchanged. Searches found no OpenClaw reference in source, tests, scripts, configuration, or project metadata; no affirmative claim that OpenClaw is selected, approved, or adopted; no O3 implementation reference; and no runtime-selection ADR.
+
+Content checks confirmed all required runtime-neutral Council concepts, all eight conceptual adapter operations, all fourteen objective runtime requirements, all six adoption gates, the ten-phase decision experiment, the requested isolation recommendations, and the six required knowledge-promotion conditions are present. Council authority remains outside runtime identifiers, sessions, memory, configuration, and event records.
+
+These checks establish documentation consistency and preservation of the existing deterministic implementation only. They do not establish OpenClaw capability, security, compatibility, license suitability, operational value, model quality, runtime behavior, or readiness to begin R4B.

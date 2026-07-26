@@ -36,3 +36,9 @@ Document one synthetic completed packet and one R2-style trace, then compare man
 - Generalized ontology or graph design.
 - Persistent trace history and audit reporting.
 - Runtime, model, retrieval, execution, and cloud integration.
+
+## Subsequent architecture stage — R4A portable Council runtime boundary
+
+O3 remains the next implementation packet. After O3 closeout, the R4A architecture defines the portable Council/runtime ownership boundary, runtime requirements, knowledge-promotion policy, and candidate OpenClaw POC design used to determine whether R4B may be proposed.
+
+R4B cannot begin until the minimum Council role, packet, frozen-position, review, evidence, verification, approval-request, decision-record, knowledge-promotion, and runtime-event contracts are defined and accepted. OpenClaw remains a candidate reference runtime; no selection, installation, configuration, or execution is authorized by this roadmap entry.

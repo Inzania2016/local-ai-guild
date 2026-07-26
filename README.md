@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The current working tree implements **O2: R2 evidence-trace validation pilot**. O2 loads one fixed repository-owned TOML trace for the completed R2 packet, validates it through strict contracts, and reports deterministic in-memory findings. The trace is subordinate to its cited authority sources: TOML is the pilot representation, Pydantic is the schema implementation, and neither is an external-truth or approval system. No provider, dispatcher, executor, retrieval system, graph database, generalized ontology infrastructure, model runtime, cloud integration, persistence layer, or training pipeline is implemented or claimed to have been tested.
+The published implementation stage is **O2: R2 evidence-trace validation pilot** at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`. O2 loads one fixed repository-owned TOML trace for the completed R2 packet, validates it through strict contracts, and reports deterministic in-memory findings. The current R4A working tree adds portable AI Council runtime-boundary and evaluation design only. No provider, dispatcher, executor, retrieval system, graph database, generalized ontology infrastructure, model runtime, cloud integration, persistence layer, or training pipeline is implemented or claimed to have been tested.
 
 The only executable application behavior is a harmless status command. Bootstrap and use the repository-local interpreter:
 
@@ -54,6 +54,17 @@ Passing cases establish only that the current deterministic R1/R2 implementation
 O2 parses only `docs/traces/r2-closeout.toml` with Python 3.12 standard-library `tomllib`. The fixed loader accepts no caller path and performs the pilot's only new runtime I/O. The fixture is repository content rather than wheel package data, so this pilot supports a repository checkout or editable install and does not claim standalone installed-wheel support. Ten strict record contracts preserve typed requirements, evidence locators, authorities, constraints, decisions, artifacts, verification, the publication gate, the R2 commit identity, and the documented R3 next action. Relationships are checked in memory without reading cited files, inspecting Git, running commands, resolving URLs, or validating external facts.
 
 The trace contract is structurally valid, but its deterministic result is trace-incomplete because the repository lacks a first-class record of the human authorization event for R2 publication. This does not mean approval failed or did not occur. The validator also records that commit identity proves neither authorization nor correctness and that repository assertions are not external truth. O2 is not a repository progression gate and exposes no trace CLI command.
+
+## Portable Council runtime planning
+
+R4A defines the AI Council as a portable institutional layer that owns roles, work packets, deliberation, evidence, verification, approval, decisions, knowledge promotion, and audit standards. A future runtime adapter may own sessions, models, tools, workers, scheduling, permissions, events, and runtime-specific messaging, but runtime state cannot become authoritative Council state.
+
+OpenClaw is documented only as a **candidate reference runtime** for a future, separately authorized R4B proof of concept. No OpenClaw installation, configuration, adapter, model, skill, session, or runtime execution exists. The portable boundary, objective requirements, knowledge policy, and proposed experiment are documented in:
+
+- `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md`
+- `docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md`
+- `docs/architecture/KNOWLEDGE_PROMOTION_POLICY.md`
+- `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
 
 ## Planned storage layout
 

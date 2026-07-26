@@ -41,3 +41,19 @@ This file separates resolved design questions from questions deferred to later p
 - Distinguish contract validity from trace completeness. The official fixture is contract-valid but incomplete because no first-class R2 publication-approval record is present.
 - Treat `unknown_from_repository` as an evidence limitation, not proof that approval failed or did not occur.
 - Keep citation authenticity, citation freshness, external truth, human identity, approval authenticity, persistence, and generalized ontology design outside O2.
+
+## Resolved in R4A
+
+- Keep the AI Council portable and authoritative over institutional contracts and durable records; keep runtime operations behind replaceable adapters.
+- Treat OpenClaw only as a candidate reference runtime and defer any selection or adoption ADR to R4C.
+- Treat runtime memory as temporary, isolated, and non-authoritative.
+- Require externally enforced isolation because a runtime cannot serve as its own security boundary.
+- Preserve O3 as the next implementation packet and require minimum Council contracts before R4B.
+
+## Deferred to R4B or R4C
+
+- Which exact Council contracts and serialization formats satisfy the R4B entry gate?
+- Which OpenClaw version, license terms, runtime primitives, and event exports are eligible for an approved evaluation?
+- Can OpenClaw demonstrate the required role, session, workspace, memory, permission, routing, cost, and teardown boundaries under independent inspection?
+- Does a smaller custom dispatcher produce better security, portability, auditability, and operational value?
+- Which runtime, if any, should R4C select and record in the first runtime-selection ADR?
