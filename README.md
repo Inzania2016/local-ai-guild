@@ -4,7 +4,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The accepted published baseline is `a3e6facaf77153486236ebea5b4a383d216e7bcf`.
+The accepted published baseline is `6fe01f7dd0d756a757bea8213803f0e23c42bfab`.
 O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current
 uncommitted checkpoint defines the minimum strict runtime-neutral Council contracts,
 one public synthetic in-memory proceeding, and deterministic cross-contract validation.
