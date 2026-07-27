@@ -72,7 +72,7 @@ Last updated: 2026-07-27
   packet is ready to be proposed. It does not authorize R4B, installation, execution, or
   adoption.
 - The bounded R4B authorization package identifies official OpenClaw release `v2026.7.1`
-  at immutable commit `f49d6f26c712c451efc496b1f35f389422651c2e` as the single
+  at immutable commit `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4` as the single
   proposed experiment candidate. Official-source review records the 2026-07-13 release,
   MIT core license, package and third-party notices, release integrity metadata, and
   upstream one-trusted-operator security posture without approving the candidate,
