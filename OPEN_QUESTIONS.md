@@ -103,7 +103,25 @@ This file separates resolved design questions from questions deferred to later p
 - Keep authorization `not_authorized`, decision `pending`, and all checklist items
   unchecked. The package performs no installation or execution.
 
-## Deferred to R4B or R4C
+## Resolved in the Human R4B authorization-review preparation
+
+- Use `docs/PUBLICATION_INDEX.md` as the authoritative detailed ledger and keep concise
+  current-state summaries elsewhere without removing historical evidence.
+- Treat official OpenClaw release, package, dependency, license, notice, Node, and
+  security metadata as bounded static evidence, not legal approval or runtime evidence.
+- Prefer the exact complete local Qwen2.5-Coder 7B artifact provisionally for all four
+  roles and both runtime paths, but leave the model plan `unresolved` because no exact
+  runtime-visible route was confirmed.
+- Keep cloud routing excluded, credentials absent, and the deterministic dispatcher and
+  verifier model-free.
+- Record Codex's advisory recommendation as `recommend_defer`; keep the human decision
+  `pending`, authorization `not_authorized`, and all approval items unchecked.
+
+## Deferred to the local-model route qualification, R4B, or R4C
+
+- Can the complete pinned Qwen2.5-Coder 7B manifest/blob artifact be reconciled with one
+  exact runtime-visible local route for later dedicated-WSL2 use without loading,
+  invoking, downloading, converting, or quantizing a model?
 
 - Which external serialization and adapter mapping can preserve the accepted Council
   contracts without introducing runtime-native authority?

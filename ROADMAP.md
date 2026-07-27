@@ -66,10 +66,12 @@ authority, teardown, residue inspection, and human checklist. This documentation
 keeps authorization `not_authorized` and the human decision `pending`; it performs no
 installation or execution.
 
-The next packet is a human R4B authorization review. It may resolve the remaining
-license, intended-use, exact-model, provider, credential, endpoint, residual-risk, and
-action approvals and then approve, reject, or defer the bounded later experiment. The
-review itself must not install or execute anything.
+The human R4B authorization-review preparation records an advisory `recommend_defer`.
+Candidate and dependency metadata are bounded for human consideration, but the exact
+runtime-visible local-model route, externally enforceable egress mechanism, and
+execution-only adapter, exporter, verifier, and installed-state evidence remain
+unresolved. The next packet is read-only local-model route qualification. It must not
+load or invoke a model, create an environment, install a runtime, or execute anything.
 
 ## R4B — OpenClaw reference-runtime proof of concept
 

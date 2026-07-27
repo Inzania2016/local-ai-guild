@@ -77,6 +77,10 @@ Last updated: 2026-07-27
   MIT core license, package and third-party notices, release integrity metadata, and
   upstream one-trusted-operator security posture without approving the candidate,
   dependency closure, or intended use.
+- The bounded static dependency review found 56 direct runtime dependencies, one
+  optional dependency, no declared bundled dependencies, and a small named set of
+  license expressions and components requiring human or authorized legal acceptance.
+  This is technical evidence, not legal approval.
 - The proposed R4B environment is one dedicated experiment-only WSL2 distribution with
   container-backed services where practical, a loopback-only gateway, independently
   denied outbound access, no Windows home mount, separate role workspaces, external
@@ -88,9 +92,19 @@ Last updated: 2026-07-27
   equivalent dispatcher comparison, deterministic checks, stop authority, and residue
   inspection.
 - R4B authorization remains `not_authorized`, the human decision remains `pending`, and
-  every authorization checklist item remains unchecked. No runtime, model, provider,
-  credential, WSL2 distribution, container, network rule, or proof of concept was
-  created, changed, installed, downloaded, configured, or executed.
+  every authorization checklist item remains unchecked. No OpenClaw component,
+  provider connection, credential, WSL2 distribution, container, network rule, model
+  download, model load, model invocation, or proof of concept was created, changed,
+  installed, configured, or executed.
+- Read-only local inventory found one complete Ollama Qwen2.5-Coder 7B manifest/blob
+  set and one Q5_K_M GGUF file, but neither produced a confirmed runtime-visible route.
+  `ollama list` auto-started background processes that were immediately stopped, and
+  the bounded LM Studio CLI listing timed out and was terminated. No model process
+  remained. Presence does not establish availability, capability, or approval.
+- The advisory human-authorization review therefore records `recommend_defer` for both
+  installation and execution. The smallest unresolved prerequisite is read-only
+  local-model route qualification; it authorizes no model load, inference, acquisition,
+  environment creation, installation, or runtime execution.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
 - The repository-local environment uses Python 3.12.6 with Ruff 0.15.22 and pytest 8.4.2.
 - R3 repository verification, Ruff, formatting, pytest, CLI status, deterministic case evaluation, redaction checks, and prohibited-surface scans pass as recorded in `VERIFICATION.md`. O2 verification and security-review results are recorded separately in that document.
@@ -112,7 +126,9 @@ Last updated: 2026-07-27
 ## Not validated
 
 - No local or cloud model candidate has been evaluated.
-- LM Studio, Ollama, OpenCode, llama.cpp, OpenClaw, and cloud agents have not been configured or invoked.
+- No model has been loaded or invoked through LM Studio, Ollama, OpenCode, llama.cpp,
+  OpenClaw, or a cloud agent. OpenClaw and cloud agents have not been configured or
+  invoked.
 - The planned storage layout has not been provisioned or validated by R0.
 - No project, model, dataset, or adapter license has been selected or approved.
 - No OpenClaw version, dependency set, model, provider, adapter, dataset, or intended use
@@ -123,21 +139,22 @@ Last updated: 2026-07-27
 
 ## Current stage gate
 
-R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`,
-O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`,
-and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current published baseline is `2984cecbf52bdf356d84c559bb49db13dc8bab9c`, which contains
-the bounded R4B authorization package. The minimum
-portable Council contracts are published at
+The current published baseline is
+`c779ea815490ec14b9f6357729b46087235c03ba`. The bounded R4B authorization package
+was published at `2984cecbf52bdf356d84c559bb49db13dc8bab9c`. The minimum portable
+Council contracts are published at
 `6fe01f7dd0d756a757bea8213803f0e23c42bfab` and accepted as the current executable
 checkpoint. They do not validate a model, external truth,
 executor, dispatcher, approval workflow, retrieval service, runtime integration,
 evidence authenticity, generalized ontology, or cloud adapter.
+See `docs/PUBLICATION_INDEX.md` for the authoritative detailed publication history and
+the separation between Local AI Guild commits and the external OpenClaw candidate
+commit.
 
 R4A documentation was completed ahead of O3 to position OpenClaw correctly as a
 candidate reference runtime without advancing executable work. The portable contracts
-are accepted, and the documentation-only R4B entry-gate review is complete. The bounded
-authorization-and-experiment-design package is now defined on paper with status
-`not_authorized` and human decision `pending`. The next packet is a human R4B
-authorization review that may approve, reject, or defer the specifically bounded later
-installation and execution actions; it must not perform them. R4B remains unexecuted,
-and R4C remains blocked.
+are accepted, the documentation-only R4B entry-gate review is complete, and the bounded
+authorization-and-experiment-design package is defined on paper. The advisory human
+review recommends defer while keeping status `not_authorized` and human decision
+`pending`. The next packet is the read-only local-model route qualification named in
+`NEXT_WORK_PACKET.md`. R4B remains unexecuted, and R4C remains blocked.

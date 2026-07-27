@@ -143,10 +143,10 @@ independently recalculated by this repository.
   runtime, and custom-dispatcher licenses separately.
 
 The official package metadata visibly lists 56 direct runtime dependencies, one
-optional dependency, and one bundled dependency. The official third-party notice covers
-incorporated or adapted Pi/pi-mono code under MIT but explicitly does not replace normal
-package-manager dependency metadata. This packet therefore records the core license
-without approving the dependency closure.
+optional dependency, and no declared `bundledDependencies`. The official third-party
+notice covers incorporated or adapted Pi/pi-mono code under MIT but explicitly does not
+replace normal package-manager dependency metadata. This packet therefore records the
+core license without approving the dependency closure.
 
 ## Data classification and approved bundle
 

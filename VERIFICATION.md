@@ -1252,3 +1252,109 @@ teardown, operational value, or adoption readiness. No OpenClaw or model downloa
 installation, configuration, invocation, provider connection, credential creation or
 injection, WSL2/container/network/firewall change, proof-of-concept execution, or R4C
 ADR occurred.
+
+## Human R4B authorization-review preparation — 2026-07-27
+
+The review began at published baseline
+`c779ea815490ec14b9f6357729b46087235c03ba`, subject
+`docs: finish R4B reference corrections`. Local `HEAD` and `origin/main` matched, the
+worktree and index were clean, the bounded authorization package existed, authorization
+was `not_authorized`, its human decision was `pending`, and every checklist item was
+unchecked. Repository evidence confirmed that no OpenClaw runtime or R4B experiment had
+executed.
+
+The complete durable Markdown set was audited for publication identity and status.
+Twenty-eight Markdown files contained 21 unique 40-character SHA values and no
+backtick-delimited abbreviated SHA. Every Local AI Guild SHA resolved to a commit in
+this repository. The OpenClaw SHA
+`2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4` remained explicitly namespaced as an
+external `openclaw/openclaw` commit. The new publication index records the detailed
+ledger, keeps `c779ea815490ec14b9f6357729b46087235c03ba` as the current published
+baseline, and keeps `6fe01f7dd0d756a757bea8213803f0e23c42bfab` as the current
+executable checkpoint. The known README error was corrected so
+`2984cecbf52bdf356d84c559bb49db13dc8bab9c` describes the bounded authorization
+package rather than the earlier entry-gate review. Historical verification references
+were preserved.
+
+Official-source static review reconfirmed OpenClaw `v2026.7.1`, package version
+`2026.7.1`, external commit `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4`,
+release date 2026-07-13, npm integrity, MIT core license, third-party notice, security
+model, Node ranges, pnpm source lock, and npm shrinkwrap. The root metadata declares 56
+direct runtime dependencies, one optional dependency, no `bundledDependencies`, and 31
+development dependencies. The bounded shrinkwrap surface has no missing license field;
+the exception-focused review names MPL-2.0, dual-license, combined-license, Unlicense,
+BlueOak, internal-workspace, Node, native/install-script, and container considerations.
+This is static technical evidence, not legal approval.
+
+Read-only local inventory found one complete pinned Ollama Qwen2.5-Coder 7B
+manifest/blob set and one LM Studio Q5_K_M GGUF file. `ollama list`, a command explicitly
+permitted by the packet, returned no model row but auto-started Ollama background
+processes; the newly started processes were immediately terminated. `lms ls --json`
+timed out and its remaining CLI process was terminated. No model was loaded, invoked,
+downloaded, converted, or quantized, and no Ollama, LMS, LM Studio, or OpenClaw process
+remained. Because file/manifest presence did not yield one exact runtime-visible route,
+model selection remains unresolved and the advisory recommendation is
+`recommend_defer`.
+
+The required commands were then run from the repository root:
+
+```powershell
+.\scripts\bootstrap.ps1
+.\scripts\verify-repository.ps1
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results:
+
+- `bootstrap.ps1`: exit 0; repository-local Python 3.12.6 environment refreshed.
+  Pydantic 2.13.4, pytest 8.4.2, and Ruff 0.15.22 satisfied the existing declarations.
+- `verify-repository.ps1`: exit 0; Ruff passed, 28 Python files were already formatted,
+  all 499 tests passed in 7.18 seconds, and CLI status passed.
+- standalone Ruff check: exit 0, `All checks passed!`.
+- standalone Ruff format check: exit 0, `28 files already formatted`.
+- standalone pytest: exit 0, 499 tests passed in 7.18 seconds.
+- CLI status: exit 0; project `Local AI Guild`, stage
+  `Portable Council contracts checkpoint`.
+- `git diff --check`: exit 0 with no output.
+- `git status --short --branch`: exit 0; `main` still matched `origin/main`; all packet
+  changes were unstaged and the index was empty.
+
+The changed and untracked path inventory contained Markdown files only:
+
+```text
+DECISIONS.md
+NEXT_WORK_PACKET.md
+OPEN_QUESTIONS.md
+PROJECT_STATE.md
+README.md
+ROADMAP.md
+VERIFICATION.md
+docs/PUBLICATION_INDEX.md
+docs/experiments/R4B_AUTHORIZATION_PACKET.md
+docs/experiments/R4B_DATA_BUNDLE_MANIFEST.md
+docs/experiments/R4B_HUMAN_AUTHORIZATION_REVIEW.md
+docs/research/R4B_OPENCLAW_LICENSE_REVIEW.md
+```
+
+No source, test, script, dependency, configuration, portable-contract, or CLI file
+changed. The complete tracked diff and all four new documents were inspected.
+
+Credential-prefix, credential-assignment, credential-bearing URL, private-key, email,
+private IPv4, and user-profile-path scans of non-ignored repository content returned no
+matches. `.gitignore` probes confirmed virtual environments, Python and tool caches,
+local configuration, environment files, credentials/secrets, generated traces,
+evidence, benchmark output, logs, crash dumps, datasets, local data, model files,
+Ollama state, and runtime state remain ignored.
+
+Authorization remains `not_authorized`, both decision fields remain `pending`, and no
+authoritative checklist item is checked. OpenClaw remains an external candidate rather
+than selected or adopted. No candidate download, installation, configuration, or
+execution; model download or invocation; provider connection; credential creation or
+injection; WSL2, VM, container, network, firewall, or other host-control change; proof
+of concept; or R4C ADR occurred. The local inventory process auto-start described above
+is the sole observed command side effect and was reversed immediately.

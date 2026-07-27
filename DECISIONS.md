@@ -186,3 +186,31 @@ Future durable architecture decisions should receive focused records under `docs
 - Make a human R4B authorization review the next packet. It may approve, reject, or
   defer the specifically bounded later installation and execution actions, but it must
   not perform them and cannot select OpenClaw for adoption.
+
+## Human R4B authorization-review preparation decisions — 2026-07-27
+
+- Make `docs/PUBLICATION_INDEX.md` the authoritative detailed publication ledger.
+  Keep concise current-state summaries in root authority documents and preserve
+  historical verification evidence.
+- Correct the bounded authorization package dependency statement to 56 direct runtime
+  dependencies, one optional dependency, and no declared `bundledDependencies`.
+  Treat static package metadata as technical evidence rather than legal approval.
+- Record `recommend_defer` as Codex's advisory recommendation while preserving the
+  official human decision as `pending`, authorization as `not_authorized`, and every
+  authoritative checklist item as unchecked.
+- Defer environment creation and OpenClaw installation until one exact installed local
+  model route is reconciled with an immutable artifact identity and its dedicated-WSL2
+  use is reviewed. Do not substitute a cloud route.
+- Keep execution separately blocked until installed-state controls, an externally
+  enforced egress mechanism, the adapter, event exporter, deterministic verifier,
+  stop enforcement, and teardown evidence exist under later authorized packets.
+- Use only the proposed repository-owned public or synthetic bundle. Freeze its commit,
+  derived packet, SHA-256 values, sanitization review, and human approval only in a
+  later pre-run step.
+- Accept the existing sessions, rounds, messages, retry, zero-cloud-budget, human-stop,
+  and equal-comparison limits as proposed. Keep named conditions on tools, worker depth,
+  invocation/token/time/compute/tool-call limits, events, deterministic checks, and
+  teardown. Defer egress and event export until independently enforceable and evidenced.
+- Name read-only local-model route qualification as the smallest next prerequisite. It
+  must stop without loading or invoking a model, downloading an artifact, creating an
+  environment, installing a runtime, or executing R4B.

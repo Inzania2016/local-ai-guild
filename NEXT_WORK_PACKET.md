@@ -1,77 +1,78 @@
 # Next Work Packet
 
-## Human R4B authorization review
+## R4B local-model route qualification
 
-This is a human decision packet. It reviews the completed bounded experiment design and
-either approves, rejects, or defers specifically named later installation and execution
-actions.
+This is the smallest unresolved prerequisite identified by the advisory Human R4B
+authorization review. It is a read-only inventory and provenance packet. It does not
+approve installation or execution and does not make the human R4B decision.
 
-It must not download, install, configure, start, or execute OpenClaw or another runtime;
-create an environment, agent, session, credential, route, tool, model, or provider
-connection; change WSL2, container, host, firewall, or network state; run the proof of
-concept; select OpenClaw; or create the R4C runtime-selection ADR.
+### Authority boundary
+
+The packet must not:
+
+- load or invoke a model;
+- download, convert, quantize, copy, or delete a model artifact;
+- start or configure a model server;
+- create or change WSL2, VM, container, filesystem, network, firewall, credential,
+  provider, agent, session, route, or runtime state;
+- install or execute OpenClaw;
+- implement the adapter, dispatcher, exporter, verifier, or teardown automation;
+- check an authorization item, change `not_authorized`, select OpenClaw, or create the
+  R4C runtime-selection ADR.
+
+If a read-only runtime command cannot be proven side-effect free, prefer static
+manifest, file, and official-source inspection. Record any unavoidable observed
+side effect and restore the prior process state.
 
 ### Entry evidence
 
-- `docs/experiments/R4B_ENTRY_GATE_REVIEW.md`
+- `docs/experiments/R4B_HUMAN_AUTHORIZATION_REVIEW.md`
+- `docs/research/R4B_OPENCLAW_LICENSE_REVIEW.md`
+- `docs/experiments/R4B_DATA_BUNDLE_MANIFEST.md`
 - `docs/experiments/R4B_AUTHORIZATION_PACKET.md`
-- `docs/security/R4B_THREAT_MODEL.md`
-- `docs/experiments/R4B_EXPERIMENT_RUNBOOK.md`
-- `docs/experiments/R4B_TEARDOWN_AND_RESIDUE_PLAN.md`
-- `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md`
-- `docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md`
-- `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
-- the accepted minimum portable Council contracts and public synthetic proceeding
+- the complete local Ollama Qwen2.5-Coder 7B manifest/blob identity recorded in the
+  human review
+- the local LM Studio GGUF inventory recorded in the human review
 
 ### Goal
 
-Review every unchecked authorization item and determine whether the exact candidate,
-dedicated-WSL2 design, data, credentials, models, routes, tools, budgets, events,
-verification, comparison, stop, and teardown controls are sufficiently bounded for a
-later experiment.
+Reconcile one exact installed local-model identifier with an immutable local artifact
+identity and establish whether that exact artifact could later be made available inside
+the proposed dedicated-WSL2 boundary under a separately authorized process.
 
 ### Required review
 
-- Reconfirm official OpenClaw `v2026.7.1`, immutable commit
-  `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4`, release integrity, and retrieval
-  source.
-- Review the MIT core license, incorporated-code notice, shipped dependency/component
-  inventory, model/provider licenses and terms, and intended use. Do not infer approval
-  from technical suitability.
-- Accept or reject the dedicated experiment-only WSL2 design, externally enforced
-  host/filesystem/network/credential/quota/budget/stop boundaries, and residual risk.
-- Approve the exact public or synthetic bundle and its provenance, sanitization, and
-  independent review.
-- Prefer no credentials and no cloud route. If a cloud subtest is necessary, name the
-  exact provider, model, endpoint class, dedicated credential scope, quota, privacy
-  boundary, and USD 10 hard ceiling.
-- Select exact model identifiers only after license, intended-use, privacy, capability,
-  context, output, invocation, and cost review. `unselected` authorizes no invocation.
-- Accept or reject the tool allowlist and denylist, depth-one worker boundary, hard
-  budgets, event inventory, external corroboration, deterministic checks, equal
-  dispatcher comparison, stop conditions, teardown, retained evidence, and residue
-  standard.
-- Name the human stop authority and distinguish installation approval from execution
-  approval.
+- Confirm, without loading or invoking a model, whether the pinned Ollama
+  `registry.ollama.ai/library/qwen2.5-coder:7b` artifact is registered under one exact
+  local route.
+- Reconcile its manifest, model/config/license blob digests, quantization, apparent
+  size, official Apache-2.0 provenance, and intended-use status.
+- Determine whether the existing artifact is already accessible to the proposed
+  environment or would require a later authorized copy or acquisition. Do not perform
+  either action.
+- Use the same exact role-model route for all four Council roles and both the OpenClaw
+  and custom-dispatcher paths, or keep selection unresolved.
+- Keep the deterministic dispatcher and verifier model-free and keep cloud routing
+  excluded.
+- Record capability as unverified; presence and registration do not establish quality.
 
 ### Required result
 
 Record exactly one:
 
-- `approved_for_later_bounded_actions`: the external human record names the candidate,
-  environment, models, routes, credentials, endpoints, tools, budgets, operators,
-  stop authority, installation action, execution action, and validity period;
-- `rejected`: installation and execution remain prohibited, with the reason preserved;
-- `deferred`: authorization remains `not_authorized`, with the smallest unresolved
-  prerequisite named.
+- `qualified_for_renewed_human_review`: one immutable artifact and exact local route
+  pass the bounded license, intended-use, and availability review;
+- `deferred`: the smallest remaining identity, provenance, availability, or isolation
+  gap is named; or
+- `rejected`: the candidate is ineligible and the reason is preserved.
 
-An approval record authorizes only the exact later actions it names. The review itself
-performs none of them, does not establish runtime capability or security, and does not
-select OpenClaw for adoption.
+Even `qualified_for_renewed_human_review` authorizes no environment creation,
+installation, model load, inference, or R4B execution. The following packet would be a
+separate human decision record, not an installation packet.
 
 ### Recommended model
 
-Use GPT-5.6 Sol High for the documentation and human-review support because the decision
-combines supply-chain, licensing, threat, isolation, model/provider, evidence, budget,
-and teardown judgments. Use xhigh only if the dependency-license or network-isolation
-review presents a material ambiguity. The human, not the model, owns the decision.
+Use GPT-5.6 Sol High because the work combines local artifact identity, runtime
+registration, provenance, license, intended-use, and isolation-boundary reasoning.
+Use xhigh only if immutable identity or WSL2 availability evidence materially
+contradicts the current review.
