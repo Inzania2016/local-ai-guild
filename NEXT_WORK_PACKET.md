@@ -1,72 +1,77 @@
 # Next Work Packet
 
-## Proposed bounded R4B authorization-and-experiment-design packet
+## Human R4B authorization review
 
-This is a proposed documentation and review packet. It requires explicit human approval
-before work begins. It does not authorize runtime installation or execution.
+This is a human decision packet. It reviews the completed bounded experiment design and
+either approves, rejects, or defers specifically named later installation and execution
+actions.
 
-### Goal
-
-Turn the accepted portable Council contracts and completed R4B entry-gate review into one
-fully bounded, independently reviewable experiment specification. The packet must close
-or explicitly reject every prerequisite before asking a human whether a later OpenClaw
-POC may be installed and executed.
+It must not download, install, configure, start, or execute OpenClaw or another runtime;
+create an environment, agent, session, credential, route, tool, model, or provider
+connection; change WSL2, container, host, firewall, or network state; run the proof of
+concept; select OpenClaw; or create the R4C runtime-selection ADR.
 
 ### Entry evidence
 
 - `docs/experiments/R4B_ENTRY_GATE_REVIEW.md`
+- `docs/experiments/R4B_AUTHORIZATION_PACKET.md`
+- `docs/security/R4B_THREAT_MODEL.md`
+- `docs/experiments/R4B_EXPERIMENT_RUNBOOK.md`
+- `docs/experiments/R4B_TEARDOWN_AND_RESIDUE_PLAN.md`
 - `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md`
 - `docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md`
-- `docs/architecture/SECURITY_BOUNDARIES.md`
 - `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
-- the accepted minimum portable Council contracts and synthetic proceeding
+- the accepted minimum portable Council contracts and public synthetic proceeding
 
-### In scope
+### Goal
 
-- Finalize an experiment-specific threat model and residual-risk statement.
-- Select and document one WSL2 or VM isolation design.
-- Define independent host, network, filesystem, credential, approval, and audit controls.
-- Define teardown, retained-artifact, residue-inspection, and failure procedures.
-- Identify one precise eligible OpenClaw version through authorized current research.
-- Complete a version-specific license and intended-use review without approving adoption.
-- Freeze the public or synthetic input bundle and provenance review.
-- Decide whether credentials are avoidable; otherwise specify dedicated revocable test
-  credentials requiring human authorization.
-- Define the exact model list and deny-by-default local/cloud routing policy.
-- Define the exact tool allowlist and denylist.
-- Fix subagent depth at one and specify depth-two denial.
-- Set message, token, time, worker, and cost budgets.
-- Freeze the required runtime-event inventory, schema, ordering, omissions, and redaction.
-- Specify deterministic verification and independent observation procedures.
-- Name the human stop authority and every immediate stop condition.
-- Define the smaller custom-dispatcher comparison baseline and value criteria.
-- Produce a final explicit approval request for later installation and execution.
+Review every unchecked authorization item and determine whether the exact candidate,
+dedicated-WSL2 design, data, credentials, models, routes, tools, budgets, events,
+verification, comparison, stop, and teardown controls are sufficiently bounded for a
+later experiment.
 
-### Out of scope
+### Required review
 
-- Installing, downloading, configuring, or executing OpenClaw or another runtime.
-- Configuring or invoking a model, provider, tool, credential, worker, or cloud route.
-- Implementing an adapter, dispatcher, event ingester, or verification script.
-- Running capability, security, routing, cost, teardown, or comparison tests.
-- Selecting or adopting OpenClaw.
-- Creating a runtime-selection ADR.
-- Changing the accepted portable Council contracts.
+- Reconfirm official OpenClaw `v2026.7.1`, immutable commit
+  `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4`, release integrity, and retrieval
+  source.
+- Review the MIT core license, incorporated-code notice, shipped dependency/component
+  inventory, model/provider licenses and terms, and intended use. Do not infer approval
+  from technical suitability.
+- Accept or reject the dedicated experiment-only WSL2 design, externally enforced
+  host/filesystem/network/credential/quota/budget/stop boundaries, and residual risk.
+- Approve the exact public or synthetic bundle and its provenance, sanitization, and
+  independent review.
+- Prefer no credentials and no cloud route. If a cloud subtest is necessary, name the
+  exact provider, model, endpoint class, dedicated credential scope, quota, privacy
+  boundary, and USD 10 hard ceiling.
+- Select exact model identifiers only after license, intended-use, privacy, capability,
+  context, output, invocation, and cost review. `unselected` authorizes no invocation.
+- Accept or reject the tool allowlist and denylist, depth-one worker boundary, hard
+  budgets, event inventory, external corroboration, deterministic checks, equal
+  dispatcher comparison, stop conditions, teardown, retained evidence, and residue
+  standard.
+- Name the human stop authority and distinguish installation approval from execution
+  approval.
 
 ### Required result
 
-The packet must end with one of:
+Record exactly one:
 
-- a complete bounded experiment specification ready for a separate explicit human
-  installation-and-execution authorization;
-- a list of specific unresolved blockers and the smallest follow-up review;
-- rejection of the candidate experiment because risk, license, isolation, or teardown
-  requirements cannot be met.
+- `approved_for_later_bounded_actions`: the external human record names the candidate,
+  environment, models, routes, credentials, endpoints, tools, budgets, operators,
+  stop authority, installation action, execution action, and validity period;
+- `rejected`: installation and execution remain prohibited, with the reason preserved;
+- `deferred`: authorization remains `not_authorized`, with the smallest unresolved
+  prerequisite named.
 
-Completing the design does not itself permit installation or execution.
+An approval record authorizes only the exact later actions it names. The review itself
+performs none of them, does not establish runtime capability or security, and does not
+select OpenClaw for adoption.
 
 ### Recommended model
 
-Use GPT-5.6 Sol High because the packet combines threat modeling, isolation, licensing,
-runtime-version review, security controls, evidence design, and authorization boundaries.
-Medium is sufficient only after version, license, isolation, and teardown decisions are
-already fixed and independently reviewed.
+Use GPT-5.6 Sol High for the documentation and human-review support because the decision
+combines supply-chain, licensing, threat, isolation, model/provider, evidence, budget,
+and teardown judgments. Use xhigh only if the dependency-license or network-isolation
+review presents a material ambiguity. The human, not the model, owns the decision.

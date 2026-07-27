@@ -9,6 +9,12 @@ The repository-only entry-gate review is recorded in
 authorization-and-experiment-design packet; it does not establish OpenClaw capability or
 authorize this POC.
 
+That proposed design is recorded in `R4B_AUTHORIZATION_PACKET.md`,
+`../security/R4B_THREAT_MODEL.md`, `R4B_EXPERIMENT_RUNBOOK.md`, and
+`R4B_TEARDOWN_AND_RESIDUE_PLAN.md`. It identifies one immutable candidate and defines
+the controls required for human review while retaining status `not_authorized` and
+decision `pending`. It installs and executes nothing.
+
 The experiment asks:
 
 > Should the AI Council use OpenClaw as its initial reference runtime, or should it build a smaller custom dispatcher?
@@ -111,11 +117,12 @@ OpenClaw must be treated as untrusted and cannot serve as its own security bound
 ## Entry and stop conditions
 
 The minimum Council contracts are defined and accepted, and the documentation-only
-entry-gate review is complete. R4B still cannot begin until a later packet finalizes and
-obtains review of the threat model, isolation and teardown designs, candidate version,
-license and intended-use restrictions, data, credentials, models, routing, tools, budgets,
-event export, deterministic checks, and human stop authority, and a human explicitly
-authorizes installation and execution.
+entry-gate review and bounded experiment design are complete on paper. R4B still cannot
+begin until the human authorization review accepts the threat model, dedicated-WSL2
+isolation and teardown designs, candidate provenance, license and intended-use
+restrictions, data, credentials, exact models, routing, tools, budgets, event export,
+deterministic checks, residual risks, and stop authority, and explicitly authorizes the
+separately named installation and execution actions.
 
 Stop the experiment on any unauthorized network or cloud route, permission escape, cross-role memory exposure, missing required event record, unbounded loop or worker spawn, credential exposure, inability to freeze a position externally, or attempt to represent runtime state as Council approval or authority.
 

@@ -68,8 +68,17 @@ concludes only that a separate bounded authorization-and-experiment-design packe
 proposed.
 
 R4B remains unauthorized. Installation and execution remain blocked until an
-experiment-specific threat model, approved isolation design, independent controls,
-teardown procedure, eligible candidate version, license and intended-use review, public
-or synthetic data bundle, credentials, model and routing policy, tool policy, budgets,
-event export, deterministic checks, and human stop authority are finalized and a human
-explicitly authorizes the installation and execution actions.
+experiment-specific threat model, dedicated-WSL2 isolation design, independent controls,
+teardown procedure, immutable candidate, license and intended-use review, public or
+synthetic data bundle, credentials, exact models and routes, tool policy, budgets, event
+export, deterministic checks, and stop authority are accepted by the human
+authorization review.
+
+The proposed controls are now recorded in
+`../experiments/R4B_AUTHORIZATION_PACKET.md`,
+`../security/R4B_THREAT_MODEL.md`,
+`../experiments/R4B_EXPERIMENT_RUNBOOK.md`, and
+`../experiments/R4B_TEARDOWN_AND_RESIDUE_PLAN.md`. Their status is
+`not_authorized`; documenting them does not prove enforcement. A later action-specific
+human decision must authorize installation and execution, and that review must not
+perform either action.

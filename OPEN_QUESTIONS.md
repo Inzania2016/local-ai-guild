@@ -85,15 +85,34 @@ This file separates resolved design questions from questions deferred to later p
 - A separate bounded R4B authorization-and-experiment-design packet is ready to be
   proposed. This does not authorize R4B, installation, execution, selection, or adoption.
 
+## Resolved in the R4B authorization package
+
+- Propose official stable OpenClaw `v2026.7.1` at immutable commit
+  `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4` and no floating or prerelease
+  candidate.
+- Record the official MIT core license and third-party notice while leaving dependency,
+  model, provider, intended-use, and legal approval to human review.
+- Use a dedicated experiment-only WSL2 distribution with container-backed services
+  where practical, loopback-only ingress, independently denied egress, no Windows home
+  mount, separate role workspaces, and full teardown.
+- Bound the proposed data, credentials, model routes, tools, workers, rounds, messages,
+  invocations, tokens, time, compute, retries, cost, events, verification, comparison,
+  stop, and residue controls on paper.
+- Keep the model routes disabled with exact identifiers `unselected` until human review;
+  do not select a model solely because OpenClaw supports it.
+- Keep authorization `not_authorized`, decision `pending`, and all checklist items
+  unchecked. The package performs no installation or execution.
+
 ## Deferred to R4B or R4C
 
 - Which external serialization and adapter mapping can preserve the accepted Council
   contracts without introducing runtime-native authority?
-- Which OpenClaw version, license terms, runtime primitives, and event exports are eligible for an approved evaluation?
-- Which approved WSL2 or VM isolation design, teardown procedure, and residue standard
-  bound the experiment?
-- Which exact models, routes, tools, credentials, budgets, event inventory, deterministic
-  checks, and human stop authority may the experiment use?
+- Will the human accept the candidate provenance, core and dependency license posture,
+  intended use, dedicated-WSL2 residual risks, teardown standard, and external controls?
+- Which exact models and providers, if any, pass the separate license, intended-use,
+  privacy, capability, cost, and routing review?
+- Will the human authorize optional dedicated credentials and cloud routing, or retain
+  the preferred credential-free and cloud-disabled boundary?
 - Can OpenClaw demonstrate the required role, session, workspace, memory, permission, routing, cost, and teardown boundaries under independent inspection?
 - Does a smaller custom dispatcher produce better security, portability, auditability, and operational value?
 - Which runtime, if any, should R4C select and record in the first runtime-selection ADR?

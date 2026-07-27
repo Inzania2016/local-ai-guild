@@ -1132,3 +1132,123 @@ Final `git diff --check` passed with no output. `git status --short --branch` re
 `main...origin/main`, nine modified Markdown files, one untracked Markdown file, and no
 staged path. `git diff -- src tests scripts config pyproject.toml docs/decisions`
 produced no output.
+
+## Bounded R4B authorization-and-experiment-design packet — 2026-07-27
+
+Before editing, the exact commit with subject
+`docs: review R4B entry gates` was resolved as
+`f49d6f26c712c451efc496b1f35f389422651c2e`. `HEAD`, `main`, and
+`origin/main` all matched that commit; the worktree and index were clean.
+`docs/experiments/R4B_ENTRY_GATE_REVIEW.md` was tracked and its sole recommendation was
+`ready_to_propose_bounded_r4b_packet`.
+
+Official-source read-only research identified OpenClaw `v2026.7.1`, released
+2026-07-13 at immutable commit
+`2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4`. The official release, commit,
+`LICENSE`, `THIRD_PARTY_NOTICES.md`, `package.json`, `SECURITY.md`, and release
+evidence were inspected through GitHub and official repository URLs. The core license
+is MIT. Dependency, model, provider, intended-use, and legal approval remain human
+review items. No candidate artifact was downloaded, and no package or release digest
+was independently recalculated.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The repository-local editable package was refreshed under Python
+3.12.6. Pydantic 2.13.4 remained the sole runtime dependency; pytest 8.4.2 and Ruff
+0.15.22 remained development dependencies. No OpenClaw, model, provider, or new project
+dependency was installed.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff reported `All checks passed!`; formatting reported
+`28 files already formatted`; pytest collected and passed 499 tests in 7.87 seconds;
+the CLI reported:
+
+```text
+Project: Local AI Guild
+Stage: Portable Council contracts checkpoint
+```
+
+The script ended with `Repository verification passed.`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results: every command exited 0. Ruff reported `All checks passed!`; formatting
+reported `28 files already formatted`; the direct pytest run passed all 499 tests in
+8.50 seconds; the CLI printed the same portable Council contracts checkpoint stage.
+The final diff check produced no output. Git reported `main...origin/main`, nine
+modified Markdown files, four untracked Markdown files, and no staged path.
+
+The structural documentation audit found:
+
+- exactly four new packet documents;
+- authorization status `not_authorized` in every new document and one human
+  `Decision: pending`;
+- 21 unchecked authorization items and no checked item;
+- one immutable candidate, one selected dedicated-WSL2 design, and no floating runtime
+  version;
+- 27 experiment-specific threat rows covering every required scenario and recording
+  prevention, detection, stop, residual risk, and enforcement status;
+- 24 proposed runbook phases, 25 required runtime-event kinds, and 20 deterministic
+  external checks;
+- identical OpenClaw and custom-dispatcher comparison dimensions;
+- a complete removal, retained-evidence, residue, credential, failure, and closeout
+  plan.
+
+```powershell
+git diff --cached --name-only
+git ls-files --others --exclude-standard
+git status --ignored --short
+git status --short docs/decisions
+git diff -- src tests scripts config pyproject.toml docs/decisions
+```
+
+Results: the Git index was empty. The untracked set contained exactly the four new
+Markdown documents. Ignored state was limited to the repository-local `.venv`, Ruff and
+pytest caches, and Python bytecode caches. Source, tests, scripts, configuration,
+dependencies, CLI code, portable Council contracts, and `docs/decisions/` were
+unchanged. No runtime-selection ADR was created.
+
+The `.gitignore` inspection confirmed that virtual environments and caches; local
+configuration and environment files; certificates, keys, credential and secret JSON;
+logs, crash dumps, databases, local data; model files and runtime state; generated
+evidence, traces, and benchmark results; and build output remain ignored. Tracked
+example configuration and artifact directory placeholders remain allowed.
+
+```powershell
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|(?i)(api[_-]?key|access[_-]?token|client[_-]?secret|password)\s*[:=]\s*["''][^"'']{8,}["'']' .
+rg --pcre2 -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?<![0-9])10\.(?:[0-9]{1,3}\.){2}[0-9]{1,3}(?![0-9])|(?<![0-9])192\.168\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?<![0-9])172\.(?:1[6-9]|2[0-9]|3[01])\.(?:[0-9]{1,3}\.)[0-9]{1,3}(?![0-9])|(?i:https?://[^/\s]*(?:\.local|\.internal)(?:[/:\s]|$))' .
+rg -n --hidden -g '!.git/**' -g '!.venv/**' -e '(?i)C:\\Users\\|\\\\[A-Za-z0-9._-]+\\|(?i)(hostname|internal endpoint|connection string)\s*[:=]\s*\S+' .
+```
+
+Results: credential and private-address scans returned no matches. The machine-specific
+scan matched only its own commands already recorded in this file and public synthetic
+UNC/path-rejection fixtures in tests. No new packet document contained a user profile
+path, hostname, internal endpoint, connection string, credential-like value, or private
+address.
+
+All external URLs in the new packet resolve under the official
+`github.com/openclaw/openclaw` or `github.com/openclaw/releases` organizations. Claims
+are labeled as observed official-source facts, repository design decisions, inferences,
+or unresolved human-review questions. The complete tracked diff and all four untracked
+documents were inspected.
+
+These checks establish a coherent documentation-only authorization design and preserve
+the existing deterministic repository behavior. They do not establish OpenClaw
+capability, license approval, intended-use approval, dependency suitability, model
+quality, isolation, permission enforcement, event completeness, routing, cost,
+teardown, operational value, or adoption readiness. No OpenClaw or model download,
+installation, configuration, invocation, provider connection, credential creation or
+injection, WSL2/container/network/firewall change, proof-of-concept execution, or R4C
+ADR occurred.

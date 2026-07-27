@@ -4,8 +4,13 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 
 ## Current status
 
-The accepted published baseline is `6fe01f7dd0d756a757bea8213803f0e23c42bfab`.
-O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The published portable-contract checkpoint defines the minimum strict runtime-neutral Council contracts, one public synthetic in-memory proceeding, and deterministic cross-contract validation.
+The current published baseline is
+`f49d6f26c712c451efc496b1f35f389422651c2e`, containing the documentation-only R4B
+entry-gate review. O3 is published at
+`a307d1274a88a64ed6dd9a334f4f757f6d67ed80`, and the portable-contract checkpoint is
+published at `6fe01f7dd0d756a757bea8213803f0e23c42bfab`. The checkpoint defines
+the minimum strict runtime-neutral Council contracts, one public synthetic in-memory
+proceeding, and deterministic cross-contract validation.
 These contracts are not a completed Council implementation or runtime adapter. OpenClaw
 remains an unevaluated candidate reference runtime. No provider, dispatcher, executor,
 retrieval system, graph database, generalized ontology infrastructure, model runtime,
@@ -103,18 +108,29 @@ approval requests execute nothing, and knowledge-promotion requests mutate nothi
 
 R4A defines the AI Council as a portable institutional layer that owns roles, work packets, deliberation, evidence, verification, approval, decisions, knowledge promotion, and audit standards. A future runtime adapter may own sessions, models, tools, workers, scheduling, permissions, events, and runtime-specific messaging, but runtime state cannot become authoritative Council state.
 
-OpenClaw is documented only as a **candidate reference runtime** for a future, separately authorized R4B proof of concept. No OpenClaw installation, configuration, adapter, model, skill, session, or runtime execution exists. The portable boundary, objective requirements, knowledge policy, and proposed experiment are documented in:
+OpenClaw is documented only as a **candidate reference runtime** for a future,
+separately authorized R4B proof of concept. The bounded authorization package proposes
+official release `v2026.7.1` at immutable commit
+`2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4` for human review; identifying the
+candidate does not select, approve, download, install, configure, or execute it. No
+OpenClaw adapter, model, skill, session, or runtime execution exists. The portable
+boundary, objective requirements, knowledge policy, entry review, and proposed
+experiment controls are documented in:
 
 - `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md`
 - `docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md`
 - `docs/architecture/KNOWLEDGE_PROMOTION_POLICY.md`
 - `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
+- `docs/experiments/R4B_ENTRY_GATE_REVIEW.md`
+- `docs/experiments/R4B_AUTHORIZATION_PACKET.md`
+- `docs/security/R4B_THREAT_MODEL.md`
+- `docs/experiments/R4B_EXPERIMENT_RUNBOOK.md`
+- `docs/experiments/R4B_TEARDOWN_AND_RESIDUE_PLAN.md`
 
-The documentation-only entry-gate review in
-`docs/experiments/R4B_ENTRY_GATE_REVIEW.md` concludes that a separate bounded R4B
-authorization-and-experiment-design packet is ready to be proposed. Gates for runtime
-isolation, execution records, routing and cost, and operational value remain unproven.
-The review does not authorize R4B, select OpenClaw, or permit installation or execution.
+The proposed authorization status is `not_authorized`, and its human decision remains
+`pending`. Gates for runtime isolation, execution records, routing and cost, and
+operational value remain unproven. The next packet is a human review of the completed
+design; that review must not install or execute the runtime.
 
 ## Planned storage layout
 

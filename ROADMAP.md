@@ -57,17 +57,31 @@ authorization-and-experiment-design packet may be proposed, while runtime isolat
 event completeness, routing and cost, and operational value remain unproven. This stage
 does not authorize R4B, install a runtime, or select OpenClaw.
 
+## R4B authorization and experiment design
+
+Identify one immutable candidate from official sources and define the experiment-specific
+threat model, dedicated-WSL2 isolation, data and credential boundaries, model and routing
+gates, tools, budgets, events, deterministic verification, dispatcher comparison, stop
+authority, teardown, residue inspection, and human checklist. This documentation stage
+keeps authorization `not_authorized` and the human decision `pending`; it performs no
+installation or execution.
+
+The next packet is a human R4B authorization review. It may resolve the remaining
+license, intended-use, exact-model, provider, credential, endpoint, residual-risk, and
+action approvals and then approve, reject, or defer the bounded later experiment. The
+review itself must not install or execute anything.
+
 ## R4B — OpenClaw reference-runtime proof of concept
 
 Under a separately approved packet, test OpenClaw only as a candidate reference runtime
 against the R4A requirements and compare it with a smaller custom dispatcher. R4B
 cannot begin until the portable contracts are accepted and a separate documentation-only
 entry-gate review determines that an experiment packet may be proposed. That review is
-complete and permits only proposing the separate design-and-authorization packet; R4B
-remains unstarted and unauthorized. Runtime installation, model configuration, and
-execution require explicit human authorization after the threat model, isolation,
-teardown, version, license, data, credential, model, tool, budget, event, and stop
-boundaries are finalized.
+complete and the separate design-and-authorization packet is defined. R4B remains
+unstarted and unauthorized. Runtime installation, model configuration, and execution
+require explicit action-specific human authorization after the documented threat model,
+isolation, teardown, version, provenance, license, data, credential, model, route, tool,
+budget, event, deterministic-check, and stop boundaries are accepted.
 
 ## R4C — Runtime adoption decision
 

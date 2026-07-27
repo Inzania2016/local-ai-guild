@@ -147,3 +147,42 @@ Future durable architecture decisions should receive focused records under `docs
   public or synthetic data, credentials, models, routing, tools, budgets, events,
   deterministic checks, human stop authority, and explicit installation/execution gate.
 - Preserve OpenClaw as a candidate reference runtime and defer any selection ADR to R4C.
+
+## R4B authorization-package decisions — 2026-07-27
+
+- Keep authorization status `not_authorized`, the human decision `pending`, and every
+  authorization checklist item unchecked. Repository publication cannot authorize
+  installation or execution.
+- Propose only official stable OpenClaw `v2026.7.1` at immutable commit
+  `2d2ddc43d0dcf71f31283d780f9fe9ff4cc04fe4`; reject floating or prerelease
+  identifiers for the experiment.
+- Record the official MIT core license, incorporated-code notice, package dependency
+  surface, and release integrity metadata as review evidence, not legal, dependency,
+  intended-use, security, or adoption approval.
+- Select a dedicated experiment-only WSL2 distribution with container-backed services
+  where practical and a loopback-only gateway. Require no Windows home mount, separate
+  role workspaces, independently denied outbound access, external verification, and
+  complete environment teardown. Substituting a VM requires a revised review.
+- Treat OpenClaw, models, agents, sessions, tools, skills, memory, and logs as untrusted.
+  Enforce host, filesystem, network, credential, quota, budget, freeze, approval, stop,
+  and teardown controls outside the runtime where practical.
+- Use public or synthetic data only. Prefer no credentials and no cloud route. Any cloud
+  subtest requires exact models, providers, endpoints, dedicated disposable credentials,
+  quotas, cost ceilings, and separate action-specific human approval.
+- Leave model identifiers `unselected` until the human review considers license,
+  intended use, privacy, capability, cost, and route controls. Runtime compatibility
+  alone is not a model-selection criterion.
+- Limit the proposed experiment to four Council roles, four primary sessions, at most
+  two depth-one workers, one cross-review round, fixed message/model/token/time/compute/
+  retry/tool/cost budgets, and a minimal schema-validated non-shell tool allowlist.
+- Require the same packet, roles, evidence, model routes, policies, budgets, events,
+  checks, stops, and teardown for OpenClaw and the smaller dispatcher. Feature count is
+  not a success metric.
+- Require predeclared bounded runtime events plus independent corroboration and external
+  deterministic checks. Runtime-native logs remain supporting observations only.
+- Define incomplete teardown as experiment failure. Preserve only approved sanitized
+  Council artifacts, verification, comparison, cost/routing, review, teardown, and
+  human-decision evidence in runtime-independent formats.
+- Make a human R4B authorization review the next packet. It may approve, reject, or
+  defer the specifically bounded later installation and execution actions, but it must
+  not perform them and cannot select OpenClaw for adoption.
