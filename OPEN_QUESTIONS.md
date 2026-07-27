@@ -75,18 +75,25 @@ This file separates resolved design questions from questions deferred to later p
   knowledge promotion request-only, and treat runtime events as non-authoritative
   telemetry.
 
-## Proposed R4B entry-gate review
+## Resolved in the R4B entry-gate review
 
-- Do the human-accepted portable contracts represent the minimum Council flow required
-  by all six runtime-adoption gates?
-- Are the isolation design, threat model, teardown plan, license review, and explicit
-  runtime-authorization prerequisites complete enough to propose an OpenClaw POC
-  packet without authorizing it?
+- The accepted portable contracts strongly represent the minimum Council flow and
+  runtime-independent artifacts, but only partially support Gates 1 and 5 because no
+  candidate adapter has been exercised.
+- Gate 2 is blocked by the missing approved threat model, isolation design, independent
+  controls, and teardown procedure. Gates 3, 4, and 6 require bounded runtime evidence.
+- A separate bounded R4B authorization-and-experiment-design packet is ready to be
+  proposed. This does not authorize R4B, installation, execution, selection, or adoption.
 
 ## Deferred to R4B or R4C
 
-- Which exact Council contracts and serialization formats satisfy the R4B entry gate?
+- Which external serialization and adapter mapping can preserve the accepted Council
+  contracts without introducing runtime-native authority?
 - Which OpenClaw version, license terms, runtime primitives, and event exports are eligible for an approved evaluation?
+- Which approved WSL2 or VM isolation design, teardown procedure, and residue standard
+  bound the experiment?
+- Which exact models, routes, tools, credentials, budgets, event inventory, deterministic
+  checks, and human stop authority may the experiment use?
 - Can OpenClaw demonstrate the required role, session, workspace, memory, permission, routing, cost, and teardown boundaries under independent inspection?
 - Does a smaller custom dispatcher produce better security, portability, auditability, and operational value?
 - Which runtime, if any, should R4C select and record in the first runtime-selection ADR?

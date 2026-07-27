@@ -1038,3 +1038,97 @@ in-memory consistency for the public synthetic proceeding. They do not establish
 completed Council, external truth, approval authenticity, knowledge mutation,
 persistence, runtime capability, runtime isolation, OpenClaw suitability, model
 quality, or readiness to begin R4B.
+
+## R4B documentation-only entry-gate review — 2026-07-27
+
+All commands ran from `C:\dev\source\Repos\local-ai-guild` against published baseline
+`9d0e2a225f4b9c41ac4f41a8ae125c4e9ad98e11`, which matched `HEAD`, `main`, and
+`origin/main`. The starting worktree and index were clean. No external web research,
+runtime installation, runtime execution, model configuration, provider access, or
+OpenClaw invocation occurred.
+
+```powershell
+.\scripts\bootstrap.ps1
+```
+
+Result: exit 0. The editable package was refreshed in the repository-local Python
+3.12.6 environment. Pydantic 2.13.4 remained the sole runtime dependency; pytest
+8.4.2 and Ruff 0.15.22 remained development dependencies. No new dependency or
+machine-wide setting was added.
+
+```powershell
+.\scripts\verify-repository.ps1
+```
+
+Result: exit 0. Ruff passed, 28 Python files were already formatted, pytest collected
+and passed 499 tests in 15.15 seconds, the CLI reported the portable Council contracts
+checkpoint stage, and the script reported `Repository verification passed.`
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results: every command exited 0. Ruff reported `All checks passed!`; formatting
+reported `28 files already formatted`; pytest passed all 499 tests in 16.43 seconds;
+the CLI printed:
+
+```text
+Project: Local AI Guild
+Stage: Portable Council contracts checkpoint
+```
+
+The diff check produced no output. Git reported `main...origin/main`, eight modified
+Markdown files, one untracked Markdown review, and no staged path at that point.
+
+The documentation audit required all six gate sections; all six evidence, limitation,
+test, pass, and stop subsections; only the four approved classification strings; and
+exactly one final recommendation. It found:
+
+- Gates 1 and 5: `partially_supported`.
+- Gate 2: `blocked_by_missing_prerequisite`.
+- Gates 3, 4, and 6: `requires_r4b_experiment`.
+- Recommendation: `ready_to_propose_bounded_r4b_packet`.
+
+The recommendation permits only proposing a separate documentation and authorization
+packet. It does not authorize R4B, installation, execution, runtime selection, or
+adoption.
+
+```powershell
+git status --short
+git diff --name-only
+git diff --cached --name-only
+git status --short docs/decisions
+git diff -- src tests scripts config pyproject.toml
+```
+
+Results: every changed or untracked path was Markdown documentation. The Git index was
+empty. Source, tests, scripts, configuration, dependencies, and `docs/decisions/`
+were unchanged; no runtime-selection ADR was created.
+
+Credential-pattern and private-network scans over all changed documentation returned no
+matches. An actionable runtime-command scan returned only the README's negative statement
+that no OpenClaw installation exists; no installation, download, configuration, or
+execution command was added. The review contains no live credentials, private network
+details, runtime configuration, external runtime capability claim, or affirmative
+selection/adoption language.
+
+These checks establish documentation consistency and repository-evidence traceability
+only. They do not establish an eligible OpenClaw version, license suitability, runtime
+capability, isolation, permission enforcement, event completeness, routing behavior,
+cost attribution, teardown completeness, operational value, or adoption readiness.
+
+Final structural inspection found all six gate sections, all required gate subsections,
+all 18 prerequisite rows with one approved disposition each, every required stop
+condition, and exactly one recommendation in
+`docs/experiments/R4B_ENTRY_GATE_REVIEW.md`. The complete tracked diff and the new
+384-line review were inspected.
+
+Final `git diff --check` passed with no output. `git status --short --branch` reported
+`main...origin/main`, nine modified Markdown files, one untracked Markdown file, and no
+staged path. `git diff -- src tests scripts config pyproject.toml docs/decisions`
+produced no output.

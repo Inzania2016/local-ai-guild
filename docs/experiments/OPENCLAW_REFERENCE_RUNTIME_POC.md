@@ -4,6 +4,11 @@
 
 OpenClaw is a **candidate reference runtime**. It is not selected, approved, or adopted. This R4A document designs a possible R4B experiment; it does not authorize installation, configuration, download, execution, or access to models or tools.
 
+The repository-only entry-gate review is recorded in
+`R4B_ENTRY_GATE_REVIEW.md`. It permits proposing a separate bounded
+authorization-and-experiment-design packet; it does not establish OpenClaw capability or
+authorize this POC.
+
 The experiment asks:
 
 > Should the AI Council use OpenClaw as its initial reference runtime, or should it build a smaller custom dispatcher?
@@ -105,10 +110,12 @@ OpenClaw must be treated as untrusted and cannot serve as its own security bound
 
 ## Entry and stop conditions
 
-The minimum Council contracts are now defined but remain pending human acceptance. R4B
-cannot begin until a separate entry-gate review is accepted, licenses are reviewed, the
-isolation design is approved, and a human explicitly authorizes installation and
-execution.
+The minimum Council contracts are defined and accepted, and the documentation-only
+entry-gate review is complete. R4B still cannot begin until a later packet finalizes and
+obtains review of the threat model, isolation and teardown designs, candidate version,
+license and intended-use restrictions, data, credentials, models, routing, tools, budgets,
+event export, deterministic checks, and human stop authority, and a human explicitly
+authorizes installation and execution.
 
 Stop the experiment on any unauthorized network or cloud route, permission escape, cross-role memory exposure, missing required event record, unbounded loop or worker spawn, credential exposure, inability to freeze a position externally, or attempt to represent runtime state as Council approval or authority.
 

@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-07-26
+Last updated: 2026-07-27
 
 ## Confirmed current facts
 
@@ -64,6 +64,13 @@ Last updated: 2026-07-26
 - These are minimum portable contracts, not a completed Council, deliberation engine,
   approval workflow, promotion engine, persistence layer, or runtime adapter.
 - OpenClaw is a candidate reference runtime. It has not been selected, approved, adopted, installed, configured, downloaded, or executed.
+- The documentation-only R4B entry-gate review classifies minimum-flow representation and
+  artifact portability as partially supported, isolation as blocked by missing approved
+  prerequisites, and execution records, routing/cost visibility, and net value as requiring
+  a bounded runtime experiment.
+- The review concludes that a separate bounded R4B authorization-and-experiment-design
+  packet is ready to be proposed. It does not authorize R4B, installation, execution, or
+  adoption.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
 - The repository-local environment uses Python 3.12.6 with Ruff 0.15.22 and pytest 8.4.2.
 - R3 repository verification, Ruff, formatting, pytest, CLI status, deterministic case evaluation, redaction checks, and prohibited-surface scans pass as recorded in `VERIFICATION.md`. O2 verification and security-review results are recorded separately in that document.
@@ -75,7 +82,11 @@ Last updated: 2026-07-26
 - `E:\AI` will hold active models, runtimes, caches, and active workspace assets.
 - `D:\AI` will hold archives, datasets, experiments, benchmark history, and backups.
 - Candidate components and model hypotheses are described in `VISION.md` and architecture documents.
-- R4B may evaluate a runtime only after the minimum portable Council contracts are defined and accepted under a separate authorized packet.
+- R4B may evaluate a runtime only under a separate explicitly authorized packet.
+- Before any R4B installation or execution, a separate packet must finalize and obtain
+  review of the experiment threat model, isolation design, independent controls, teardown,
+  candidate version, license and intended-use posture, data, credentials, models, routing,
+  tools, budgets, event export, deterministic checks, and human stop authority.
 
 ## Not validated
 
@@ -83,17 +94,25 @@ Last updated: 2026-07-26
 - LM Studio, Ollama, OpenCode, llama.cpp, OpenClaw, and cloud agents have not been configured or invoked.
 - The planned storage layout has not been provisioned or validated by R0.
 - No project, model, dataset, or adapter license has been selected or approved.
+- No eligible OpenClaw version, license conclusion, current runtime capability, routing
+  behavior, event completeness, isolation result, teardown result, or operational-value
+  result has been established.
 
 ## Current stage gate
 
 R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`,
 O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`,
-and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The accepted
-published baseline is `6fe01f7dd0d756a757bea8213803f0e23c42bfab`. The minimum portable Council contracts are published at `6fe01f7dd0d756a757bea8213803f0e23c42bfab` and accepted as the current executable checkpoint. They do not validate a model, external truth,
+and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current
+published baseline is `9d0e2a225f4b9c41ac4f41a8ae125c4e9ad98e11`. The minimum
+portable Council contracts are published at
+`6fe01f7dd0d756a757bea8213803f0e23c42bfab` and accepted as the current executable
+checkpoint. They do not validate a model, external truth,
 executor, dispatcher, approval workflow, retrieval service, runtime integration,
 evidence authenticity, generalized ontology, or cloud adapter.
 
 R4A documentation was completed ahead of O3 to position OpenClaw correctly as a
-candidate reference runtime without advancing executable work. The contract checkpoint
-does not authorize R4B. R4B remains blocked pending human acceptance of these contracts
-and a separate documentation-only R4B entry-gate review.
+candidate reference runtime without advancing executable work. The portable contracts
+are accepted, and the documentation-only R4B entry-gate review is complete. Its sole
+progression result is that a separate bounded authorization-and-experiment-design packet
+may be proposed. R4B remains unauthorized; installation and execution remain blocked
+pending completion and human approval of that later packet's prerequisites and actions.

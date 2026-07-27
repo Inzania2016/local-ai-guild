@@ -1,68 +1,72 @@
 # Next Work Packet
 
-## Proposed R4B entry-gate review
+## Proposed bounded R4B authorization-and-experiment-design packet
 
-This is proposed documentation-only work. It is not authorized by the portable
-contract checkpoint, does not authorize R4B, and requires a separate approved packet.
+This is a proposed documentation and review packet. It requires explicit human approval
+before work begins. It does not authorize runtime installation or execution.
 
 ### Goal
 
-Compare the human-accepted minimum portable Council contracts with the six
-runtime-adoption gates and determine whether an OpenClaw proof-of-concept packet may be
-proposed for explicit human authorization.
+Turn the accepted portable Council contracts and completed R4B entry-gate review into one
+fully bounded, independently reviewable experiment specification. The packet must close
+or explicitly reject every prerequisite before asking a human whether a later OpenClaw
+POC may be installed and executed.
+
+### Entry evidence
+
+- `docs/experiments/R4B_ENTRY_GATE_REVIEW.md`
+- `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md`
+- `docs/architecture/COUNCIL_RUNTIME_REQUIREMENTS.md`
+- `docs/architecture/SECURITY_BOUNDARIES.md`
+- `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
+- the accepted minimum portable Council contracts and synthetic proceeding
 
 ### In scope
 
-- Review the accepted role, work-packet, frozen-position, cross-review, evidence,
-  verification, approval-request, decision-record, knowledge-promotion, and
-  runtime-event contracts against each adoption gate.
-- Confirm that the minimum Council flow remains representable without runtime-native
-  authority or reciprocal relationship edges.
-- Inventory the experiment-specific threat model, isolation design, teardown procedure,
-  license review, bounded event requirements, and explicit human authorization still
-  required before any runtime installation or execution.
-- Record each gate as satisfied by current evidence, blocked, or requiring a separately
-  authorized R4B experiment.
-- Produce documentation findings and a recommendation only.
-
-### Six gates to review
-
-1. Minimum Council flow can be represented.
-2. Isolation and permissions are acceptable.
-3. Execution records are complete and inspectable.
-4. Local and cloud routing and costs are visible.
-5. Council artifacts remain runtime-independent.
-6. Runtime value exceeds security and operational cost.
+- Finalize an experiment-specific threat model and residual-risk statement.
+- Select and document one WSL2 or VM isolation design.
+- Define independent host, network, filesystem, credential, approval, and audit controls.
+- Define teardown, retained-artifact, residue-inspection, and failure procedures.
+- Identify one precise eligible OpenClaw version through authorized current research.
+- Complete a version-specific license and intended-use review without approving adoption.
+- Freeze the public or synthetic input bundle and provenance review.
+- Decide whether credentials are avoidable; otherwise specify dedicated revocable test
+  credentials requiring human authorization.
+- Define the exact model list and deny-by-default local/cloud routing policy.
+- Define the exact tool allowlist and denylist.
+- Fix subagent depth at one and specify depth-two denial.
+- Set message, token, time, worker, and cost budgets.
+- Freeze the required runtime-event inventory, schema, ordering, omissions, and redaction.
+- Specify deterministic verification and independent observation procedures.
+- Name the human stop authority and every immediate stop condition.
+- Define the smaller custom-dispatcher comparison baseline and value criteria.
+- Produce a final explicit approval request for later installation and execution.
 
 ### Out of scope
 
-- Authorizing or implementing R4B.
 - Installing, downloading, configuring, or executing OpenClaw or another runtime.
-- Adding a runtime adapter, model, provider, tool, worker, session, or workspace.
-- Running an OpenClaw capability or security experiment.
-- Selecting or adopting a runtime.
+- Configuring or invoking a model, provider, tool, credential, worker, or cloud route.
+- Implementing an adapter, dispatcher, event ingester, or verification script.
+- Running capability, security, routing, cost, teardown, or comparison tests.
+- Selecting or adopting OpenClaw.
 - Creating a runtime-selection ADR.
 - Changing the accepted portable Council contracts.
 
-### Acceptance evidence
+### Required result
 
-- Every gate cites current repository evidence and states its remaining evidence gap.
-- Contract coverage is distinguished from runtime capability evidence.
-- OpenClaw remains a candidate reference runtime, not a selected or adopted runtime.
-- The review explicitly states that no installation or execution is authorized.
-- Any future R4B proposal names its threat model, isolation, teardown, license, data,
-  credential, model, tool, budget, and human-approval boundaries.
-- Documentation verification, sensitive-data scans, diff checks, and human review pass.
+The packet must end with one of:
 
-### Deferred
+- a complete bounded experiment specification ready for a separate explicit human
+  installation-and-execution authorization;
+- a list of specific unresolved blockers and the smallest follow-up review;
+- rejection of the candidate experiment because risk, license, isolation, or teardown
+  requirements cannot be met.
 
-- OpenClaw POC implementation and custom-dispatcher comparison.
-- Runtime installation, model configuration, adapter code, and event ingestion.
-- R4C runtime adoption decision and runtime-selection ADR.
+Completing the design does not itself permit installation or execution.
 
-## R4B remains blocked
+### Recommended model
 
-The portable contracts are not a runtime entry authorization. R4B remains blocked until
-the contracts are accepted by a human, this documentation-only entry-gate review is
-completed and accepted, and a later packet explicitly authorizes the bounded runtime
-experiment, installation, and execution.
+Use GPT-5.6 Sol High because the packet combines threat modeling, isolation, licensing,
+runtime-version review, security controls, evidence design, and authorization boundaries.
+Medium is sufficient only after version, license, isolation, and teardown decisions are
+already fixed and independently reviewed.

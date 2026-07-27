@@ -126,3 +126,24 @@ Future durable architecture decisions should receive focused records under `docs
   non-executing, and non-persistent.
 - Keep OpenClaw a candidate reference runtime. The checkpoint does not implement a
   runtime adapter or authorize R4B.
+
+## R4B entry-gate review decisions — 2026-07-27
+
+- Treat the accepted portable contracts and synthetic proceeding as strong
+  representation evidence, not candidate-runtime capability evidence.
+- Classify Gates 1 and 5 as `partially_supported`: the minimum flow and
+  runtime-independent artifacts are represented, but an adapter must still demonstrate
+  hosting, export, hash preservation, and post-teardown portability.
+- Classify Gate 2 as `blocked_by_missing_prerequisite` until an experiment-specific threat
+  model, isolation design, independent controls, and teardown procedure are documented
+  and approved.
+- Classify Gates 3, 4, and 6 as `requires_r4b_experiment`; synthetic contracts cannot prove
+  runtime-event completeness, route/cost attribution, unauthorized-cloud denial, or net
+  operational value.
+- Conclude `ready_to_propose_bounded_r4b_packet` only for a separate
+  authorization-and-experiment-design packet. The conclusion does not authorize R4B,
+  installation, execution, runtime selection, or adoption.
+- Require that later packet to define the exact version, license and intended-use review,
+  public or synthetic data, credentials, models, routing, tools, budgets, events,
+  deterministic checks, human stop authority, and explicit installation/execution gate.
+- Preserve OpenClaw as a candidate reference runtime and defer any selection ADR to R4C.

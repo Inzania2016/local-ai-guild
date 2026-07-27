@@ -110,6 +110,12 @@ OpenClaw is documented only as a **candidate reference runtime** for a future, s
 - `docs/architecture/KNOWLEDGE_PROMOTION_POLICY.md`
 - `docs/experiments/OPENCLAW_REFERENCE_RUNTIME_POC.md`
 
+The documentation-only entry-gate review in
+`docs/experiments/R4B_ENTRY_GATE_REVIEW.md` concludes that a separate bounded R4B
+authorization-and-experiment-design packet is ready to be proposed. Gates for runtime
+isolation, execution records, routing and cost, and operational value remain unproven.
+The review does not authorize R4B, select OpenClaw, or permit installation or execution.
+
 ## Planned storage layout
 
 - Repository: `C:\dev\source\Repos\local-ai-guild`

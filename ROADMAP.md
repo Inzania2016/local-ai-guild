@@ -49,13 +49,25 @@ contracts. Validate one public synthetic proceeding deterministically in memory.
 each relationship in one canonical direction and derive reverse navigation. These
 contracts are not a completed Council implementation or runtime adapter.
 
+## R4B entry-gate review
+
+Review the accepted portable contracts against all six adoption gates using repository
+evidence only. The documentation-only review concludes that a bounded R4B
+authorization-and-experiment-design packet may be proposed, while runtime isolation,
+event completeness, routing and cost, and operational value remain unproven. This stage
+does not authorize R4B, install a runtime, or select OpenClaw.
+
 ## R4B — OpenClaw reference-runtime proof of concept
 
 Under a separately approved packet, test OpenClaw only as a candidate reference runtime
 against the R4A requirements and compare it with a smaller custom dispatcher. R4B
 cannot begin until the portable contracts are accepted and a separate documentation-only
-entry-gate review determines that an experiment packet may be proposed. Runtime
-installation, model configuration, and execution require explicit authorization.
+entry-gate review determines that an experiment packet may be proposed. That review is
+complete and permits only proposing the separate design-and-authorization packet; R4B
+remains unstarted and unauthorized. Runtime installation, model configuration, and
+execution require explicit human authorization after the threat model, isolation,
+teardown, version, license, data, credential, model, tool, budget, event, and stop
+boundaries are finalized.
 
 ## R4C — Runtime adoption decision
 
