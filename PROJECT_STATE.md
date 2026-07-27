@@ -125,9 +125,8 @@ Last updated: 2026-07-27
 
 R3 remains published at commit `3f20d28390086619b8268e35855d4789b4a75304`,
 O2 is published at commit `a79d8103ea7d2a13ac808ccf046efdf55b767d2b`,
-and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current
-published baseline is `f49d6f26c712c451efc496b1f35f389422651c2e`, which contains
-the R4B entry-gate review. The minimum
+and O3 is published at `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`. The current published baseline is `2984cecbf52bdf356d84c559bb49db13dc8bab9c`, which contains
+the bounded R4B authorization package. The minimum
 portable Council contracts are published at
 `6fe01f7dd0d756a757bea8213803f0e23c42bfab` and accepted as the current executable
 checkpoint. They do not validate a model, external truth,
