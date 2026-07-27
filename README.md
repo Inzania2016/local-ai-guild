@@ -5,7 +5,7 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 ## Current status
 
 The current published baseline is
-`f49d6f26c712c451efc496b1f35f389422651c2e`, containing the documentation-only R4B
+`2984cecbf52bdf356d84c559bb49db13dc8bab9c`, containing the documentation-only R4B
 entry-gate review. O3 is published at
 `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`, and the portable-contract checkpoint is
 published at `6fe01f7dd0d756a757bea8213803f0e23c42bfab`. The checkpoint defines
