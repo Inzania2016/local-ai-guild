@@ -5,18 +5,21 @@ Local AI Guild is a local-first orchestration project for routing bounded work a
 ## Current status
 
 The current published baseline is
-`c779ea815490ec14b9f6357729b46087235c03ba`. The bounded R4B authorization package
-was published at `2984cecbf52bdf356d84c559bb49db13dc8bab9c`; it is distinct from
-the earlier documentation-only entry-gate review. O3 is published at
+`9d1f1935560c010f36a27be85483924a2c52bffd`, the published R4B human-authorization
+advisory review. Its recommendation is `recommend_defer`; authorization remains
+`not_authorized`, and the human decision remains `pending`. The bounded R4B
+authorization package was published at
+`2984cecbf52bdf356d84c559bb49db13dc8bab9c`; it is distinct from the earlier
+documentation-only entry-gate review. O3 is published at
 `a307d1274a88a64ed6dd9a334f4f757f6d67ed80`, and the portable-contract checkpoint
 is published at `6fe01f7dd0d756a757bea8213803f0e23c42bfab`. The checkpoint defines
 the minimum strict runtime-neutral Council contracts, one public synthetic in-memory
 proceeding, and deterministic cross-contract validation.
 These contracts are not a completed Council implementation or runtime adapter. OpenClaw
-remains a runtime-unevaluated candidate reference runtime. No provider, dispatcher, executor,
-retrieval system, graph database, generalized ontology infrastructure, model runtime,
-cloud integration, persistence layer, or training pipeline is implemented or claimed
-to have been tested.
+remains a runtime-unevaluated candidate reference runtime. No provider, dispatcher,
+executor, retrieval system, graph database, generalized ontology infrastructure, model
+runtime, cloud integration, persistence layer, or training pipeline is implemented or
+claimed to have been tested.
 
 See [`docs/PUBLICATION_INDEX.md`](docs/PUBLICATION_INDEX.md) for the authoritative
 detailed publication ledger.
@@ -128,18 +131,24 @@ experiment controls are documented in:
 - `docs/experiments/R4B_ENTRY_GATE_REVIEW.md`
 - `docs/experiments/R4B_AUTHORIZATION_PACKET.md`
 - `docs/experiments/R4B_HUMAN_AUTHORIZATION_REVIEW.md`
+- `docs/experiments/R4B_MODEL_ROUTE_QUALIFICATION.md`
 - `docs/experiments/R4B_DATA_BUNDLE_MANIFEST.md`
 - `docs/research/R4B_OPENCLAW_LICENSE_REVIEW.md`
+- `docs/research/R4B_LOCAL_MODEL_INVENTORY.md`
+- `docs/research/R4B_LOCAL_MODEL_LICENSE_REVIEW.md`
 - `docs/security/R4B_THREAT_MODEL.md`
 - `docs/experiments/R4B_EXPERIMENT_RUNBOOK.md`
 - `docs/experiments/R4B_TEARDOWN_AND_RESIDUE_PLAN.md`
 
 The proposed authorization status is `not_authorized`, and its human decision remains
-`pending`. The advisory human-review preparation recommends deferring installation and
-execution because the exact runtime-visible local-model route, externally enforced
-egress mechanism, and execution-only implementations remain unresolved. The next packet
-is a read-only local-model route qualification; it must not load or invoke a model,
-install a runtime, or execute the proof of concept.
+`pending`. Filesystem hashes and official metadata conditionally qualify one exact
+Ollama Qwen2.5-Coder 7B Q4_K_M route for a later bounded capability benchmark at reduced
+context. No model capability, runtime behavior, performance, or diversity has been
+established. The broader advisory recommendation remains defer because human license
+acceptance, installation, egress enforcement, adapter/exporter/verifier implementation,
+inspection, and teardown evidence remain unresolved. The next packet designs a minimal
+public/synthetic capability benchmark and must obtain separate human authorization
+before starting a runtime or invoking a model.
 
 ## Planned storage layout
 

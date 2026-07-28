@@ -117,20 +117,36 @@ This file separates resolved design questions from questions deferred to later p
 - Record Codex's advisory recommendation as `recommend_defer`; keep the human decision
   `pending`, authorization `not_authorized`, and all approval items unchecked.
 
-## Deferred to the local-model route qualification, R4B, or R4C
+## Resolved in R4B local-model route qualification
 
-- Can the complete pinned Qwen2.5-Coder 7B manifest/blob artifact be reconciled with one
-  exact runtime-visible local route for later dedicated-WSL2 use without loading,
-  invoking, downloading, converting, or quantizing a model?
+- The complete local Ollama Qwen2.5-Coder 7B manifest and every blob match their direct
+  SHA-256 identities; the manifest also matches the official Ollama registry response.
+- The LM Studio Q5_K_M GGUF exactly matches its Hugging Face LFS object at the recorded
+  conversion-repository revision.
+- The Ollama route is conditionally qualified for a bounded public/synthetic capability
+  benchmark at 8,192/2,048 context/output limits, subject to human license, limit, and
+  benchmark authorization.
+- The two complete artifacts are quantizations of the same Qwen family and do not
+  support a heterogeneous model-diversity claim.
 
+## Deferred to the capability benchmark, later R4B packets, or R4C
+
+- Can the conditionally qualified model follow strict formats, cite bounded evidence,
+  freeze independent positions, cross-review, preserve dissent, analyze security
+  boundaries, audit provenance, and repeat results consistently?
+- Does the exact route load and remain viable on the declared Windows/AMD hardware
+  within the reduced context, memory, invocation, and time limits?
+- Will a human or authorized legal reviewer accept the Apache-2.0, official Ollama
+  redistribution, attribution, and missing conversion-source-revision conditions?
 - Which external serialization and adapter mapping can preserve the accepted Council
   contracts without introducing runtime-native authority?
-- Will the human accept the candidate provenance, core and dependency license posture,
-  intended use, dedicated-WSL2 residual risks, teardown standard, and external controls?
-- Which exact models and providers, if any, pass the separate license, intended-use,
-  privacy, capability, cost, and routing review?
+- Will the human accept the OpenClaw candidate provenance, core and dependency license
+  posture, intended use, dedicated-WSL2 residual risks, teardown standard, and external
+  controls?
 - Will the human authorize optional dedicated credentials and cloud routing, or retain
   the preferred credential-free and cloud-disabled boundary?
-- Can OpenClaw demonstrate the required role, session, workspace, memory, permission, routing, cost, and teardown boundaries under independent inspection?
-- Does a smaller custom dispatcher produce better security, portability, auditability, and operational value?
+- Can OpenClaw demonstrate the required role, session, workspace, memory, permission,
+  routing, cost, and teardown boundaries under independent inspection?
+- Does a smaller custom dispatcher produce better security, portability, auditability,
+  and operational value?
 - Which runtime, if any, should R4C select and record in the first runtime-selection ADR?

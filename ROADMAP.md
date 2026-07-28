@@ -67,11 +67,16 @@ keeps authorization `not_authorized` and the human decision `pending`; it perfor
 installation or execution.
 
 The human R4B authorization-review preparation records an advisory `recommend_defer`.
-Candidate and dependency metadata are bounded for human consideration, but the exact
-runtime-visible local-model route, externally enforceable egress mechanism, and
-execution-only adapter, exporter, verifier, and installed-state evidence remain
-unresolved. The next packet is read-only local-model route qualification. It must not
-load or invoke a model, create an environment, install a runtime, or execute anything.
+Candidate and dependency metadata are bounded for human consideration. Filesystem and
+official-source evidence now conditionally qualify one exact local Qwen2.5-Coder 7B
+Q4_K_M route for a later capability benchmark at reduced context. This establishes no
+capability or runtime behavior and provides procedural independence without model
+diversity.
+
+The next packet is a documentation-first local-model capability benchmark. It must
+freeze the exact route and define public/synthetic cases and acceptance thresholds
+before inference. Starting Ollama or invoking the model requires separate explicit
+human authorization. OpenClaw installation and execution remain outside that packet.
 
 ## R4B — OpenClaw reference-runtime proof of concept
 

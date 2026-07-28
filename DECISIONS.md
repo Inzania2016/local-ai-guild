@@ -214,3 +214,37 @@ Future durable architecture decisions should receive focused records under `docs
 - Name read-only local-model route qualification as the smallest next prerequisite. It
   must stop without loading or invoking a model, downloading an artifact, creating an
   environment, installing a runtime, or executing R4B.
+
+## R4B local-model route-qualification decisions — 2026-07-28
+
+- Reconcile the published human-review packet at
+  `9d1f1935560c010f36a27be85483924a2c52bffd` as the current published baseline.
+  Preserve `c779ea815490ec14b9f6357729b46087235c03ba` as the final publication-reference
+  correction before that advisory review.
+- Use filesystem manifests, direct SHA-256 calculation, local settings, and official
+  web metadata only. Do not call Ollama, LM Studio, llama.cpp, OpenClaw, or another
+  model runtime.
+- Classify the complete Ollama Qwen2.5-Coder 7B Q4_K_M artifact and LM Studio Q5_K_M
+  file as exact immutable local artifacts. Exclude the incomplete Ollama 14B and Qwen3
+  30B manifests.
+- Conditionally qualify only route
+  `r4b-local-qwen25-coder-7b-q4km-v1`, pinned to the exact official-registry-matching
+  Ollama manifest, model, config, and Apache-2.0 license digests.
+- Prefer the Ollama artifact over the LM Studio conversion because it has the shorter
+  official distribution chain. Keep the LM artifact as an exact alternate, not a
+  heterogeneous route.
+- Reduce the proposed per-invocation context/output ceilings from 24,000/4,000 to
+  8,192/2,048 as an explicit amendment requiring human acceptance. Preserve the
+  10-planned and 12-hard invocation ceilings per runtime path.
+- Treat separate sessions, frozen positions, and isolated delivery as procedural
+  independence only. One Qwen model for all roles provides no model diversity and
+  creates correlated-failure risk.
+- Qualify immutable identity, provenance evidence, license evidence, and plausible
+  static hardware fit only. Defer performance, AMD acceleration, runtime viability,
+  instruction following, evidence use, adversarial competence, and audit competence to
+  a later authorized benchmark.
+- Keep the broader Codex recommendation `recommend_defer`, authorization
+  `not_authorized`, human decision `pending`, and every human checklist item unchecked.
+- Make R4B local-model capability benchmark the next packet. It must define cases and
+  thresholds before inference and obtain separate human authorization before runtime
+  start or model invocation.

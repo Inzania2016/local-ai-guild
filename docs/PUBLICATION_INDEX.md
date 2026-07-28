@@ -35,8 +35,9 @@ implementation or documentation checkpoint they describe.
 | Minimum portable Council contracts | Strict portable Council contracts, fixture, validator, and tests | `local-ai-guild/6fe01f7dd0d756a757bea8213803f0e23c42bfab` | `local-ai-guild/be922ae6a047dec21be78c8815181611f67bd41e`; `local-ai-guild/9d0e2a225f4b9c41ac4f41a8ae125c4e9ad98e11` | published and accepted as current executable checkpoint | `docs/architecture/COUNCIL_RUNTIME_BOUNDARY.md` | current executable | The two reconciliation commits correct and finalize the published-state description; neither replaces the executable checkpoint. |
 | R4B entry-gate review | Documentation-only six-gate review | `local-ai-guild/f49d6f26c712c451efc496b1f35f389422651c2e` | none | published; recommendation permits only proposing a bounded packet | `docs/experiments/R4B_ENTRY_GATE_REVIEW.md` | historical | Does not authorize installation, execution, selection, or adoption. |
 | Bounded R4B authorization package | Authorization question, threat model, runbook, events, controls, and teardown design | `local-ai-guild/2984cecbf52bdf356d84c559bb49db13dc8bab9c` | `local-ai-guild/3cd6a30234e21ce9632cbc32943de810c8235bae` | published; `not_authorized` | `docs/experiments/R4B_AUTHORIZATION_PACKET.md` | historical | This commit contains the bounded authorization package, not merely the entry-gate review. |
-| R4B publication-reference corrections | Correct the authorization-package publication description | `local-ai-guild/79ca62e3d779f5713b5cf4f0ed898be1c9d88110` | `local-ai-guild/c779ea815490ec14b9f6357729b46087235c03ba` | published | `PROJECT_STATE.md` | current reconciliation | These are documentation corrections, not R4B implementation or authorization checkpoints. |
-| Current published baseline | Latest published Local AI Guild commit | `local-ai-guild/c779ea815490ec14b9f6357729b46087235c03ba` | none | current published baseline | `PROJECT_STATE.md` | current | Subject: `docs: finish R4B reference corrections`. No later packet identity is inferred before publication. |
+| R4B publication-reference corrections | Correct the authorization-package publication description | `local-ai-guild/79ca62e3d779f5713b5cf4f0ed898be1c9d88110` | `local-ai-guild/c779ea815490ec14b9f6357729b46087235c03ba` | published | `PROJECT_STATE.md` | historical | These are documentation corrections, not R4B implementation or authorization checkpoints. Commit `c779ea815490ec14b9f6357729b46087235c03ba` is the final correction before the human-review publication. |
+| R4B human-authorization advisory review | Publication ledger, candidate/license review, local inventory, proposed data bundle, residual-risk assessment, and ready-for-human form | `local-ai-guild/9d1f1935560c010f36a27be85483924a2c52bffd` | none | published; `recommend_defer`; `not_authorized`; human decision `pending` | `docs/experiments/R4B_HUMAN_AUTHORIZATION_REVIEW.md` | current published | Subject: `docs: prepare human R4B authorization review`. This is Codex advisory evidence, not human authorization or a runtime checkpoint. |
+| Current published baseline | Latest published Local AI Guild commit | `local-ai-guild/9d1f1935560c010f36a27be85483924a2c52bffd` | none | current published baseline | `PROJECT_STATE.md` | current | The published human-review packet is the current baseline. No later packet identity is inferred before publication. |
 | Current executable checkpoint | Latest accepted executable behavior | `local-ai-guild/6fe01f7dd0d756a757bea8213803f0e23c42bfab` | see Council-contract reconciliations above | current | `PROJECT_STATE.md` | current executable | The CLI remains at `Portable Council contracts checkpoint`; later R4B work is documentation only. |
 
 ## External candidate ledger
@@ -48,13 +49,14 @@ implementation or documentation checkpoint they describe.
 ## Current publication invariants
 
 - Current published Local AI Guild baseline:
-  `c779ea815490ec14b9f6357729b46087235c03ba`.
+  `9d1f1935560c010f36a27be85483924a2c52bffd`.
 - Current executable checkpoint:
   `6fe01f7dd0d756a757bea8213803f0e23c42bfab`.
 - Bounded R4B authorization-package publication:
   `2984cecbf52bdf356d84c559bb49db13dc8bab9c`.
 - R4B authorization status: `not_authorized`.
 - Human R4B decision: `pending`.
+- Codex advisory recommendation: `recommend_defer`.
 - OpenClaw remains an external candidate; no R4B runtime experiment has executed.
 
 ## Reconciliation rule

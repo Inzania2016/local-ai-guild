@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-07-27
+Last updated: 2026-07-28
 
 ## Confirmed current facts
 
@@ -96,15 +96,26 @@ Last updated: 2026-07-27
   provider connection, credential, WSL2 distribution, container, network rule, model
   download, model load, model invocation, or proof of concept was created, changed,
   installed, configured, or executed.
-- Read-only local inventory found one complete Ollama Qwen2.5-Coder 7B manifest/blob
-  set and one Q5_K_M GGUF file, but neither produced a confirmed runtime-visible route.
-  `ollama list` auto-started background processes that were immediately stopped, and
-  the bounded LM Studio CLI listing timed out and was terminated. No model process
-  remained. Presence does not establish availability, capability, or approval.
+- The published human review initially found one complete Ollama Qwen2.5-Coder 7B
+  manifest/blob set and one Q5_K_M GGUF but no runtime-visible route. Its permitted
+  `ollama list` call auto-started background processes that were immediately stopped,
+  and its bounded LM Studio CLI listing timed out and was terminated.
+- The later qualification used no runtime CLI. It established exact filesystem and
+  official-distribution identities without establishing runtime loadability,
+  capability, or approval.
 - The advisory human-authorization review therefore records `recommend_defer` for both
-  installation and execution. The smallest unresolved prerequisite is read-only
-  local-model route qualification; it authorizes no model load, inference, acquisition,
-  environment creation, installation, or runtime execution.
+  installation and execution.
+- Filesystem and official-source review conditionally qualifies route
+  `r4b-local-qwen25-coder-7b-q4km-v1` for a later bounded capability benchmark. Its
+  exact Ollama manifest, model, config, and license digests are frozen in
+  `docs/experiments/R4B_MODEL_ROUTE_QUALIFICATION.md`.
+- Model qualification uses a reduced 8,192-token total context and 2,048-token output
+  ceiling, subject to human acceptance. It establishes immutable identity, provenance,
+  licensing evidence, and plausible static fit only. Runtime availability, hardware
+  acceleration, performance, capability, quality, and stability remain untested.
+- The route uses the same single model for all four roles and both future runtime paths.
+  Separate sessions can support procedural independence, but this provides no model
+  diversity and creates correlated-failure risk.
 - No AI SDK, web framework, vector database, runtime-specific dependency, MCP implementation, HTTP API, dispatcher, executor, filesystem reader, retrieval implementation, cloud integration, training pipeline, audit persistence, or Docker configuration is present.
 - The repository-local environment uses Python 3.12.6 with Ruff 0.15.22 and pytest 8.4.2.
 - R3 repository verification, Ruff, formatting, pytest, CLI status, deterministic case evaluation, redaction checks, and prohibited-surface scans pass as recorded in `VERIFICATION.md`. O2 verification and security-review results are recorded separately in that document.
@@ -140,7 +151,9 @@ Last updated: 2026-07-27
 ## Current stage gate
 
 The current published baseline is
-`c779ea815490ec14b9f6357729b46087235c03ba`. The bounded R4B authorization package
+`9d1f1935560c010f36a27be85483924a2c52bffd`, the R4B human-authorization advisory
+review. Its recommendation is `recommend_defer`, authorization is `not_authorized`, and
+the human decision is `pending`. The bounded R4B authorization package
 was published at `2984cecbf52bdf356d84c559bb49db13dc8bab9c`. The minimum portable
 Council contracts are published at
 `6fe01f7dd0d756a757bea8213803f0e23c42bfab` and accepted as the current executable
@@ -156,5 +169,7 @@ candidate reference runtime without advancing executable work. The portable cont
 are accepted, the documentation-only R4B entry-gate review is complete, and the bounded
 authorization-and-experiment-design package is defined on paper. The advisory human
 review recommends defer while keeping status `not_authorized` and human decision
-`pending`. The next packet is the read-only local-model route qualification named in
-`NEXT_WORK_PACKET.md`. R4B remains unexecuted, and R4C remains blocked.
+`pending`. The local-model route is conditionally qualified for benchmark design, not
+for production or general use. The next packet is the documentation-first capability
+benchmark named in `NEXT_WORK_PACKET.md`; it requires separate human authorization
+before runtime start or inference. R4B remains unexecuted, and R4C remains blocked.

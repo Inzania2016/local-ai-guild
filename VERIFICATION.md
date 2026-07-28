@@ -1358,3 +1358,144 @@ execution; model download or invocation; provider connection; credential creatio
 injection; WSL2, VM, container, network, firewall, or other host-control change; proof
 of concept; or R4C ADR occurred. The local inventory process auto-start described above
 is the sole observed command side effect and was reversed immediately.
+
+## R4B local-model route qualification — 2026-07-28
+
+### Published prerequisite and authority state
+
+The packet began from a clean worktree and empty index. Local `HEAD` and `origin/main`
+matched at:
+
+```text
+9d1f1935560c010f36a27be85483924a2c52bffd
+docs: prepare human R4B authorization review
+```
+
+`docs/PUBLICATION_INDEX.md` and the human-review packet existed. The review
+recommendation was `recommend_defer`, authorization was `not_authorized`, both human
+decision fields were `pending`, every authorization item was unchecked, and project
+state recorded that no R4B runtime experiment had executed.
+
+The publication ledger now records `9d1f1935560c010f36a27be85483924a2c52bffd`
+as the published advisory-review checkpoint and current published baseline.
+`c779ea815490ec14b9f6357729b46087235c03ba` remains the historical final
+publication-reference correction before that review, and
+`2984cecbf52bdf356d84c559bb49db13dc8bab9c` remains the bounded authorization-package
+checkpoint. The current executable checkpoint remains
+`6fe01f7dd0d756a757bea8213803f0e23c42bfab`.
+
+### Read-only process and artifact inspection
+
+Preflight and postflight used `Get-Process` and a bounded `Get-CimInstance
+Win32_Process` query. Neither inventory found an Ollama, LM Studio, llama.cpp, OpenClaw,
+or clearly attributable Node process. No preexisting process was modified, and no new
+relevant process appeared.
+
+No Ollama, LM Studio, llama.cpp, or other model-runtime CLI was executed. Inspection
+used bounded `Test-Path`, `Get-ChildItem`, `Get-Item`, `Get-Content`, `Get-FileHash`,
+PowerShell JSON parsing, and official-source HTTP metadata reads only.
+
+Direct local hashing established:
+
+```text
+Ollama 7B manifest:
+dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364
+
+Ollama 7B model layer:
+60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463
+
+Ollama 7B config:
+d9bb33f2786931fea42f50936a2424818aa2f14500638af2f01861eb2c8fb446
+
+Ollama/Qwen license:
+832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+
+LM Studio Q5_K_M GGUF:
+b0f8a344452d5462193991fd7cf2bffdbee1a05fccfe98aa25a6ed91a56624a2
+```
+
+The local Ollama manifest body matched the official Ollama registry manifest SHA-256
+and every declared config/layer digest and size. The license layer matched the official
+Qwen Apache-2.0 license bytes. The local LM Studio GGUF matched the exact Hugging Face
+LFS SHA-256 and size at conversion revision
+`10ba8b9be9729feb1d3c476d014c861dbfc01177`.
+
+The 7B and floating `latest` Ollama manifests were complete and byte-identical. The 14B
+manifest lacked its config and model; the Qwen3 30B manifest lacked every referenced
+blob. The incomplete artifacts were excluded. No model file or manifest was written or
+modified.
+
+### Qualification result
+
+Route `r4b-local-qwen25-coder-7b-q4km-v1` is
+`conditionally_qualified_for_benchmark`. Its immutable identity, official distribution
+match, upstream Qwen lineage, Apache-2.0 evidence, and static fit are sufficient for a
+later bounded public/synthetic capability benchmark, subject to human acceptance.
+
+The proposed per-invocation limit is reduced from 24,000/4,000 to 8,192 total context
+and 2,048 output tokens. This is an explicit proposed amendment, not silent
+authorization. Runtime availability, CPU/GPU behavior, AMD acceleration, memory use,
+throughput, latency, context reliability, instruction following, schema compliance,
+evidence use, adversarial competence, audit competence, quality, and stability remain
+untested.
+
+The two complete files are quantizations of the same Qwen model family. Separate
+sessions can support procedural independence, but the route provides no model diversity
+and retains correlated-failure risk.
+
+### Required repository verification
+
+Commands run from the repository root:
+
+```powershell
+.\scripts\bootstrap.ps1
+.\scripts\verify-repository.ps1
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m pytest
+.\.venv\Scripts\python.exe -m local_ai_guild status
+git diff --check
+git status --short --branch
+```
+
+Results:
+
+- `bootstrap.ps1`: exit 0; repository-local Python 3.12.6 editable environment
+  refreshed; every declared dependency was already satisfied and no new dependency was
+  added.
+- `verify-repository.ps1`: exit 0; Ruff passed, 28 Python files were already formatted,
+  499 tests passed in 36.38 seconds, and CLI status passed.
+- final post-documentation `verify-repository.ps1` recheck: exit 0; 499 tests passed in
+  37.92 seconds and CLI status remained unchanged.
+- standalone Ruff check: exit 0, `All checks passed!`.
+- standalone Ruff format check: exit 0, `28 files already formatted`.
+- standalone pytest: exit 0, 499 tests passed in 35.61 seconds.
+- CLI status: exit 0; stage remained `Portable Council contracts checkpoint`.
+- `git diff --check`: exit 0 with no output.
+- `git status --short --branch`: exit 0; `main` remained at the published prerequisite,
+  matching `origin/main`; all packet changes remained unstaged and the index was empty.
+
+### Repository, publication, and sensitive-data audit
+
+The complete diff is Markdown documentation only. No source, test, script, dependency,
+configuration, portable-contract, CLI, runtime, manifest, or model file changed.
+
+The durable Markdown audit covered 31 files, 24 unique 40-character SHA values, and no
+abbreviated SHA. Every Local AI Guild SHA resolved to a repository commit. The three
+external revisions were explicitly namespaced as OpenClaw or Hugging Face sources.
+Model SHA-256 values remain 64-character artifact digests and are never described as
+repository commits. Current-baseline and executable-checkpoint statements were
+consistent, and no transient working-tree or future-publication claim was added.
+
+The five frozen route digests were consistent across the inventory, license review,
+qualification, human review, and next packet. Durable packet documents contained no
+full user-profile or UNC path; public-safe root aliases were used.
+
+Credential-prefix, credential-assignment, credential-bearing URL, private-key, and
+private-IPv4 scans returned no matches. Authorization remained `not_authorized`, human
+decision remained `pending`, and no checklist item was checked.
+
+No model runtime CLI, model load, inference, download, pull, import, conversion,
+quantization, training, configuration change, server start, provider connection,
+credential action, OpenClaw action, WSL2/VM/container/network/firewall change, or R4B
+runtime experiment occurred.

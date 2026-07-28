@@ -38,8 +38,9 @@ Repository publication is not a human signature.
 ## Recommendation summary
 
 Installation recommendation: **defer both environment creation and candidate
-installation until the exact local-model route is qualified and the named
-license/component conditions receive human or authorized legal acceptance**.
+installation**. The local-model route is now conditionally qualified for a later
+benchmark, but model and component license acceptance, environment transfer,
+installed-state inspection, and isolation controls remain unresolved.
 
 Execution recommendation: **defer**. Even after installation is later authorized,
 execution must remain separately blocked until installed controls, network behavior,
@@ -48,22 +49,26 @@ and teardown are independently inspected and pass.
 
 Conditions:
 
-1. Reconcile the local model inventory into one exact runtime-listed, locally available
-   identifier and immutable artifact identity without loading or invoking it.
-2. Confirm that the selected model can be transferred or acquired into the dedicated
-   WSL2 boundary under an authorized provenance process without using a floating tag.
-3. Obtain human or authorized legal acceptance of the OpenClaw dependency exceptions,
+1. Obtain human or authorized legal acceptance of the conditionally qualified model's
+   Apache-2.0 and official Ollama redistribution posture.
+2. Accept the proposed 8,192-token total context and 2,048-token output ceilings as an
+   explicit reduction from the earlier 24,000/4,000 proposal.
+3. Freeze and recheck the exact manifest, model, config, and license digests before any
+   separately authorized runtime action; reject `latest`.
+4. Confirm under later authorization that the pinned artifact can enter the dedicated
+   WSL2 boundary without download, conversion, or identity change.
+5. Obtain human or authorized legal acceptance of the OpenClaw dependency exceptions,
    exact Node distribution, model license, and either no-container operation or one
    pinned container image.
-4. Produce an implementable external enforcement design for egress, process/resource
+6. Produce an implementable external enforcement design for egress, process/resource
    limits, worker depth, budgets, artifact freezing, event observation, and stop.
-5. Implement and inspect the adapter, event exporter, deterministic verifier, and
+7. Implement and inspect the adapter, event exporter, deterministic verifier, and
    teardown controls only under later separately authorized work packets.
 
-Validity period: this defer recommendation remains current until the local-model
-qualification evidence changes or any candidate, dependency, Node, model, isolation,
-tool, budget, or event requirement changes. Any later approval should expire no later
-than 30 days after signature and immediately on such a change.
+Validity period: this defer recommendation remains current until any candidate,
+dependency, Node, model digest, route limit, isolation, tool, budget, or event
+requirement changes. Any later approval should expire no later than 30 days after
+signature and immediately on such a change.
 
 ## Candidate provenance review
 
@@ -144,62 +149,57 @@ installation.
 No model was downloaded, loaded, converted, quantized, or invoked. No inference request
 was made.
 
-### Inventory behavior and limitation
+The focused qualification is recorded in:
 
-- `ollama list`, explicitly permitted by the packet, returned no model rows but
-  auto-launched Ollama background processes. Those newly started processes were
-  immediately terminated. Direct manifest inspection found one complete model artifact
-  and stale incomplete manifests.
-- `lms ls --json` did not return within the bounded timeout. The remaining CLI process
-  was terminated. Direct inspection of the configured model directory found one GGUF
-  file.
-- No Ollama, LM Studio, or model process remained after cleanup.
+- `docs/research/R4B_LOCAL_MODEL_INVENTORY.md`;
+- `docs/research/R4B_LOCAL_MODEL_LICENSE_REVIEW.md`; and
+- `docs/experiments/R4B_MODEL_ROUTE_QUALIFICATION.md`.
 
-This behavior means file/manifest presence and runtime registration disagree. Model
-quality and operational availability remain unverified.
+It used no runtime CLI. Direct hashes, the official Ollama registry, the original Qwen
+repository, and the exact Hugging Face conversion artifact establish immutable
+filesystem identities without loading model tensors.
 
 ### Inventory records
 
-| Exact local identity | Runtime | Artifact identity | Quantization | Apparent size | License source and intended use | Availability | R4B assessment |
-| --- | --- | --- | --- | ---: | --- | --- | --- |
-| `registry.ollama.ai/library/qwen2.5-coder:7b` | Ollama | model blob `sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463`; config `sha256:d9bb33f2786931fea42f50936a2424818aa2f14500638af2f01861eb2c8fb446` | Q4_K_M; metadata says 7.6B | 4,683,074,048 bytes, about 4.36 GiB, plus runtime and context memory | Local license layer is Apache-2.0 and matches the official Qwen2.5-Coder-7B-Instruct Apache-2.0 source; official card describes instruction-tuned coding, code-agent, and general competency use | Complete manifest/blob set is present, but `ollama list` returned no row; runtime registration is unconfirmed | Best provisional candidate; not yet an approved or executable route |
-| `registry.ollama.ai/library/qwen2.5-coder:latest` | Ollama | same model and config digests as the `7b` row | Q4_K_M | same | same | complete alias present | ineligible because `latest` is floating |
-| `registry.ollama.ai/library/qwen2.5-coder:14b` | Ollama | manifest declares model digest `sha256:ac9bc7a69dab38da1c790838955f1293420b55ab555ef6b4615efa1c1507b1ed` | not confirmed locally | manifest declares 8,988,110,784 bytes | manifest points to the same Apache-2.0 license layer | two required blobs missing | not locally available |
-| `registry.ollama.ai/library/qwen3-coder:30b` | Ollama | manifest declares model digest `sha256:1194192cf2a187eb02722edcc3f77b11d21f537048ce04b67ccf8ba78863006a` | not confirmed locally | manifest declares 18,556,688,736 bytes | license layer is absent locally; no bounded license conclusion | four required blobs missing | not locally available |
-| `apto-as/Qwen2.5-Coder-7B-Instruct-Q5_K_M-GGUF` | LM Studio model directory | `qwen2.5-coder-7b-instruct-q5_k_m.gguf`; final file digest not computed | Q5_K_M | 5,444,831,744 bytes, about 5.07 GiB, plus runtime and context memory | Derivative model card declares Apache-2.0 and links the official Qwen license; exact local file provenance still requires pre-run digest/source reconciliation | file is present; LM Studio CLI listing timed out; served model identifier is unconfirmed | inventory evidence only; not selected |
+| Exact local identity | Runtime | Immutable identity | Quantization and size | Provenance/license | R4B assessment |
+| --- | --- | --- | --- | --- | --- |
+| `registry.ollama.ai/library/qwen2.5-coder:7b` | Ollama | manifest `sha256:dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364`; model `sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463` | Q4_K_M; 4,683,074,048 model bytes | local manifest exactly matches official Ollama registry; license bytes exactly match official Qwen Apache-2.0 | conditionally qualified at reduced context; capability untested |
+| `registry.ollama.ai/library/qwen2.5-coder:latest` | Ollama | identical current bytes to 7B | same | same | rejected because the tag is floating |
+| `registry.ollama.ai/library/qwen2.5-coder:14b` | Ollama | config and model absent | unresolved | incomplete | `artifact_incomplete` |
+| `registry.ollama.ai/library/qwen3-coder:30b` | Ollama | all referenced blobs absent | unresolved | incomplete | `artifact_incomplete` |
+| `apto-as/Qwen2.5-Coder-7B-Instruct-Q5_K_M-GGUF` | LM Studio | file `sha256:b0f8a344452d5462193991fd7cf2bffdbee1a05fccfe98aa25a6ed91a56624a2` exactly matches Hugging Face LFS at revision `10ba8b9be9729feb1d3c476d014c861dbfc01177` | Q5_K_M; 5,444,831,744 bytes | Apache-2.0 card and official Qwen base link; exact base revision used for conversion absent | exact alternate artifact; not selected and not model-diverse |
 
 Presence does not establish model quality, tool reliability, security-review competence,
 or evidence-audit competence.
 
 ## Proposed model and routing plan
 
-Model selection status: `unresolved`
+Model route status: `conditionally_qualified_for_benchmark`
 
 The deterministic dispatcher and verifier use no model. Cloud routing and the optional
 cloud subtest remain excluded.
 
-The only provisional local candidate is
-`ollama/qwen2.5-coder:7b` pinned to model digest
-`sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463`.
-If a later prerequisite review confirms exact runtime registration and isolated-WSL2
-availability, the same exact route must be used for all four model roles and both
-runtime paths:
+The exact conditional route is
+`r4b-local-qwen25-coder-7b-q4km-v1`, pinned to the manifest, model, config, and
+license digests in `R4B_MODEL_ROUTE_QUALIFICATION.md`.
 
-| Role | Provisional exact route | Location | License | Allowed data | Max context | Max output | Max invocations per path | Static memory posture | Current state | Capability risk |
-| --- | --- | --- | --- | --- | ---: | ---: | ---: | --- | --- | --- |
-| Council member A | `ollama/qwen2.5-coder:7b` at pinned model digest | local only | Apache-2.0, pending human acceptance | approved public/synthetic bundle only | 24,000 tokens | 4,000 tokens | 3 | 4.36 GiB weights plus runtime and KV cache; exact RAM/VRAM unverified | complete artifact present; route registration unresolved; transfer into WSL2 not authorized | unverified structured reasoning and tool-call reliability |
-| Council member B | same | local only | same | same | 24,000 | 4,000 | 3 | same | same | same |
-| Security adversary | same | local only | same | approved bundle and sanitized control evidence | 24,000 | 4,000 | 2 | same | same | security competence unverified; no model conclusion is security proof |
-| Evidence auditor | same | local only | same | approved bundle and sanitized exports | 24,000 | 4,000 | 2 | same | same | citation and evidence competence unverified |
-| Deterministic verifier | no model | local deterministic process | repository implementation terms | Council artifacts and bounded evidence | not applicable | not applicable | 0 | ordinary Python process | implementation prerequisite | deterministic results require external implementation and two-run comparison |
-| Custom dispatcher | same role routes as above | local only | same | identical data | identical | identical | included above | identical | route unresolved | any route difference invalidates comparison |
+| Role | Exact route | Location | License | Allowed data | Context / output | Max invocations per path | Capability risk |
+| --- | --- | --- | --- | --- | --- | ---: | --- |
+| Council member A | pinned Qwen2.5-Coder 7B Q4_K_M route | local only | Apache-2.0, pending human acceptance | approved public/synthetic bundle only | 8,192 / 2,048 | 3 | structured reasoning, evidence use, and format reliability untested |
+| Council member B | same | local only | same | same | same | 3 | same correlated failure risk |
+| Security adversary | same | local only | same | approved bundle and sanitized control evidence | same | 2 | adversarial competence untested |
+| Evidence auditor | same | local only | same | approved bundle and sanitized exports | same | 2 | provenance and citation competence untested |
+| Deterministic verifier | no model | local deterministic process | repository implementation terms | Council artifacts and bounded evidence | not applicable | 0 | implementation prerequisite |
+| Custom dispatcher | same four role routes | local only | same | identical data | identical | included above | any route difference invalidates comparison |
 
 Two additional invocations per path remain reserved within the existing 12-invocation
 cap; they cannot be used unless the human authorization names their role and purpose.
 
-Because the exact runtime-visible local route is not confirmed, this table is not an
-approved model plan. The packet's `unselected` model state remains authoritative and,
-under the work-packet rule, the Codex recommendation is `recommend_defer`.
+The same-model plan supports only procedural independence through separate sessions,
+frozen positions, and no cross-session memory. It provides no model diversity and has
+shared-blind-spot, formatting, hallucination, and evidence-selection risk. The packet's
+human `unselected` model state remains authoritative until explicit acceptance. Model
+qualification does not change the broader Codex recommendation of `recommend_defer`.
 
 ## Data-bundle review
 
@@ -312,7 +312,7 @@ No authoritative checklist item is checked.
 | Data bundle approved | Exact proposed manifest | Final commit, derived packet, digests, owner and independent review | accept with conditions | yes |
 | Sanitization approved | Public/synthetic-only boundary and scan plan | Final pre-run scan and independent reviewer | administratively incomplete | yes |
 | Credential plan approved | Local-only and no-credential plan | Verify no inherited/local credential and no cloud path | accept as proposed | yes |
-| Model plan approved | Complete provisional Ollama artifact and LM Studio file inventory | Runtime-visible exact route, WSL2 availability, capability risk acceptance | defer | yes |
+| Model plan approved | Exact conditionally qualified Ollama route, full digests, official provenance/license link, static fit, and reduced limits | Human/legal acceptance, WSL2 availability, benchmark authorization, and capability evidence | technically supported for a later benchmark; not approved | yes |
 | Cloud-routing policy approved | Cloud disabled and zero-dollar budget | Effective no-cloud evidence | accept as proposed | yes |
 | Tool allowlist approved | Nine bounded operations | External implementation and denial tests | accept with conditions | yes |
 | Tool denylist approved | Comprehensive prohibited surface | Installed effective-policy inspection | accept with conditions | yes |
@@ -327,8 +327,8 @@ No authoritative checklist item is checked.
 ## Readiness classification
 
 - **Technically supported:** candidate identity, core package metadata, portable Council
-  contracts, bounded data classes, tool/budget/event specifications, and comparison
-  design.
+  contracts, bounded data classes, tool/budget/event specifications, comparison design,
+  and one conditionally qualified immutable local-model route.
 - **Administratively ready:** publication ledger and the review form; not installation
   or execution.
 - **Requires human risk acceptance:** WSL2 residual risk, license exceptions, intended
@@ -342,19 +342,20 @@ No authoritative checklist item is checked.
 
 `recommend_defer`
 
-The candidate and dependency metadata are sufficiently bounded for human consideration,
-and no clearly incompatible license was found. The review nevertheless cannot recommend
-later installation while the only complete local model artifact is absent from the
-runtime's read-only listing and the isolated-WSL2 route is not established. Execution
-also lacks a fixed external egress mechanism and implemented adapter, event exporter,
-deterministic verifier, and installed-state evidence.
+The model route is conditionally qualified for a later bounded capability benchmark:
+its immutable local identity, official distribution match, upstream lineage, license
+bytes, and reduced-context static fit are sufficiently established without runtime use.
+This does not resolve human license acceptance, WSL2 transfer, runtime behavior, or
+capability.
 
-The smallest next prerequisite is a read-only **R4B local-model route qualification**
-packet. It should reconcile the complete Ollama manifest/blob identity with the
-runtime-visible inventory, establish one exact local identifier for dedicated-WSL2 use,
-confirm Apache-2.0 provenance and no acquisition need or define the exact later
-acquisition artifact, and stop without loading or invoking the model. It must not
-propose installation while the blocker remains.
+The broader review still cannot recommend installation or execution. It lacks a fixed
+external egress mechanism, installed-state inspection, and implemented adapter, event
+exporter, deterministic verifier, stop enforcement, and teardown evidence.
+
+The smallest next packet is **R4B local-model capability benchmark**. It must predeclare
+one minimal public/synthetic case set and acceptance thresholds before inference, then
+obtain separate human authorization before starting Ollama or invoking the model. It
+must not install or execute OpenClaw.
 
 Repository publication is not a human signature.
 
